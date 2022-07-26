@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        목록(블록레벨)
+        ul : 부모, 순서x
+        ol : 부모, 순서o
+        li : 자식
+        ul과 ol의 자식으로는 li만 올 수 있음
+    -->
+
+    <!--
+        속성
+            type : 리스트의 모양 처리
+                ul - disc : 기본값, 검은 점
+                     circle : 흰 점
+                     square : 검은 사각형
+                     **none : 없음
+                ol - 1 : 기본값
+                     a, A
+                     i, I : 로마자
+            start(ol전용) : 시작점을 바꿈
+            reversed(ol전용) : 역순
+    -->
+
+    <ul type="square">
+        <li>ul_1
+            <ul>
+                <li>ul_1_1</li>
+                <li>ul_1_2</li>
+                <li>ul_1_3</li>
+            </ul>
+        </li>
+        <li>ul_2</li>
+        <li>ul_3</li>
+    </ul>
+    <ol type="i", start="5", reversed>
+        <li>ol_1</li>
+        <li>ol_2</li>
+        <li>ol_3</li>
+    </ol>
+</body>
+</html>
