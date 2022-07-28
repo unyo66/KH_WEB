@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        input태그(인라인 레벨) : 사용자로부터 입력을 받을 수 있음, 닫는 태그가 없다.
+
+        속성
+            value : 입력받은 실제 값,button에서는 필수
+            name : 값들을 식별하기 위한 이름표
+                   radio, checkbox에서는 필수
+    -->
+    <input type="text"><!--문자 형식-->
+
+    <input type="password"><!--점-->
+
+    <input type="button" value="확인"><!--value속성 필수-->
+    <!--<button>값</button>으로도 사용가능-->
+
+    <input type="radio", name="r1"><!--클릭으로 해제 불가, 여러개 선지 중 하나 선택해야 할 때-->
+    <input type="radio", name="r1">
+    <input type="radio", name="r2"><!--같은 name으로 묶인 애들 중 하나만 선택 가능-->
+
+    <input type="checkbox", value="on"><!---->
+
+    <!--label : 요소와 요소를 연결
+        <label for="연결할 요소의 id값">-->
+    <label for="txt1">
+        <input type="checkbox" name="rd" id="txt1">위 약관에 동의합니다.
+    </label>
+
+    <input type="checkbox" name="rd" id="txt2"><label for="txt2">위 약관에 동의합니다.22</label>
+
+    <hr>
+
+    <!--중간빈도-->
+    <!--submit, reset은 form태그 안에서만 사용 가능
+        submit : form 내에서 눌리는 거 감지
+        reset : form 내용 초기화
+
+        hidden : 눈에 보이지 않는 text타입
+        search : x버튼 누르면 초기화되는 txt타입
+
+        file : 파일 선택창
+
+        number : 숫자만 입력 가능
+        tel : 전화번호 입력, 웹에서는 text와 같지만 스마트폰에서는 숫자패드 나옴
+
+        date : 날짜
+    -->
+    <input type="search" name="" id="">
+    <input type="number" name="" id="">
+    <input type="tel" name="" id="">
+    <input type="date" name="" id="">
+
+</body>
+</html>
