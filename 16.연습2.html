@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>상품주문서</h1>
+    
+    <form action="#">
+        <fieldset>
+            <legend>개인 정보</legend>
+            <ul>
+                <li>이름
+                    <input type="text" name="name" placeholder="여백없이 입력" autofocus>
+                </li>
+                <li>연락처
+                    <input type="tel" name="tel" placeholder="연락 가능한 번호">
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>배송지 정보</legend>
+            <ul>
+                <li>주소
+                    <input type="text" name="sh_address" placeholder="여백없이 입력">
+                </li>
+                <li>전화번호
+                    <input type="tel" name="sh_tel" placeholder="연락 가능한 번호">
+                </li>
+                <li>메모
+                    <textarea name="memo" cols="30" rows="10"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            
+            <legend>주문정보</legend>
+            <ul>
+                <li>
+                    <input type="checkbox" name="wine1" id="wine1"><label for="wine1">칠레산 까르보나라 소비뇽</label><input type="number" name="qn_wine1" value="0">개
+                </li>
+                <li>
+                    <input type="checkbox" name="wine2" id="wine2"><label for="wine2">프랑스산 피노 그리지오</label><input type="number" name="qn_wine2" value="0">개
+                </li>
+                <li>
+                    <input type="checkbox" name="wine3" id="wine3"><label for="wine3">한국산 평창 막걸리</label><input type="number" name="qn_wine3" value="0">개
+                </li>
+            </ul>
+        </fieldset>
+        <button type="submit">확인</button>
+        <button type="reset">취소</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        select(인라인) : 여러개의 옵션을 리스트처럼 나열하고 그 중에 선택할 수 있게 표시
+                        부모로만 사용 가능
+        option : select의 자식(자손)으로만 사용
+
+        - 속성 -
+        select    
+            multiple : 여러개 선택 가능
+            name : 식별값
+
+        option
+            selected : 기본적으로 선택되어 있게 함
+            value : 전달될 실제값
+    -->
+    
+    <select name="">
+        <option value="">웹1</option>
+        <option value="">웹2</option>
+        <option value="">웹3</option>
+    </select>
+
+    <!--
+        optgroup : label속성을 기준으로 option들을 그룹핑
+    -->
+    <select name="">
+        <optgroup label="web">
+            <option value="">웹1</option>
+            <option value="">웹2</option>
+            <option value="">웹3</option>
+        </optgroup>
+        <optgroup label="java">
+            <option value="">자바1</option>
+            <option value="">자바2</option>
+            <option value="">자바3</option>
+        </optgroup>
+
+    </select>
+</body>
+</html>

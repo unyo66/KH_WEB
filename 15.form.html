@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        form(블록) : 정보를 전달할 수 있는 태그, name과 value속성이 있어야 정보를 넘길 수 있음
+
+        속성
+            action : 정보를 보낼 페이지의 경로
+                     페이지 이동이 필요없는 경우 #
+            method : 정보를 보내는 방식 선택
+                     get : 기본값, URL로 정보 전달
+                     post : 숨겨서 전달(보안이 필요할 때)
+            target : 정보 전달 시 현재창에서/새 탭에서
+            autocomplete : 기록이 있는 경우 자동완성 여부 결정(on/off), 기본값은 on
+    -->
+
+    <form action="#" autocomplete="off">
+        <fieldset>
+            <legend>로그인</legend>
+            <input type="text" name="id">
+            <br>
+            <input type="radio" name="job" value="front">프론트엔드
+            <input type="radio" name="job" value="back">백엔드
+            <br>
+            <input type="checkbox" name="gender" value="M" >남
+            <input type="checkbox" name="gender" value="F">여
+            <br>
+            <button type="submit">제출</button>
+        </fieldset>
+    </form>
+    <form>
+        <fieldset>
+            <legend>회원가입</legend>
+            <input type="text" name="id">
+            <br>
+            <input type="radio" name="job" value="front">프론트엔드
+            <input type="radio" name="job" value="back">백엔드
+            <br>
+            <input type="checkbox" name="gender" value="M" >남
+            <input type="checkbox" name="gender" value="F">여
+            <br>
+            <button type="submit">제출</button>
+        </fieldset>
+    </form>
+</body>
+</html>

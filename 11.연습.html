@@ -20,7 +20,7 @@
                 </tr>
                 <tr>
                     <th>다음</th>
-                    <td><a href="http:www.daum.net">www.daum.net</a></td>
+                    <td><a href="http:www.daum.net" target="_blank">www.daum.net</a></td>
                 </tr>
             </table>
         </li>
@@ -28,47 +28,44 @@
         <li>
             <b>KH정보교육원 지점 소개</b>
             <ul type="square">
-                <li>
-                    강남점
+                <li>강남점
                     <ol>
                         <li>웹퍼블리셔</li>
                         <li>프론트엔드</li>
                         <li>백엔드</li>
                     </ol>
                 </li>
-                <li>
-                    일산점
+                <li>일산점
                 </li>
-                <li>
-                    종로점
+                <li>종로점
                 </li>
             </ul>
         </li>
 
-        <li>
+        <li><form action="">
             <table>
                 <tr>
                     <th>이름</th>
-                    <td><input type="text" name="name" value="이름을 입력하시오"></td>
+                    <td><input type="text" value="" placeholder="이름을 입력하시오" autofocus></td>
                 </tr>
                 <tr>
                     <th>비밀번호</th>
-                    <td><input type="password" name="pwd"></td>
+                    <td><input type="password" placeholder="패스워드를 입력하시오"></td>
                 </tr>
                 <tr>
                     <th>수강과목</th>
                     <td>
-                        <input type="radio" name="web" id="web1"><label for="web1">웹1</label>
-                        <input type="radio" name="web" id="web2"><label for="web2">웹2</label>
-                        <input type="radio" name="web" id="web3"><label for="web3">웹3</label>
+                        <input type="radio" name="web" id="rd1" checked><label for="rd1">웹1</label>
+                        <input type="radio" name="web" id="rd2"><label for="rd2">웹2</label>
+                        <label><input type="radio" name="web">웹3</label>
                     </td>
                 </tr>
                 <tr>
                     <th></th>
-                    <td><input type="button" value="저장"></td>
+                    <td><input type="button" value="저장" style="margin-right: 9px;"><button type="reset">초기화</button></td>
                 </tr>
             </table>
-        </li>
+        </form></li>
     </ul>
 </body>
 </html>

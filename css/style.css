@@ -1,0 +1,13 @@
+.box2
+{
+    background-color: black;
+    color: red;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.box2:hover
+{
+    background-color: red;
+    color: black;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+        css : Cascading Style Sheet
+        *상위요소는 건드릴 수 없다.
+        *스타일 정보는 웹문서가 브라우저에 렌더링 되기 전에 정해져 있어야 하기 때문에
+        모든 css 정보는 head 안에 명시한다
+        *스타일 시트 종류 : 내부(html문서 head)/외부(css파일, 거의 대부분)
+        *우선순위 : 인라인(잘 안씀) > id > class > 태그명, 우선순위가 같은 경우 나중에 써진 코드가 실행됨.
+        *우선순위 파괴 : !important : 우선순위/인라인 모두 무시
+    -->
+    <style>
+        /*css내의 주석*/
+        .box
+        {
+            width : 100px;
+            height : 100px;
+            background-color: black;
+            writing-mode: vertical-lr;
+            font-size: 50px;
+        }
+        .box3
+        {
+            height: 300px;
+        }
+        .box:hover
+        {
+            background-color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="box box3">집에가자</div>
+
+    <div class="box2"><MARQUEE scrollamount="50">
+        집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어집에가고싶어
+    </MARQUEE></div>
+</body>
+</html>
