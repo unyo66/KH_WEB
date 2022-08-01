@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .vd
+        {
+            margin: 0 25% 0 25%;
+            animation-name: anm;
+            animation-timing-function: cubic-bezier(0, 1, 0);
+            animation-duration: 0.5s;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+            /* animation-fill-mode: backwards; */
+            animation-direction: alternate;
+        }
+        @keyframes anm {
+            from
+            {}
+            to
+            {transform: rotateY(180deg);
+            -webkit-transform:rotateY(180deg);}
+        }
+        /* #videoInput
+        {
+            transform: rotateY(180deg);
+            -webkit-transform:rotateY(180deg);
+        } */
+    </style>
+</head>
+<body>
+    <div class="vd"><video id="videoInput"></video></div>
+    <script>
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+        //var constraints = { video: { facingMode: { exact: "environment" }, width: { exact: 395 }, height: { exact: 395 } }, audio: false };
+        var constraints = { audio: false, video: true };
+
+        var video = document.getElementById("videoInput");
+
+        function successCallback(stream) {
+            video.srcObject = stream;
+            video.play();
+        }
+
+        function errorCallback(error) {
+            console.log(error);
+        }
+        navigator.getUserMedia(constraints, successCallback, errorCallback);
+    </script>
+</body>
+</html>
