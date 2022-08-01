@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            -색관련 css-
+            기본색 : 박스-투명, 글자-검정
+
+            background-color : 배경색
+            color : 배경색을 제외한 모든 색
+            border-color : 테두리색(지정해주지 않으면 color 따라감)
+
+            -색값-
+            1. 16진수 : #0~f 방식으로 표기 : 6자리 #ff0000 / 3자리 #f00
+            2. rgb : 0~255까지로 표기 : rgb(255, 0, 0)
+            3. rgba : rgb + 투명도(0~1)
+            4. 색이름
+        */
+        div
+        {
+            border: 5px solid;
+            border-color: #ff0000;
+            background: #ffffff;
+            color:#0000ff;
+        }
+
+        body
+        {
+            background: #880000;
+        }
+
+        #aa
+        {
+            background: #20ffff;
+            border-color: #20ffff;
+            color: #20ffff;
+        }
+        #bb
+        {
+            background: rgba(32, 255, 255, 0.4);
+            border-color: rgba(32, 255, 255, 0.4);
+            color: #2ff;
+        }
+
+    </style>
+</head>
+<body>
+    <div><b>헬로월드</b></div>
+    <br><br>
+    <div id="aa">aa</div>
+    <br>    
+    <div id="bb">씨스루</div>
+</body>
+</html>

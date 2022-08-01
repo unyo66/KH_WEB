@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            중요 5대장
+                calc : 계산기
+                       px, %가 들어가는 모든 속성에 사용 가능
+
+        */
+        body
+        {
+            margin: 0;
+        }
+        .box
+        {
+            height: 200px;
+            width: calc((100% / 14 - 3px * 2 - 0.01px));
+            margin: 0 3px;
+            float:left;
+        }
+        .pink
+        {
+            background-color: #fff;
+        }
+        ul
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width : 332px;
+        }
+        li
+        {
+            width: calc(100% / 3 - 1px * 3);
+            height: 183px;
+            float: left;
+            margin: 1px;
+            text-align:center;
+        }
+        img
+        {
+            width: 100%;
+        }
+ 
+        img:hover
+        {
+            width: 105%;
+        }
+
+        a
+        {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .desc
+        {
+            margin: 0;
+            font-size: 11px;
+        }
+        .desc:hover
+        {
+            text-decoration-line: underline;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="pink">
+            <a href="https://adcr.shopping.naver.com/adcr.nhn?x=s%2BqneorgJTsO46UinjiVrf%2F%2F%2Fw%3D%3Dshl5gLfiSv4jAN1OpIKrdbSr6%2BlFQfxqpwWdL0qb1%2FkJbvU4IHczrdMF%2FbvGI0PsvIZBAsc2N6MngPx4Exg%2BqGnu0fPIYsKv8Vap2TFKjXO%2FMUpmzDXr7jqkLZ1%2BbLHWOJ34mTAa1dccAvxyGHj2k1YW%2B4OvSJY0CTRroGrB%2FTuStPLzbhEtUWUx4c4fZTqmlLgSS%2BOgbK8sLk5chrthS4LqoiVHWUGPQex%2FqU5QxPU3FUSeYLOrnwNUkksl4JwJNwiGYlHSKE8zWOLg4yfukxic2h53STocCoqlpYLGchv5Bn68NijfsZfsAChUFTlcBPplsjpNbxRLPAb%2Fgwgb7cDEWM6SWXf%2BzpwtP%2B7jue6u0XXePZpmKVDwUzTy4mtOfocxCQ5oFbyFWESMWBBC%2BV474A9upyCBnac89fGTLNaIuWwOgZYY9dk1ixzCfL02MpcglVlLzIVOHr2yxCzh1b05TxrvrPd0K%2Bb1bn%2F%2BME1FAr8BRDb0Z6yVRHu4I7YbsksMULpTpE97DRNgBzuz%2BmZkaFEU2GwZMHExKfIDFGBZd%2FBHFawYsQqTWR4VyHu%2FmfefUbAGRX2C8O2utvedmbw%3D%3D&y=szCe%2B1cY6%2B1odQH%2BqxjTBv%2F%2F%2Fw%3D%3Dsfu%2FtfZ7ZTA1V4a0bati0cEa3cUU8CMbq4YAmMl6N6uB4f4%2BRbG3zlynKp%2FSS3MPsnww4yDhWM5U5M5EV6iLkjulryUefiV%2B8K0%2BHaCaiZWuRHgdj2EfkoVSnafRDjQEWoV7uVRhO6%2FmdJP5DvpFF%2FZhvW2nDrKMtg2XfaQi%2F2maIGlCpS2JJSHDKuujFsysFfmeyTYKzc6%2FkIp20GdQU6f3UW9BRrWEWqmQnQpIsAEhZfo3HlGHVd9TWAJK8pVxAd1TJNRjwSGhvbc2%2BrcXKrlYVi%2Boz2ESskV%2FRTz3zanyauU5lT7fBoGrnJ7cUMAQdrZwZEKhrZXni8ubJWRtsNvqnhqwwtmQPZDyyufNrfv9vBxxdc3AKp5O6oydVuLKG0T0wvLR%2FYhN3Z125BWUEruxxChvYSrTDdMKajVc3kD7A%2FacH%2FxVrElczISzQ9BKuSDQUaHUqQh96AqT5YDs1SlgOjErFpyX0PlNXl9nMaiAFSyJXTynZ3NHxAzrYepVdx14sOTOwVx%2FHd83cDesPv9FAy7v76RTq46rkPqUwCFQvMfMns8%2B0L7eW3REjHmXNsa0BTbfPq%2FwsP63jTVPsVmmPtx9UkEQ41hhb11SO88JdWFfH3X4nImHeJ49tZq34C7V67rfH3iNtVAxlGmuIMyjyhKEmHPq1UKN99UoCnwsYPDVWBtwNxPNBDdueevK0Gzz25W%2F95gS8%2FUjvNAuaBkw3gDSQKxKrmb5qCX6qlKrmz9SAC60ZIRjdMZn0sy7fXz8oc27K260mwSVka6cKPz5WaeMr%2Bd2k07F1IHg1lnI%3D">
+                <img src="https://s.pstatic.net/shopping.phinf/20220801_28/88026985-275d-41fc-ae95-19382d5626d7.jpg?type=f214_292" alt="">
+                <div class="desc">
+                    <div><b>물보라를 일으켜</b></div>
+                    <span>이걸로 주방꾸며~</span>
+                </div>
+            </a>
+        </li>
+        <li class="pink">
+            <a href="https://adcr.shopping.naver.com/adcr.nhn?x=DrBJywErJAnNaDocv93i3P%2F%2F%2Fw%3D%3Dsb%2BWhhIN5oQPi%2FyBCkG2mShB2rwaxniR7FzZqH2k%2Bmh4nz2CaSq%2FdLy5wnSEa9u9oBlSYt3vghciHxIxet360Se5XcXiRknGSn6nB4jxCuszyMXO4FuYilTN1ntKBp85mIxtk3VGBsQxS85M2zOOuEd%2BteC%2FIK4UOa2j7hZxYLUEZVveR5MTmNpL0jShkRQ3jHHFpjLxYaE9S%2FWrjpVcoUuT1DtEkb5pT%2F47U%2BIwtEGiqaQ1boKLzwbSHsS4%2BZIaL%2Fq831tlcP2uSFuGVPtdawC3KilYodeht5GpQBkMgo5A6Z5MugNgf54ZO%2BoGJaIgPFp2ABxY9%2Bayzhs8LGodcAQY6u7hJXSZqKJdUrNYbl5x%2BpK0nblHtbsBARr3YonwR4AYyk1aaURKpXRhq4%2FKJdcrkMO8UtKXxawoZBe1D0aF8Iv98hINX6j4bl%2Fje%2Bi0ZVMRAUt8Mh8K106YqLJ5yJO9I2XVCRZELXOanC9kxiZizRn%2FL3XV0h4QbZaHVaEeWGb144P%2FbOjkDjLwyYHgTJBdC%2FkuMSQmV3ueU5OoAKNk%3D&y=BMCh3CpV6F5sWJG3RnfCgf%2F%2F%2Fw%3D%3Dsfu%2FtfZ7ZTA1V4a0bati0cEa3cUU8CMbq4YAmMl6N6uB4f4%2BRbG3zlynKp%2FSS3MPsnww4yDhWM5U5M5EV6iLkjulryUefiV%2B8K0%2BHaCaiZWsHwXzHLKS2fCkvxc83LQMSRPiULEaC8V%2BrhvUp3yxgaZhvW2nDrKMtg2XfaQi%2F2mZUSD3bYSSO%2F8Z1BQKrXhmvfmeyTYKzc6%2FkIp20GdQU6f3UW9BRrWEWqmQnQpIsAEhZfo3HlGHVd9TWAJK8pVxAd1TJNRjwSGhvbc2%2BrcXKrlYVi%2Boz2ESskV%2FRTz3zanyauU5lT7fBoGrnJ7cUMAQdrZwZEKhrZXni8ubJWRtsNqcGcOw7v8VoVGquMmx7yRlT6U8f10%2B4ZAtO61pmQb5SVEb5zgwz7xAa08DMyiRZMGHZ56KWunib1W%2Bpfsyq6lwVXvuxx2wJ9or%2BHgd8ewYyXP6iFfhVy0WXmEKBGYsUOIFyoDi%2FIPFEpp7NAmbDZ8%2F6Kvk9UreHFw8a7a8qpQfFwqbasFGiKm064%2BO8Ge7ArLethneResyix5HuXraFxDtxPKpfDV9TKpD9aBp2FWOem9IlyOotDBPj0N4YNYQ122tkZviKH7Zv6g1AhYNIAp7o15EexNfLD84qYaKUAAo0q8BgUXkx2QwdSgeUpurqi4XxNEopztPrUgHgoinnlBKtyy40vrs5LwBcKSO9bR22f7fSQ6PjoBCWLuGnm3faUVQR2GQh1xydXK37PZPRZ%2BTMnmlvoK%2B8y8eKJTVmWBC4ms6e1V12L4xBmNFaJp8jYiEAFzWo0nrEfFxiH0JpFQ6bVktbD4XnHxYf4ABq9Bam">
+                <img src="https://s.pstatic.net/shopping.phinf/20220726_19/41ec2107-deea-40d6-a184-6b8fe09bfffb.jpg?type=f214_292" alt="">
+                <div class="desc">
+                    <div><b>타임특가 곧 마감</b></div>
+                    <span>SET 3,900원!</span>
+                </div>
+            </a>
+        </li>
+        <li class="pink">
+            <a href="https://adcr.shopping.naver.com/adcr.nhn?x=qqa3w%2FAkvgsZdGaH0xdI3P%2F%2F%2Fw%3D%3DsCUIxtQ46TIQdns98qsbM5NqgPIvA%2FPjWMOPiS84kdk2GIm4Nqa4TQb7qKJIrOUCDpM%2Fm5gK04IafyNyiJnmOtXu0fPIYsKv8Vap2TFKjXO%2FMUpmzDXr7jqkLZ1%2BbLHWOJ34mTAa1dccAvxyGHj2k1YW%2B4OvSJY0CTRroGrB%2FTuRa%2B4Y3Sp3dYki5B2eG5%2BO5LWm2YOQy%2F6QNwwx7018jtY5roJFcipOgZS5ez%2FivQy%2F52Qu6%2B4AajaWWNusFpzgqLTZ5gibxZTubeMiUrLtSzeAGMpNWmlESqV0YauPyiXXK5DDvFLSl8WsKGQXtQ9GhfCL%2FfISDV%2Bo%2BG5f43votGVTEQFLfDIfCtdOmKiyeciSWo2NPYVUB8%2BYLXnTffYKj0W3KKvENQTcSVosH%2BN81lx%2Bs31qWCVVG508gFZp8zSsXQv5LjEkJld7nlOTqACjZ&y=WLSPmqcef60dBSuGeafJff%2F%2F%2Fw%3D%3Dsfu%2FtfZ7ZTA1V4a0bati0cEa3cUU8CMbq4YAmMl6N6uB4f4%2BRbG3zlynKp%2FSS3MPsnww4yDhWM5U5M5EV6iLkjulryUefiV%2B8K0%2BHaCaiZWs06jMhm0J6ly8eCU36AVDXnP6USXIcDurSgFqUnvbFeJhvW2nDrKMtg2XfaQi%2F2mbDt9suCCEh8ce759KUVjzCfmeyTYKzc6%2FkIp20GdQU6f3UW9BRrWEWqmQnQpIsAEhZfo3HlGHVd9TWAJK8pVxAd1TJNRjwSGhvbc2%2BrcXKrlYVi%2Boz2ESskV%2FRTz3zanyauU5lT7fBoGrnJ7cUMAQdrZwZEKhrZXni8ubJWRtsNpbITix7iv2YXbub5iyEaaRHmrElyULiKMfM0R9h5ZfdddQ320zZGACZqNay0fZ2Qgm0kyEUvbinhqOB%2Br1FEHKpIbyTx9atLhA53lP5fbu2Fe2IqabS9vChKOGWm6Id3SwGlCxfoNtocH3qnjJPslD%2B%2BRCA%2B5jzrQ0JA7Svr6zCI3qjSsn9SsFf%2FXft%2BWdQbhBg0NSR%2B6FkV8YECsv7DQdHVT7SLF5MvEUoCJI66fxElax01JjVgfC%2F8nr3jgFZuY2g2pqQeL1IFum6uGG%2BUimIEGgl97nXR9e3Jh9Tn4xrsLjSEdDqCqIKrnTsjFlvbadCfPFTeyD6pEcknn17gjZWO6Qg%2FhkoZnpmN57zCC3jaoEyGJc%2BF2vM7KQjZRV5doffRK5NJkp68akzzrZC5Yndjpb7OZ5zhsvkal8KQ52%2FzovdFgQsh7rM0FdA3Cm%2Fryt8%2BHBlVogyOnnQJXAANGM%3D">
+                <img src="https://s.pstatic.net/shopping.phinf/20220722_24/6a47f928-8d5a-4223-b9b4-2a2564a53244.jpg?type=f214_292" alt="">
+                <div class="desc">
+                    <div><b>썸머시즌히트상품</b></div>
+                    <span>UP TO~80% SALE!</span>
+                </div>
+            </a>
+        </li>
+        <li class="pink">
+            <a href="https://adcr.shopping.naver.com/adcr.nhn?x=yvUeDcrgtOutTQ9%2BnFrJS%2F%2F%2F%2Fw%3D%3DsxryOy6ivvVDVjgYnWVdXJar132VxbWkCHJeIWkonFHkTXe%2B9e3fxwtUugG3BOpqt4B3xuwwvw5%2BP6REcUtnmNI6qqw8DXEPUcO%2FHg7CsPWLApQDi7HvnWWssi6ITL%2FC8I0Ot6lyEIfH9mufGJq1VEMnTyL7asfiSB4CpceOvAJe9S2X44S2B%2FO87sgoxWPFlKPrBT7y0YNLT8iL%2FkBDXUl6sFzOtMD4VBSwpnPaSXPCg3%2B78yiSfbFbkJDwDdOtuihVjNaUwIypbw4MoHIbWV%2FWSeh2CfmwrfkuotsNeiUyR%2Bz4k3%2BlhZ8O27OkaCRaUXAXpLBd3jLbJv4F6XSeZJFFyjU6d2aVcTI7ucRl5di0d3yATD2XOX5EoU%2FgBS2e06QxM8XkPHfIPc0Uf8T7G62xuWYozyZSPCmc%2BAWEBCY5k2iGRkNbza58xseT894%2FdHC%2Bl%2BjzWuvAlQLrX62WAAF3tV57oxRF71zOtSg%2F9%2FL8%3D&y=bJvm24dWnQ44zWfZG%2Fv3Df%2F%2F%2Fw%3D%3Dsfu%2FtfZ7ZTA1V4a0bati0cEa3cUU8CMbq4YAmMl6N6uB4f4%2BRbG3zlynKp%2FSS3MPsnww4yDhWM5U5M5EV6iLkjulryUefiV%2B8K0%2BHaCaiZWvUlWOaqD3quzt9O5ytEZMH68jzZGd%2FfiD6i%2F52TC4Ee5hvW2nDrKMtg2XfaQi%2F2mZQejSq0YJyqaEa1efzUzrYZlPTKMj0A2%2FagaYXunLRQP3UW9BRrWEWqmQnQpIsAEhZfo3HlGHVd9TWAJK8pVxAd1TJNRjwSGhvbc2%2BrcXKrlYVi%2Boz2ESskV%2FRTz3zanyauU5lT7fBoGrnJ7cUMAQdrZwZEKhrZXni8ubJWRtsNv07UfDqKOGal5FXLUq%2B6UkA3cobxhQTJSBngcZMatUiIQ8AxN1nK1y%2BpLRgQvdyE4iJjH40kJce%2B3Z5z17svfoi5fcnDT2RdOoCrli7MR0iNl73MDrl76FhtdhqLhatNW9gPcDqnEKPyHDkomr3s6GEN0Nhtq70w48kFpWCiXKNCgE46QvKlZzD%2FKuE1Z80bG4FvKLRSdAxN2WVGOHYR4Y8QDVfw8pVJizphLLY5nCtS6EsoZU0NyrX5P9wFdxG9ZBKYQ%2F%2FxpDuAILEV5hOSojVe8KimeWaaIrEf6aN5WJHvAOV34Cs%2FbSWi51Nw8hSDursRTvCAW5sS8RRwlyDoQnz70zeojhCNcdw93fm06NGO%2F6YP2%2BnSsk4jyl2DkwVUouRMstDofA9kjrE80OXDa819zu1by3CendvLiWSV53VZvlk7WNqcm1z2MGWWEIb1cgFBNR%2BfWA05Fe8vX%2Bw46IkZakEKmxZf0AEjNDhvwut">
+                <img src="https://s.pstatic.net/shopping.phinf/20220704_24/cec8f992-de00-4626-80a3-d7a427bb88da.jpg?type=f214_292" alt="">
+                <div class="desc">
+                    <div><b>아디다스브라팬티</b></div>
+                    <span>12종세트10%쿠폰</span>
+                </div>
+            </a>
+        </li>
+        <li class="pink">
+            <a href="https://adcr.shopping.naver.com/adcr.nhn?x=s%2FdLm3lIGhi1xiiQq%2BtXzP%2F%2F%2Fw%3D%3DsHbBuXVGs9cRxgbWESx1ZEdudjcEz3C7b8ACGDa8nPKoxjhMNEeIFXr8MtAPvYibqSLuAy7VJqRcjmRKDpN3M1TTDqWnJsPNqvLVyu8pZ7HAAy%2B4b668Jq6TiARUwIwkkvrIXNwb9o3iepddAdQF1WBG3I3nvHNg4NUPLouD46foOrNOxMGTGUlnw%2BUz3HjCq9aHVcBAlPh6BkNcifdI8QXb1Be%2B2%2FasDYBVhUhAWdzUqc0dt4eiBUDIdjmUK2cuGVUp9IngI9Q7AUIdGe7HheDg8e6oWKCS7XUaZyRizXsOPhNviqTTNk0Gv13qwsOsecdGHRWycXc4n6koG8PqiG1FlctOoyS8uYukVczBpud6dKqUieinex1rCxYn09mvXCuIsmGyqac9AUfMmlIjtNw%3D%3D&y=%2FOMuGC%2BT5zCVW1zGbn1WBv%2F%2F%2Fw%3D%3Dsfu%2FtfZ7ZTA1V4a0bati0cEa3cUU8CMbq4YAmMl6N6uB4f4%2BRbG3zlynKp%2FSS3MPsnww4yDhWM5U5M5EV6iLkjulryUefiV%2B8K0%2BHaCaiZWuQJG9yPcZ4v%2FcTwyfb3Qh6gByrjyfJhJEK8ppP1hEjqJhvW2nDrKMtg2XfaQi%2F2mZ9qD3j6mmFKX8THKNIyeQBZlPTKMj0A2%2FagaYXunLRQP3UW9BRrWEWqmQnQpIsAEhZfo3HlGHVd9TWAJK8pVxAd1TJNRjwSGhvbc2%2BrcXKrlYVi%2Boz2ESskV%2FRTz3zanyauU5lT7fBoGrnJ7cUMAQdRfT3OA48qGbOPV5lXGlmktQeIF6ZoTISoJSJ7PwjmT1aWhn5chM2FRLrB9asMRYPX3CCtlCmzCFsv3d%2FjdSs0BwB5QDQLDCMnsxtTLjp7tcIpXxjahyOUUsXbRiDmC9a%2FGv3Z8iOkF0DfU2GuK54EY7E2yaVWSZm5Lo%2FKl8WyODRFhAw1th%2BIVdOsb7Cm2KckgLvk4v5GFCD6N87CYpnO%2F5AZ5bQihohGvh730M10dgFpGqgYRC8DbNwdlAovMOydfrSbpFAcubK%2F2m6oVNbWUz52%2BszvN8ecZV9KwzCgJTRTKSotiEdwQS0Gu6eOWK4mZWbUBHKd0593KbB9MfV%2F1ztifN%2FUiGhpAujsSre1J8u5RyEvIuXrk3TWPlZdl9GFzds50J0xszI%2FFKhF1yXsS0tXAJkjaf0IjvG1pQvZDx2LK7nFnEPGaymqXT3OJgABtL4vszyXfk1KVylBznPX%2BTsdZondMcAhK2VM3yORHp8wec5L4%2BRw4OJCdLRSly6">
+                <img src="https://s.pstatic.net/shopping.phinf/20220713_17/338af587-d49b-48d6-b7b5-869cba9cf852.jpg?type=f214_292" alt="">
+                <div class="desc">
+                    <div><b>1+1+1 썸머특가!</b></div>
+                    <span>3개월분 70% SALE</span>
+                </div>
+            </a>
+        </li>
+        <li class="pink">
+            <a href="https://adcr.shopping.naver.com/adcr.nhn?x=rJUVi1AlLTzFsfsursOLlP%2F%2F%2Fw%3D%3DsH69WBtdyjekRFKnLlmRaTGV6AGYkPTa%2FfiTLwIo6oxsNd0MO0TaDYxAA8q2wsANmF8i7ZXYn8zh%2Frj5MZ8N4gFwnIpPGQRtXOI8mnyeje0mHK8UrFNtuqje3TvxIz03goHldtfYaKZvaZMnE%2FQEAifZzhhtOF2%2F08g06AFT1GRiaQQ0%2FYNL4tnlGD%2BDIPt56K52CiALMDfcD728bY9XjfAOg5gEz9vWvqsT6%2FbbgYSY6wrYcD195HEUlKzkqD0iq4AYyk1aaURKpXRhq4%2FKJdcrkMO8UtKXxawoZBe1D0aF8Iv98hINX6j4bl%2Fje%2Bi0ZVMRAUt8Mh8K106YqLJ5yJH%2B7UaFDcGJ13s1am8XfysVW5GcI8xuaqkfURaWElHmoSho%2BsReSrK9RL4gmXoI6LKA6%2BPY8ylfxo6jCtCjjZxI%3D&y=CrcCHWcASZeObswULOSSD%2F%2F%2F%2Fw%3D%3Dsfu%2FtfZ7ZTA1V4a0bati0cEa3cUU8CMbq4YAmMl6N6uB4f4%2BRbG3zlynKp%2FSS3MPsnww4yDhWM5U5M5EV6iLkjulryUefiV%2B8K0%2BHaCaiZWvZDq2aUjaIccfUHk091gpc%2FxxXXiNaj22cLqT7Tkk09ZhvW2nDrKMtg2XfaQi%2F2mZPZ%2B%2BxU9Y2WmfIjw8doj1MZlPTKMj0A2%2FagaYXunLRQP3UW9BRrWEWqmQnQpIsAEhZfo3HlGHVd9TWAJK8pVxAd1TJNRjwSGhvbc2%2BrcXKrlYVi%2Boz2ESskV%2FRTz3zanyauU5lT7fBoGrnJ7cUMAQdTbswPfcXIWxzOVUMhihellQZUAdMj9tRRiXlqNrStdtYNhKYgWS8bU7hG0qmlQjFNteN4ZuD4SSiB9U1gh3WS3E%2BSumY5vcd%2F8p6TZpr0oNcJWVfIhSCC0m93vr5DsPxx7qa4vkvmpoYlri8ZUyj5wP2qeEXNP98aJjGhPXFPQwCKdeTr9rTLEfoswX6hT3FtBroZckDgq8y1AWjtInIXGXi91wmN24PQEy27nVqwljUKRoinaNE8R41aghjcWLz6HcalvpAdYzENuoG3qUylXRUc8PRsBrr0L7New8PvZTBWFoY%2BXyRfmBkSnlQeVzFDRxz31mT9q0n3PxC8ghCx1I4sDhn6a6NczSaEOUhjymqSPuP5TWmQ5cYJLIRRgwqj4U5ZvBzH0FrrCOuVmBkan1ldC3LZpBIU1AZQ7TnlTcOVagk6JCkh4%2BPUgrw7AU%2F%2BII5uDeZT4Bfpay2ONC5MDxyk2WnpO8e1WucY1uB77s%3D">
+                <img src="https://s.pstatic.net/shopping.phinf/20220725_14/802ef09f-c2e4-4077-8fd4-42538e5690e7.jpg?type=f214_292" alt="">
+                <div class="desc">
+                    <div><b>비거리증가 원해?</b></div>
+                    <span>평균12야드골프티</span>
+                </div>
+            </a>
+        </li>
+        <li class="pink">
+            <a href="https://adcr.shopping.naver.com/adcr.nhn?x=c%2FAh8ynpe%2Fxm22Fh0APGkv%2F%2F%2Fw%3D%3DsU3uy%2BwX4jd1PfCEIJinlw8B5IRy1EKQojlgnHr4%2FIr2muHNq98o1bA1gMRfX1OJ7N7qhZ3vD74Yy232ATM7xAX4q7ZZ5iP%2BmcajVUdCpvDBF2fTbQd68KLM8nSUx86Py0N2wVhpHVKk0mfSgktLY3llcJbdc4rZURs2IkO9S3TnE%2FIPLAW5JVcu%2BfCEOstKuAhRiUpgG56hbWNQZUoUzd%2FzRz1b%2B33N6zdS7Tsi39rHRpj%2BvvYunzbJhkLDzgwB%2BqIitJG8WC7h1o0ui4ylgj2y3N%2B6Se3ASMqkEeOaJXKtk2YAiyXIG9iMV4nOSdJH%2BbYwrCOIteIpnGw9XjYWHdSYyNBwrx3gB5tOL9xlKuSrZIVnUoK2%2FbX4loRJ4lCacX9McwXTdkiOHL4gbVdDiFlS09eDeEQUqnk%2FV0teWS6Q%3D&y=twBnZsd2PnQTwDga6BANzv%2F%2F%2Fw%3D%3Dsfu%2FtfZ7ZTA1V4a0bati0cEa3cUU8CMbq4YAmMl6N6uB4f4%2BRbG3zlynKp%2FSS3MPsnww4yDhWM5U5M5EV6iLkjulryUefiV%2B8K0%2BHaCaiZWsUB3cLoD1UCmyqkFGSMcqB%2FKbQCMMIJ3FB9susxEtiJJhvW2nDrKMtg2XfaQi%2F2mYcaWXdidMIukd5xRfnX40g7a49SQzoN0kcq6P9004ivv3UW9BRrWEWqmQnQpIsAEhZfo3HlGHVd9TWAJK8pVxAd1TJNRjwSGhvbc2%2BrcXKrlYVi%2Boz2ESskV%2FRTz3zanyauU5lT7fBoGrnJ7cUMAQdrZwZEKhrZXni8ubJWRtsNmRobzrefEzFUTmB0U6crIgBRdxxTi3nGOt2dh7RPrkSRKfaumrpAhTMSGlrMTEBO2tgOaP3LKwAz3i0PfYfYPBEhvOV6eObUTLtztYUDJbQ2PaGclW6UokViVbDVoZiJb542LpyimOaOvq2xcLE3BFoqbOFsyiJ1Exhht6X1NUxPVd7oinrlWZpWfvKxjUXRptVV1thgCnBA%2F19P9Ml5THw04j%2FaL8gknWPzA67lZuwKOGg8QuXlYheS%2B5BR7w3hR3qfYLY9N8ihLvF4%2FcORh262VObtps4PEzSVs137EyV%2FcyCsWM%2F2shaCwT3JViiyWPcIh%2BOlE%2FqVSM1wyWpJDYYv9Roe5Q3T%2BW6GGnWFJc8ZX5%2FdC39SHGMNjQxn6gOocM92BqIHX5nhbd1KEFobRJXB%2B1hTuldcF1pEX4%2FqaCGiLeDqjS3JHf35clWgaYrLS6u1naLws2FesGZwZ5RGlk%3D">
+                <img src="https://s.pstatic.net/shopping.phinf/20220801_23/a4f541da-89c8-4277-b366-2a2345f9c829.jpg?type=f214_292" alt="">
+                <div class="desc">
+                    <div><b>14k귀걸이1만원대</b></div>
+                    <span>한정특가 오픈!</span>
+                </div>
+            </a>
+        </li>
+        <li class="pink">
+            <a href="https://adcr.shopping.naver.com/adcr.nhn?x=le9tIPamoLdnBwil1Jthuv%2F%2F%2Fw%3D%3DshqQPMCL6vqRrKum2B6i9Z3VGIBM8YF90gVS%2Fz1yXh6p7TAwsaa%2FZSv8%2BmV5a7bLuchZ8N%2B%2BfAyPMg%2F2L4gDGQMWL9pAiBpXYOP0CCUGrV1BMqSkW5paES%2BD69K6382%2Bqnl4JBSyuZJ2hdD4wwnWT6%2FZzhhtOF2%2F08g06AFT1GRiaQQ0%2FYNL4tnlGD%2BDIPt564riSt3JMKjbJK%2Brw%2BI%2BKDCLmp705ZqB%2BgLZq%2FFaD8kxMfYKZShVftvTS80p3zj6zklWS5CpTknik0ziLVd8gcf57jALdPl51oN3enTdeczkiXHOrozKzFPDKxMx2D%2BI6GtYXEQ8GIGzIwuWwfOqPwABs5Q0GReN7OvjT77hI7fG7Te1k92DA2QJAug5F8SaY17Dg5Q%2BoRogJPe8u7C8W1Pnyj86qaYz%2FPyeYNiFN5LDCgy4f3tjcL9sXzVuX%2BuIslBI16HlJoVluuUFS37bTMEwP4nsFuSXEn%2BeYyBCKDak%3D&y=9zapELekTJ1Krew4C%2BWivP%2F%2F%2Fw%3D%3Dsfu%2FtfZ7ZTA1V4a0bati0cEa3cUU8CMbq4YAmMl6N6uB4f4%2BRbG3zlynKp%2FSS3MPsnww4yDhWM5U5M5EV6iLkjulryUefiV%2B8K0%2BHaCaiZWspaunTQJu6k37ag2%2B1MC1Q3nl6XiUwtNz%2Box0Ww%2BpKU5hvW2nDrKMtg2XfaQi%2F2maiS7K3bWqaY0HRDJWceuN%2B7a49SQzoN0kcq6P9004ivv3UW9BRrWEWqmQnQpIsAEhZfo3HlGHVd9TWAJK8pVxAd1TJNRjwSGhvbc2%2BrcXKrlYVi%2Boz2ESskV%2FRTz3zanyauU5lT7fBoGrnJ7cUMAQdRfT3OA48qGbOPV5lXGlmkoTH%2F3VfGKYphlMc2p9X4klbF47GNp6QIo26YZgsOEHYJv3Chft3hciZJ6V8RUngUhwB5QDQLDCMnsxtTLjp7tdT%2FsysWEv64h2l0nL9VklH8ishLF2esWAk3eN%2F4zthkkRw0KDddANTYWNl%2BJPg287RFhAw1th%2BIVdOsb7Cm2KckgLvk4v5GFCD6N87CYpnO2R47boZm%2FGTuUyS6nawiQc2Jf7ZAb9Y0fi3jwG7wLyrdfrSbpFAcubK%2F2m6oVNbWTy7SALOKUygF9YfQ1YO46bRTKSotiEdwQS0Gu6eOWK4mZWbUBHKd0593KbB9MfV%2F1ztifN%2FUiGhpAujsSre1J8u5RyEvIuXrk3TWPlZdl9GFzds50J0xszI%2FFKhF1yXsS0tXAJkjaf0IjvG1pQvZDx2LK7nFnEPGaymqXT3OJgABtL4vszyXfk1KVylBznPX%2BTsdZondMcAhK2VM3yORHp8wec5L4%2BRw4OJCdLRSly6">
+                <img src="https://s.pstatic.net/shopping.phinf/20220630_3/bd12fbcf-08d5-444b-bc80-075e520651c9.jpg?type=f214_292" alt="">
+                <div class="desc">
+                    <div><b>역대급! 반응폭발</b></div>
+                    <span>후기극찬 4.7점!</span>
+                </div>
+            </a>
+        </li>
+        <li class="pink">
+            <a href="https://adcr.shopping.naver.com/adcr.nhn?x=D76BOMPtbqpN3qhW39wH8%2F%2F%2F%2Fw%3D%3Ds%2F4evzFhLcpuMih4giM6hsi2x%2BvHAF0nwUw%2BTRGfNM52VNM35pA%2FXiX26cEop1Gz4kIWUd3MLSQzzYaaVYtQeS01AGr%2F65cJHad0b%2BUE01uPo2Nsax3nQu4wdxb6hV6AkcUvkk5VqxHgyBPDl0Jem7JRji0iPFCt69nyErMxth5%2F%2BLnbnpH5XOPHlQeddbmkidUypGR3lgEXBblfiA2ZV36PnVMUQ9JJ0Ee4Ds6JMuYcuWwOgZYY9dk1ixzCfL02MpcglVlLzIVOHr2yxCzh1b05TxrvrPd0K%2Bb1bn%2F%2BME1FAr8BRDb0Z6yVRHu4I7YbsDidfuTQlYLLs6xqfu8nNilGOb%2F2UyL3S8P20qcKWVrtxicv6cbKcCuOFJdx%2BjrRgRNjHyeOocboIyTJ9TM9UbQ%3D%3D&y=iLTZCp07PxVpQk%2B4U%2F4tTf%2F%2F%2Fw%3D%3Dsfu%2FtfZ7ZTA1V4a0bati0cEa3cUU8CMbq4YAmMl6N6uB4f4%2BRbG3zlynKp%2FSS3MPsnww4yDhWM5U5M5EV6iLkjulryUefiV%2B8K0%2BHaCaiZWtR1kiTzUJNFOvpuooQlmVQpu9ib%2ByXc3bTB8Qiqq9QgZhvW2nDrKMtg2XfaQi%2F2ma%2FqzaJ671NMYF9EEmwq6Qi7a49SQzoN0kcq6P9004ivv3UW9BRrWEWqmQnQpIsAEhZfo3HlGHVd9TWAJK8pVxAd1TJNRjwSGhvbc2%2BrcXKrlYVi%2Boz2ESskV%2FRTz3zanyauU5lT7fBoGrnJ7cUMAQdrZwZEKhrZXni8ubJWRtsNnkh5QG5obKg9iT2b3NW14bxXO9UU%2Frmg7hh0RzKz2jiI8JwxYc85JeUSKKsVuS3QPermYtUhn66LK8cJpFbgWzNcmg7WtmAZiKR4DvEjM73T5qrsB%2BFIjXIhGDfqqXTNByzwpeNzHCf0F%2FX5K9Uojc3ffZdH7GmfvfTBtqSfI31x0xIPpyVbTP9Er%2BUuijsyXEGFf7ieEobOoh49oLMvEi%2FdByOnlhs58RY31zSnKVSsB3VmfZ9PvdJjD0wuLoIANWD2w%2FxxGIEXUYNdsosH465sF%2FUo%2BbHc1IYckjKCU%2BT4MhMxHlbXaOiHm%2B8%2FAit2k4lM999%2F6oDgKg0two9%2FqMeAedlORTzH%2BxNs228QIq51j%2FTIG4BZggIpAGRF8JGSN4u73b%2Bn9tgjWAcLyGrw61mEDAim8bz2viSFs%2Bauny6C4E3Vn8NgynKDttkBos1BgJXXVqWO98v4cRlBHgIDVw%3D">
+                <img src="https://s.pstatic.net/shopping.phinf/20220711_1/41a22598-146b-4eb9-a839-ef441016cfba.jpg?type=f214_292" alt="">
+                <div class="desc">
+                    <div><b>올리자마자~BEST~</b></div>
+                    <span>지금최대90%OFF</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</body>
+</html>
