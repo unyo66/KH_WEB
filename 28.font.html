@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            font-style : 폰트 기울기(italic / normal)
+            font-variant : 폰트 변형(한국에서 잘 안씀)(small-caps:소문자들을 작은 대문자로 바꿈)
+            font-weight : 폰트 두께(100~900)(lighter, normal, bold)(폰트 별로 레벨에 따른 두께가 다름)
+            font-size : 폰트 크기
+            font-family : 폰트 종류, 여러개를 콤마로 쓰면 먼저 쓴 폰트부터 적용 시도
+        */
+
+        .font
+        {
+            font-style: italic;
+            font-variant: small-caps;
+            font-weight: 300;
+            font-size: 40px;
+        }
+        .font:hover
+        {
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <div class="font">hello world</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            text-align : 보통 부모에 넣음(inline에서는 먹지 않기 때문)
+            text-decoration : underline/overline/line-through/none : 보통 a태그 밑줄없앨때 씀
+            text-transform : 대소문자 변경
+            text-shadow : 그림자 : x축 y축 블러정도 색깔 순서
+                box-shadow : x축 y축 블러정도 테두리두께 색깔 순서
+        */
+        body
+        {
+            margin: 0;
+        }
+        .box
+        {
+            width: 100%;
+            height: 100px;
+            border: 5px solid;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #000;
+        }
+        .txt_box
+        {
+            background-color: #000;
+            /* text-align: center; 이미 가운데에 있기 때문에 동작하지 않음 */ 
+            font-size: 40px;
+            font-family: 'Times New Roman', Times, serif;
+            text-transform: capitalize;
+            text-shadow:  -2px -15px 11px #f80;
+            line-height: 2.5;
+        }
+        .txt_box:hover
+        {
+            text-shadow:  0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20;
+
+        }
+        a
+        {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="https://kr.diablo3.blizzard.com/ko-kr/" class="txt_box" target="_blank">Diablo Ⅲ</a>
+    </div>
+</body>
+</html>

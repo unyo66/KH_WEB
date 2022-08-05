@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            float : 요소의 레벨에 상관없이 (가로방향) 정렬
+                    left, right, none
+                    left : 요소를 왼쪽 정렬
+                    right : 오른쪽 정렬(오른쪽으로 보낼 박스에 오른정렬 후 요소에는 왼정렬하는게 좋음)
+
+            자식요소에 float속성이 있는 경우 사이즈(높이값)를 구할 수 없음
+                해결법 -
+                    부모에게 높이값 직접 적용(heather에 height값주기)
+                    overflow : hidden / auto 사용(heather에 overflow : hidden)
+                    부모에게 float 적용(최대한 쓰지 말 것)
+        */
+
+        body
+        {
+            margin: 0;
+        }
+        .heather
+        {
+            width: 100vw;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .inner
+        {
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            text-align: center;
+            line-height: 6;
+        }
+
+        .box2
+        {
+            float: right;
+        }
+
+        .red
+        {
+            background-color: #c00;
+            float: left;
+        }
+        .green
+        {
+            background-color: #080;
+            float: left;
+        }
+        .blue
+        {
+            background-color: #00f;
+            float: left;
+        }
+        .banner
+        {
+            width: 100vw;
+            height: 23vw;
+            background: url(./img/afreeca_banner.jpg) no-repeat center / cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="heather">
+        <div class="inner red">전능하신 아카라트여 영원한 빛으로 날 보호하소서 거룩하신 지혜로 날 이끄시고 내 가는 길 어둠에 싸여 있어도 신성한 빛으로 내 영혼을 이끄소서</div>
+        <div class="box2">
+            <div class="inner green">로그인</div>
+            <div class="inner blue">회원가입</div>
+            <div class="inner green">id찾기</div>
+            <div class="inner blue">pwd찾기</div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="banner"> 
+        </div>
+    </div>
+</body>
+</html>
