@@ -17,6 +17,8 @@
                     부모에게 높이값 직접 적용(heather에 height값주기)
                     overflow : hidden / auto 사용(heather에 overflow : hidden)
                     부모에게 float 적용(최대한 쓰지 말 것)
+            
+            claer : 같은 부모로 묶인 상위요소가 float상태더라도 겹치지 않게 함
         */
 
         body
@@ -27,7 +29,9 @@
         {
             width: 100vw;
             overflow: hidden;
-            background-color: #000;
+            height: 23vw;
+            /* background-color: #111; */
+            background: url(./img/afreeca_banner.jpg) no-repeat center/cover;
         }
 
         .inner
@@ -44,32 +48,56 @@
             float: right;
         }
 
+        .box
+        {
+            float: left;
+
+        }
         .red
         {
-            background-color: #c00;
+            background-color: rgba(240, 0, 0, 0.3);
             float: left;
+            
         }
         .green
         {
-            background-color: #080;
+            background-color: rgba(0, 200, 0, 0.3);
             float: left;
         }
         .blue
         {
-            background-color: #00f;
+            background-color: rgba(0, 0, 240, 0.3);
             float: left;
         }
         .banner
         {
             width: 100vw;
             height: 23vw;
-            background: url(./img/afreeca_banner.jpg) no-repeat center / cover;
+            background: url(./img/diablo_banner.jpg) no-repeat center / cover;
+        }
+        .menu
+        {
+            color: #000;
+            background-color: rgba(200, 200, 0, 0.3);
+        }
+        .red:hover + .menu
+        {
+            /* float: right; */
+            clear: both;
+        }
+        .menu:hover
+        {
+            clear:both;
         }
     </style>
 </head>
 <body>
     <div class="heather">
-        <div class="inner red">전능하신 아카라트여 영원한 빛으로 날 보호하소서 거룩하신 지혜로 날 이끄시고 내 가는 길 어둠에 싸여 있어도 신성한 빛으로 내 영혼을 이끄소서</div>
+        <div class="box">
+            <div class="inner red">메뉴</div>
+            <div class="inner menu"></div>
+        </div>
+
         <div class="box2">
             <div class="inner green">로그인</div>
             <div class="inner blue">회원가입</div>
@@ -78,9 +106,9 @@
         </div>
     </div>
 
-    <div class="main">
+    <!-- <div class="main">
         <div class="banner"> 
         </div>
-    </div>
+    </div> -->
 </body>
 </html>

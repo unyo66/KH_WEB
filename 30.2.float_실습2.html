@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            margin: 0;
+        }
+
+        /* --- header--- */
+
+        .header
+        {
+            width: 100%;
+            height: 60px;
+            text-align: center;
+            background-color: #faa;
+            line-height: 60px;
+        }
+        .logo
+        {
+            width: 250px;
+            height: 100%;
+            float: left;
+            background-color: #ad2;
+            font-size: 30px;
+            font-weight: 900;
+        }
+        ul
+        {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a
+        {
+            text-decoration: none;
+            color: #000;
+        }
+        .menu_bar
+        {
+            float: right;
+        }
+        .menu
+        {
+            float: left;
+            padding: 0 40px;
+            font-weight: 900;
+        }
+
+        /* ---main--- */
+
+        .banner
+        {
+            width: 100%;
+            height: 600px;
+            background-color: #8dc
+        }
+
+        .container
+        {
+            width: 1100px;
+            margin: 30px auto;
+        }
+        .itembox
+        {
+            overflow: hidden;
+        }
+        .item
+        {
+            height: 260px;
+            margin-right: 10px;
+            float: left;          
+            background-color: #f66;
+            margin-bottom: 10px;
+        }
+        .item4
+        {
+            width: calc((100% - (10px * 3)) / 4);
+            
+
+        }
+        .item3
+        {
+            width: calc((100% - (10px * 2)) / 3);
+        }
+        .item5
+        {
+            width: calc((100% - (10px * 4)) / 5);
+        }
+        .r_m_0
+        {
+            margin-right: 0;
+        }
+        .b_m_0
+        {
+            margin-bottom: 0;
+        }
+        .name
+        {
+            width: 100%;
+            background-color: #fff;
+            height: 50px;
+            line-height: 50px;
+            font-size: 22px;
+        }
+        .l_banner
+        {
+            width: 100%;
+            height: 300px;
+            background-color: #444;
+            margin: 0;
+        }
+
+        .footer
+        {
+            height: 500px;
+            background-color: #222;
+        }
+        #a_top
+        {
+            position: fixed;
+            bottom: 2vh;
+            right: 1vw;
+            color: #000;
+            font-size: 30px;
+            font-weight: 900;
+            background-color: #fff;
+            border: 1px solid;
+            padding: 0 0 8px 6px;
+            box-shadow: 3px 3px 2px #222;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href=""><div class="logo">logo</div></a>
+        <ul class="menu_bar">
+            <li class="menu"><a href="#best">menu1</a></li>
+            <li class="menu"><a href="#new_arrival">menu2</a></li>
+            <li class="menu"><a href="#ad">menu3</a></li>
+            <li class="menu"><a href="#bargain">menu4</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="banner"></div>
+        <a href="#" id="a_top">top↑</a>
+        <div class="container">
+            <div class="name" id="best">BEST</div>
+            <ul class="itembox">
+                <li class="item item4"></li>
+                <li class="item item4"></li>
+                <li class="item item4"></li>
+                <li class="item item4 r_m_0"></li>
+                <li class="item item4 b_m_0"></li>
+                <li class="item item4 b_m_0"></li>
+                <li class="item item4 b_m_0"></li>
+                <li class="item item4 b_m_0 r_m_0"></li>
+            </ul>
+        </div>
+        <div class="l_banner"></div>
+        <div class="container">
+            <div class="name" id="new_arrival">NEW ARRIVAL</div>
+            <ul class="itembox">
+                <li class="item item3"></li>
+                <li class="item item3"></li>
+                <li class="item item3 r_m_0"></li>
+                <li class="item item3"></li>
+                <li class="item item3"></li>
+                <li class="item item3 r_m_0"></li>
+                <li class="item item3 b_m_0"></li>
+                <li class="item item3 b_m_0"></li>
+                <li class="item item3 b_m_0 r_m_0"></li>
+            </ul>
+        </div>
+        <div class="l_banner"></div>
+        <div class="container">
+            <div class="name" id="ad">AD</div>
+            <ul class="itembox">
+                <li class="item item3 b_m_0"></li>
+                <li class="item item3 b_m_0"></li>
+                <li class="item item3 b_m_0 r_m_0"></li>
+            </ul>
+        </div>
+        <div class="l_banner"></div>
+        <div class="container">
+            <div class="name" id="bargain">BARGAIN</div>
+            <ul class="itembox">
+                <li class="item item5"></li>
+                <li class="item item5"></li>
+                <li class="item item5"></li>
+                <li class="item item5"></li>
+                <li class="item item5 r_m_0"></li>
+                <li class="item item5 b_m_0"></li>
+                <li class="item item5 b_m_0"></li>
+                <li class="item item5 b_m_0"></li>
+                <li class="item item5 b_m_0"></li>
+                <li class="item item5 b_m_0 r_m_0"></li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <div class="footer"></div>
+</body>
+</html>
