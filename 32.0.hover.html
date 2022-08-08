@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            hover : 마우스 올라갔는지 감지
+
+            적용 선택자 종류
+                    공백 : 자손
+                    
+
+        */
+        .pink
+        {
+            width: 500px;
+            height: 500px;
+            background-color: #faa;
+        }
+
+        .blue
+        {
+            width: 100px;
+            height: 100px;
+            background-color: #00f;
+        }
+
+        .pink:hover .blue
+        {
+            /* opacity: 0; */
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="pink">
+        <div class="blue"></div>
+    </div>
+</body>
+</html>

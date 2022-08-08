@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            display : 요소의 레벨을 바꿔주거나 화면에서 사라지게 할 수 있음
+                특징 : 상속 안됨
+
+                레벨 종류
+
+                inline
+
+                block
+
+                inline-block
+                    img 위아래 여백 지우는 법
+                        1) img에 float주고 부모에 overflow hidden
+                        2) 부모에 font-size 0
+
+                *** none : 화면에서 사라짐(그냥 없던 걸로 됨)
+                    화면에서 안 보이게 하는 속성
+                        display : none
+                        opacity : 요소를 투명해지게만 함. 단위는 0~1
+                        visibility : 기본값 보임, hidden은 완전 투명
+        */
+        #box
+        {
+            border: 1px solid;
+            /* overflow: hidden; */
+            /* font-size: 0; */
+        }
+        img
+        {
+            /* float: left; */
+            /* display: none; */
+            /* opacity: 0; */
+        }
+        #text
+        {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./img/pf.png" alt=""><img src="./img/pf.png" alt=""><img src="./img/pf.png" alt="">
+    </div>
+    <div id="text">dsjglksdfjsd</div>
+</body>
+</html>
