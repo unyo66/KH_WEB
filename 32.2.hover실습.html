@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box
+        {
+            width: 500px;
+            height: 500px;
+        }
+        .pink
+        {
+            width: calc(100% / 2 - 5px * 2);
+            height: calc(100% / 2 - 5px * 2);
+            background-color: pink;
+            position: relative;
+            float: left;
+            border: 5px solid;
+        }
+        .pink:hover .blue
+        {
+            display: none;
+        }
+        .blue
+        {
+            width: 90px;
+            height: 90px;
+            background-color: blue;
+            position: absolute;
+            border: 5px solid red;
+        }
+        .b1{top: 0px; left: 0px;}
+        .b2{top: 0px; right: 0px;}
+        .b3{bottom: 0; left: 0;}
+        .b4{bottom: 0px; right: 0px;}
+    </style>
+</head>
+<body>
+        <div class="box">
+            <div class="pink"><div class="blue b1"></div></div>
+            <div class="pink"><div class="blue b2"></div></div>
+            <div class="pink"><div class="blue b3"></div></div>
+            <div class="pink"><div class="blue b4"></div></div>
+        </div>
+</body>
+</html>
