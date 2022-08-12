@@ -4,6 +4,10 @@ body
     overflow: auto;
     min-width: 1500px;
 }
+body::-webkit-scrollbar-button:hover
+{
+    background-color: red;
+}
 ul
 {
     list-style: none;
