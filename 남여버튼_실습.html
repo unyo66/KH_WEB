@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box
+        {
+            margin-top: 100px;
+            text-align: center;
+        }
+        input[type="radio"]
+        {
+            display: none;
+        }
+        input[type="radio"]:checked + label
+        {
+            font-weight: 400;
+            box-shadow: 0 0 0 1px #aaa;
+        }
+        input[type="radio"]:checked + #label_male
+        {
+            background-color: #8af;
+        }
+        input[type="radio"]:checked + #label_female
+        {
+            background-color: #faa;
+        }
+        input[type="radio"]:hover + label
+        {
+            box-shadow: 0 0 0 1px #666;
+        }
+        label
+        {
+            padding: 20px;
+            border: 1px solid;
+            font-size: 25px;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="radio" name="sex" id="male">
+        <label for="male" id="label_male">남</label>
+        <input type="radio" name="sex" id="female">
+        <label for="female" id="label_female">여</label>
+    </div>
+</body>
+</html>

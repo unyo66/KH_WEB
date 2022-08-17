@@ -1,0 +1,76 @@
+body
+{
+    overflow: scroll;
+}
+#main
+{
+    text-align: center;
+    width: 1150px;
+    margin: 0 auto;
+}
+.title
+{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.content_box
+{
+    height: 500px;
+    margin: 0 auto;
+    padding-top: 100px;
+    border: 1px solid;
+    box-sizing: border-box;
+}
+.inner_table
+{
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+th
+{
+    text-align: left;
+    font-weight: 400;
+}
+td
+{
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+    text-align: left;
+}
+select
+{
+    height: 28px;
+    font-size: 15px;
+}
+input[type="text"]
+{
+    height: 28px;
+    font-size: 15px;
+}
+#select1
+{
+    width: 100%;
+}
+#select2
+{
+    width: 40%;
+    float: left;
+}
+#text2
+{
+    width: calc(60% - 13px);
+    margin-left: 5px;
+    display: block;
+    float: left;
+}
+.text5
+{
+    width: 43%;
+    display: inline-block;
+}
+#submit_button
+{
+    font-size: 16px;
+    padding: 8px 15px;
+}

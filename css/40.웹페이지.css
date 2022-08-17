@@ -1,0 +1,54 @@
+body
+{
+    margin: 0;
+}
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+ul
+{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.content_area
+{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+#header
+{
+    margin-bottom: 50px;
+}
+.logo
+{
+    width: 390px;
+    height: 106px;
+    margin: 0 auto;
+    background: url(../img/ann_house/logo.gif);
+}
+.logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999px;
+}
+.nav
+{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.menu
+{
+    padding: 0 30px;
+    color: #555;
+    display: inline-block;
+}
+.menu:hover
+{
+    color: #ddd;
+}

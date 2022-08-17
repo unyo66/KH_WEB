@@ -1,0 +1,108 @@
+
+#main
+{
+    overflow: hidden;
+}
+.content
+{
+    width: calc((100% - 20px * 2) / 3);
+    height: 600px;
+    margin-right: 20px;
+    /* border: 1px solid; */
+    box-sizing: border-box;
+    float: left;
+}
+.m_r_0
+{
+    margin-right: 0;
+}
+.content_thum_1
+{
+    height: 455px;
+    background: url(../img/ann_house/item1.jpg) no-repeat center / cover;
+}
+.content_thum_2
+{
+    height: 455px;
+    background: url(../img/ann_house/item2.jpg) no-repeat center / cover;
+}
+.content_thum_3
+{
+    height: 455px;
+    background: url(../img/ann_house/item3.jpg) no-repeat center / cover;
+}
+.content_thum_4
+{
+    height: 455px;
+    background: url(../img/ann_house/item4.jpg) no-repeat center / cover;
+}
+.content_thum_5
+{
+    height: 455px;
+    background: url(../img/ann_house/item5.jpg) no-repeat center / cover;
+}
+.content_thum_6
+{
+    height: 455px;
+    background: url(../img/ann_house/item6.jpg) no-repeat center / cover;
+}
+.content_thum_7
+{
+    height: 455px;
+    background: url(../img/ann_house/item7.jpg) no-repeat center / cover;
+}
+.content_thum_8
+{
+    height: 455px;
+    background: url(../img/ann_house/item8.jpg) no-repeat center / cover;
+}
+.content_thum_9
+{
+    height: 455px;
+    background: url(../img/ann_house/item9.jpg) no-repeat center / cover;
+}
+.content_name
+{
+    margin: 20px 0 20px 10px;
+}
+.content_val_ori
+{
+    margin: 10px 0 0 10px;
+    text-decoration: line-through;
+    display: block;
+}
+.content_val_fin
+{
+    margin: 10px 0 0 10px;
+    color: #00a;
+}
+#footer
+{
+    height: 300px;
+    background-color: #fdd;
+}
+.fixed_box
+{
+    display: inline-block;
+    position: fixed;
+    top: 100px;
+    left: 70px;
+}
+.fixed_text
+{
+    font-weight: 100;
+}
+.fixed_text:hover
+{
+    color: #f00;
+    text-shadow: 0 0 1px #555;
+}
+.fixed_icon_search
+{
+    width: 20px;
+    margin-top: 30px;
+    height: 20px;
+    display: inline-block;
+    text-indent: -9999px;
+    background: url(../img/ann_house/icon_search.png) no-repeat left / contain;
+}

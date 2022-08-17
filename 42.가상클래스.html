@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            가상클래스(가상선택자)
+                별도의 클래스를 지정하지 않아도 지정한 것처럼 요소 선택
+
+                1) hover : 마우스 올라갔는지 감지
+                2) checked : 선택자 요소가 체크되었는지 감지(radio, checkbox를 라벨에 묶어서 사용)
+                3) focus : 커서가 깜빡이는지 감지(text, password)
+                4) first-child / last-child : 선택자의 첫번째 / 마지막 자식 (m_r_0 대신해서 사용 가능)
+                **5) nth-child(n) : n번째 요소 중에 선택자와 매칭되는 요소(정수, 짝수(even), 홀수(odd), 계산식(an + b))
+                **6) nth-of_type(n) : 선택자들 중에 n번째 요소
+        */
+
+        .ul
+        {
+            margin: 0;
+            padding: 0;
+            width: 600px;
+            height: 400px;
+            list-style: none;
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+        li
+        {
+            width: calc((100% - 20px * 3) / 4);
+            height: calc((100% - 20px) / 2);
+            background-color: #faa;
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        /* li:nth-child(4n)
+        {
+            margin-right: 0;
+        } */
+        li:nth-of-type(4n)
+        {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ul">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
