@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap
+        {
+            padding-top: 100px;
+            text-align: center;
+        }
+        .box
+        {
+            display: inline-block;
+            padding-left: 20px;
+        }
+        input[type="radio"]
+        {
+            display: none;
+        }
+        label:hover .inner
+        {
+            opacity: 0.3;
+        }
+        label
+        {
+            position: relative;
+            z-index: 100;
+        }
+        .outer
+        {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #f00;
+            border-radius: 30%;
+            display: inline-block;
+
+            position: relative;
+        }
+        .inner
+        {
+            background-color: #f00;
+            border-radius: 30%;
+
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            right: 25%;
+            bottom: 25%;
+            opacity: 0;
+        }
+        input[type="radio"]:checked + label .inner
+        {
+            opacity: 1;
+        }
+        input[type="radio"]:checked + label .text
+        {
+            font-weight: 600;
+        }
+        .bgimg
+        {
+            width: 100vw;
+            height: 250px;
+            line-height: 230px;
+            font-size: 200px;
+            font-weight: 900;
+            color: #fff;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        #recent:checked ~ .bgimg
+        {
+            background-color: #00f;
+            opacity: 0.3;
+        }
+        #popular:checked ~ .bgimg
+        {
+            background-color: #f00;
+            opacity: 0.3;
+        }
+        .text
+        {
+            display: inline-block;
+            font-size: 30px;
+            vertical-align: 12%;
+            text-shadow: 0 0 30px #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box">
+            <input type="radio" name="rd" id="recent">
+            <label for="recent" id="label_recent">
+                <div class="outer">
+                    <div class="inner"></div>
+                </div>
+                <div class="text">최근만화</div>
+            </label>
+            <div class="bgimg">NEW</div>
+        </div>
+
+        <div class="box">
+            <input type="radio" name="rd" id="popular">
+            <label for="popular" id="label_popular">
+                <div class="outer">
+                    <div class="inner"></div>
+                </div>
+                <div class="text">인기만화</div>
+            </label>
+            <div class="bgimg">HOT</div>
+        </div>
+    </div>
+</body>
+</html>

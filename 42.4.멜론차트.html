@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul
+        {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li
+        {
+            margin: 0;
+            padding: 0;
+        }
+        input
+        {
+            display: none;
+        }
+        .wrap
+        {
+            position: relative;
+        }
+        .box
+        {
+            width: 500px;
+            height: 600px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 50px;
+            left: calc(50% - 250px);
+        }
+        .btn_box
+        {
+            width: calc((100% - 1px * 2) / 3);
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            font-weight: 600;
+            border-right: 1px solid #fff;
+            background-color: #ded;
+            position: relative;
+        }
+        .btn_box:last-of-type
+        {
+            border-right: 0;
+        }
+        .btn_box:hover
+        {
+            cursor: pointer;
+        }
+        .btn_box:hover
+        {
+            text-shadow: 0 0 2px rgb(158, 226, 102);
+            font-weight: 900;
+        }
+        .checked_menu
+        {
+            width: 100%;
+            height: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgb(158, 226, 102);
+            display: none;
+        }
+        input:checked + .btn_box > .checked_menu
+        {
+            display: initial;
+        }
+        .chart_box
+        {
+            width: 100%;
+            height: calc(100% - 50px);
+            border-top: 1px solid #fff;
+            position: absolute;
+            bottom: 0;
+        }
+        .chart
+        {
+            display: none;
+        }
+        #rd1:checked ~ .chart_box .chart1
+        {
+            display: initial;
+        }
+        #rd2:checked ~ .chart_box .chart2
+        {
+            display: initial;
+        }
+        #rd3:checked ~ .chart_box .chart3
+        {
+            display: initial;
+        }
+        .chart_content
+        {
+            width: 100%;
+            height: calc(100% / 10);
+            line-height: 50px;
+            background-color: #ded;
+            text-align: center;
+            font-weight: 900;
+            position: relative;
+        }
+        #rd1:checked ~ .chart_box .chart_content:nth-of-type(2n)
+        {
+            background-color: #bcb;
+        }
+        #rd2:checked ~ .chart_box .chart_content:nth-of-type(2n-1)
+        {
+            background-color: #bcb;
+        }
+        #rd3:checked ~ .chart_box .chart_content:nth-of-type(2n)
+        {
+            background-color: #bcb;
+        }
+        .chart_content:hover
+        {
+            width: calc(100% - 30px);
+            height: 100px;
+            cursor: pointer;
+            line-height: 100px;
+            font-size: 0;
+            background: url(./img/still_woozy.jpg) no-repeat left / contain;
+            margin-left: 30px;
+        }
+        .content_detail
+        {
+            text-align: left;
+            line-height: 0px;
+            padding-top: 40px;
+            background-color: #fff;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 16px;
+            display: none;
+        }
+        .details
+        {
+            height: calc(25px);
+        }
+        .chart_content:hover > .content_detail
+        {
+            display: initial;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <input type="radio" name="rd" id="rd1" checked>
+            <label class="btn_box" for="rd1">
+                <div class="checked_menu"></div>
+                가수명
+            </label>
+            <input type="radio" name="rd" id="rd2">
+            <label class="btn_box" for="rd2">
+                <div class="checked_menu"></div>
+                앨범명
+            </label>
+            <input type="radio" name="rd" id="rd3">
+            <label class="btn_box" for="rd3">
+                <div class="checked_menu"></div>
+                곡명
+            </label>
+            <div class="chart_box">
+                <ul class="chart chart1">
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                    <li class="chart_content">Still Woozy - Windows
+                        <div class="content_detail">
+                            <div class="details" style="font-size: 21px">Still Woozy</div>
+                            <div class="details">Windows</div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="chart chart2">
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                </ul>
+                <ul class="chart chart3">
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

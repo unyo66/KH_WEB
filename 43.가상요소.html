@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            가상요소(inline) : body에 실존하지 않지만 있는것처럼 페이크 주기
+            
+
+            1) before
+            2) after
+            content: ""; 는 필수!
+        */
+        
+        p::before
+        {
+            content: "";
+
+            width: 13px;
+            height: 13px;
+            background-color: #f00;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        p::after
+        {
+            content: " 역삼점";
+        }
+    </style>
+</head>
+<body>
+    <p>KH정보교육원</p>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="radio"]
+        {
+            display: none;
+        }
+        .box
+        {
+            width: 100px;
+            display: inline-block;
+        }
+        .inner
+        {
+            width: 100px;
+            height: 100px;
+            background-color: #faa;
+            display: inline-block;
+        }
+        input[type="radio"]:checked + label > .inner
+        {
+            background-color: #aaf;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="radio" name="rd" id="rd1">
+        <label for="rd1">메뉴1
+            <div class="inner"></div>
+        </label>
+    </div>
+    <div class="box">
+        <input type="radio" name="rd" id="rd2">
+        <label for="rd2">메뉴2
+            <div class="inner"></div>
+        </label>
+    </div>
+    <div class="box">
+        <input type="radio" name="rd" id="rd3">
+        <label for="rd3">메뉴3
+            <div class="inner"></div>
+        </label>
+    </div>
+    <div class="box">
+        <input type="radio" name="rd" id="rd4">
+        <label for="rd4">메뉴4
+            <div class="inner"></div>
+        </label>
+    </div>
+</body>
+</html>

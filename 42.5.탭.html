@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="radio"]
+        {
+            display: none;
+        }
+        .box
+        {
+            width: 300px;
+            height: 350px;
+            border: 2px solid;
+            box-sizing: border-box;
+            /* position: relative; */
+            background-color: #faa;
+        }
+        label
+        {
+            width: calc((100% - 2px * 3) / 4);
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            font-weight: 600;
+            border-bottom: 2px solid;
+            border-right: 2px solid;
+            background-color: #fff;
+        }
+        label:last-child
+        {
+            border-right: 0;
+        }
+        .innerbox
+        {
+            width: calc(100% - 2px * 2);
+            height: calc(100% - 2px * 2);
+            /* background-color: #faa; */
+            position: absolute;
+            bottom: 0;
+        }
+        #rd1:checked ~ .box
+        {
+            background-color: #f00;
+            transition: all 0.55s;
+        }
+        #rd2:checked ~ .box
+        {
+            background-color: #090;
+            transition: all 0.55s;
+        }
+        #rd3:checked ~ .box
+        {
+            background-color: #00f;
+            transition: all 0.55s;
+        }
+        #rd4:checked ~ .box
+        {
+            background-color: #777;
+            transition: all 0.55s;
+        }
+        label:hover
+        {
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+            <input type="radio" name="rd" id="rd1">
+            <input type="radio" name="rd" id="rd2">
+            <input type="radio" name="rd" id="rd3">
+            <input type="radio" name="rd" id="rd4">
+        <div class="box">
+            <label for="rd1">빨</label>
+            <label for="rd2">초</label>
+            <label for="rd3">파</label>
+            <label for="rd4">회</label>
+        </div>
+    </div>
+</body>
+</html>
