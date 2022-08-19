@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            주의! - 저작권 : 윤~ HY~ 사용x
+                 - 한글
+
+            내 폰트 : 자체 서버에 업로드해놓은 폰트
+                    유저 기기에 폰트 설치 여부와 관계없이 서버에서 폰트 파일을 임시 다운로드 사용
+            
+            @font-face : 내가 사용할 웹폰트명 지정, 해당 웹폰트 파일 연결
+
+            확장자 : eot(익스 구버전), ttf(크롬, 사파리, 엣지), woff(거의 대부분 브라우저)
+        */
+
+        @font-face
+        {
+            font-family: 'trana';
+            src: local('fonts/trana'),/*local : 혹시라도 로컬에 있으면 가져다 쓸 것*/
+                url('./fonts/trana.eot') format('embeded-opentype'),
+                url('./fonts/trana.ttf') format('truetype'),
+                url('./fonts/trana.woff') format('woff');
+                /* format : 세 파일 중 해당 브라우저용 포맷만 다운로드 */
+        }
+        .p1
+        {
+            margin: 20px auto;
+            font-family: 'trana';
+            font-size: 100px;
+        }
+        .p1:hover
+        {
+            font-size: 150px;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <p class="p1">Hello World</p>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            transform - 요소의 위치, 크기, 각도, 모양을 임시로 바꿈
+                        자기 자신 대비로 변함
+
+                    위치관련 - translate : px, %
+                        translateX
+                        translateY
+                        translateZ
+                        translate(x, y)
+                        translate3d
+
+                    크기 - scale(몇배)
+                        scaleX
+                        scaleY
+                        scale(몇배)
+                        scale(x, y)
+
+                    각도 - rotate(~deg)
+                        rotateX
+                        rotateY
+                        rotateZ : 수직선을 기준으로 돌기 때문에 2d 회전
+        */
+        #wrap
+        {
+            background-color: #ccc;
+            position: relative;
+        }
+        .box
+        {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+        }
+        .red
+        {
+            background-color: #f00;
+            z-index: 10;       
+        }
+        .red:hover
+        {
+            /* transform: translateY(100px); */
+            transform: rotateZ(90deg);
+            opacity: 0;
+            transition: all 1s;
+        }
+        .green
+        {
+            background-color: #080;
+            opacity: 0;
+        }
+        .red:hover + .green
+        {
+            opacity: 1;
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box red"></div>
+        <div class="box green"></div>
+    </div>
+</body>
+</html>

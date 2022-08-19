@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;400;700&display=swap" rel="stylesheet">
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet"> -->
+    <style>
+        /* 
+            주의! - 저작권 : 윤~ HY~ 사용x
+                    - 한글
+
+            웹폰트 : 내 서버에 없지만 사용자 접속 시 다른 서버에 있는 폰트 끌어다 씀(CDN 방식)
+
+                장점 : 선택의 폭이 넓음
+                단점 : 속도가 느리다, 가져오는 사이트에 문제 생기면 내 사이트도 영향받음
+                    FOUT : 웹폰트가 로드될 때까지 기본 폰트로 있다가 로드 완료되면서 깜빡이는 현상
+                    FOIT : 웹폰트가 로드될 때까지 안 보여주다가 다 로드되면 그때 로드되는 현상
+
+                종류 : 네이버 나눔폰트, 구글폰트, 눈누(한글)
+        */
+        @font-face 
+        {
+        font-family: 'CBNUJIKJI';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/CBNUJIKJI.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+        @font-face
+        {
+            font-family: 'LongCang';
+            src: url('fonts/Long_Cang/LongCang-Regular.ttf') format('truetype');
+        }
+        p
+        {
+            font-size: 40px;
+        }
+        .p1
+        {
+            font-family: 'Hahmlet', serif;
+            font-weight: 700;
+        }
+        .p2
+        {
+            font-family: 'CBNUJIKJI';
+        }
+        .P3
+        {
+            font-family:'LongCang';
+        }
+    </style>
+</head>
+<body>
+    <p class="p1">전능하신 아카라트여 영원한 빛으로 날 보호하소서</p>
+    <p class="p2">전능하신 아카라트여 영원한 빛으로 날 보호하소서</p>
+    <p class="p3">床前明月光 疑是地上霜 举头望明月 低头思故乡</p>
+    <p class="p3">鉴于对人类家庭所有成员的固有</p>
+</body>
+</html>
