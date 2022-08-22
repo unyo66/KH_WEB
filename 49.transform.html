@@ -27,6 +27,8 @@
                         rotateX
                         rotateY
                         rotateZ : 수직선을 기준으로 돌기 때문에 2d 회전
+
+                    기준점 바꾸기 - transform-origin : 사방값
         */
         #wrap
         {
@@ -49,7 +51,8 @@
         .red:hover
         {
             /* transform: translateY(100px); */
-            transform: rotateZ(90deg);
+            transform: translateX(300px) rotateZ(900deg);
+            transform-origin: top left;
             opacity: 0;
             transition: all 1s;
         }
@@ -63,12 +66,64 @@
             opacity: 1;
             transition: all 1s;
         }
+        .door1
+        {
+            top: 200px;
+            left: 200px;
+            transition: 1s;
+        }
+        .door2
+        {
+            top: 200px;
+            left: 300px;
+            transition: 1s;
+        }
+        .outer
+        {
+            width: 50px;
+            height: 100px;
+            background-color: #fff;
+            float: left;
+        }
+        .inner
+        {
+            width: 50px;
+            height: 100px;
+            background-color: #000;
+            float: left;
+        }
+        .button
+        {
+            position:absolute;
+            top: 30px;
+            left: 500px;
+        }
+        .button:checked ~ .door1
+        {
+            transform: perspective(400px) rotateY(-90deg);
+            transition: all 1s;
+        }
+        .button:checked ~ .door2
+        {
+            transform: perspective(400px) rotateY(90deg);
+            transition: all 1s;
+        }
+
     </style>
 </head>
 <body>
     <div id="wrap">
         <div class="box red"></div>
         <div class="box green"></div>
+        <input type="checkbox" class="button"></input>
+        <div class="box door1">
+            <div class="outer"></div>
+            <div class="inner"></div>
+        </div>
+        <div class="box door2">
+            <div class="inner"></div>
+            <div class="outer"></div>
+        </div>
     </div>
 </body>
 </html>

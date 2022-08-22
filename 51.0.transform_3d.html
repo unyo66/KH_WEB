@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            perspective : 원근감, 해당 요소와 "자식"에게만 상속
+                            자식 아래 자손에게도 주고 싶다면 transform-style: preserve-3d;
+
+                사용법
+                    1) 부모에게 주는 방법 - perspective : 속성값; <- 보통 사용!                                        
+                    2) 적용할 요소에 직접 주기 - perspective(~px)
+
+                단위 : 1 이상의 px : 나와의 거리(숫자가 작을수록 크게 변형)
+        */
+        .box
+        {
+            margin: 50px auto;
+            perspective: 6000px;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: #888;
+        }
+        .inner
+        {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-style: preserve-3d;
+            transform: translateZ(-300px);
+        }
+        .inner0
+        {
+            background-color: red;
+            transform: translateZ(50px);
+        }
+        .inner1
+        {
+            background-color: orange;
+            transform: translateZ(50px);
+        }
+        .inner2
+        {
+            background-color: yellow;
+            transform: translateZ(50px);
+        }
+        .inner3
+        {
+            background-color: green;
+            transform: translateZ(50px);
+        }
+        .inner4
+        {
+            background-color: blue;
+            transform: translateZ(50px);
+        }
+        .inner5
+        {
+            background-color: navy;
+            transform: translateZ(50px);
+        }
+        .inner6
+        {
+            background-color: #888;
+            transform: translateZ(50px);
+        }
+        .box:hover .inner0
+        {
+            transform: rotateY(80deg) translateZ(-150px);
+            transition: all 0.5s;
+        }
+        .box:hover .inner6
+        {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner inner0">
+            <div class="inner inner1">
+                <div class="inner inner2">
+                    <div class="inner inner3">
+                        <div class="inner inner4">
+                            <div class="inner inner5">
+                                <div class="inner inner6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

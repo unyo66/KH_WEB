@@ -1,0 +1,104 @@
+body
+{
+    height: 3000px;
+}
+.banner_box
+{
+    width: 100%;
+    height: 60vw;
+    max-height: 650px;
+    position: relative;
+}
+.banner_color1
+{
+    width: 58%;
+    height: 100%;
+    background-color: #c2d52f;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.banner_color2
+{
+    width: 42%;
+    height: 100%;
+    background-color: #87c9e2;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.inner
+{
+    width: 25%;
+    display: inline-block;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s;
+}
+img
+{
+    width: calc(50% + 80px)
+}
+.slogan
+{
+    top: 30%;
+    left: 10%;
+}
+.drink1
+{
+    top: 10%;
+    left: 35%;
+}
+.drink2
+{
+    top: 20%;
+    left: 50%;
+}
+.drink3
+{
+    top: 10%;
+    left: 70%;
+}
+.detail
+{
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 80%;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
+    bottom: -60px;
+    left: calc(30% - 50px);
+}
+.banner_box:hover .slogan
+{
+    opacity: 1;
+    transition-duration: 0.8s;
+}
+.banner_box:hover .drink2
+{
+    opacity: 1;
+    transition-duration: 0.8s;
+    transition-delay: 0.5s;
+}
+.banner_box:hover .drink1
+{
+    opacity: 1;
+    transition-duration: 0.8s;
+    transition-delay: 1s;
+}
+.banner_box:hover .drink3
+{
+    opacity: 1;
+    transition-duration: 0.8s;
+    transition-delay: 1.5s;
+}
+.banner_box:hover .detail
+{
+    opacity: 1;
+    transition-duration: 0.8s;
+    transition-delay: 2s;
+}
