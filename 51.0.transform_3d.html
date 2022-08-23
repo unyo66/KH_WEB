@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>transition_3d</title>
     <style>
         /* 
             perspective : 원근감, 해당 요소와 "자식"에게만 상속
@@ -19,7 +19,7 @@
         .box
         {
             margin: 50px auto;
-            perspective: 6000px;
+            perspective: 30000px;
             width: 100px;
             height: 100px;
             position: relative;
@@ -34,6 +34,7 @@
             left: 0;
             transform-style: preserve-3d;
             transform: translateZ(-300px);
+            transition: all 0.5s ease-in;
         }
         .inner0
         {
@@ -72,7 +73,7 @@
         }
         .box:hover .inner0
         {
-            transform: rotateY(80deg) translateZ(-150px);
+            transform: rotateY(70deg) translateZ(-150px);
             transition: all 0.5s;
         }
         .box:hover .inner6

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .outer_box
+        {
+            width: 640px;
+            height: 425px;
+            color: #eee;
+            text-shadow: 0 0 2px #fff;
+            overflow: hidden;
+            border: 1px solid #000;
+            background-color: #000;
+            position: relative;
+        }
+        .photo
+        {
+            width: calc(100% + 50px);
+            height: 100%;
+            background: url(./img/트랜지션/coffee.jpg) no-repeat center / cover;
+            transform: translateX(-50px);
+            transition: all 0.5s;
+            opacity: 0.6;
+        }
+        .inner_box
+        {
+            border: 1px solid transparent;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            padding: 150px 30px;
+            transition: all 0.5s cubic-bezier(0,2.03,.47,-1.37);
+
+        }
+        .title
+        {
+            font-size: 40px;
+        }
+        .article
+        {
+            opacity: 0;
+            transform: translateX(-10%);
+            transition: transform 0.5s, opacity 0.3s;
+            background-color: rgba(255, 50, 50, 0.5);
+        }
+        .outer_box:hover .photo
+        {
+            transform: translateX(0);
+        }
+        .outer_box:hover .article
+        {
+            transform: translateX(0);
+            transition: transform 0.5s, opacity 0.7s;
+            opacity: 1;
+        }
+        .outer_box:hover .inner_box
+        {
+            border: 1px solid #fff;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer_box">
+        <div class="photo"></div>
+        <div class="inner_box">
+            <div class="title">Jonh&Matt Coffee</div>
+            <div class="article">Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! Coffee가 Jonh Matt! </div>
+        </div>
+    </div>
+</body>
+</html>
