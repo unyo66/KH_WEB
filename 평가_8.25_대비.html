@@ -54,7 +54,7 @@
             width: 100%;
         }
         .btn_go {
-            width: 100px;
+            /* width: 100px; */
         }
         .btn_go > input {
             width: 100%;
@@ -73,7 +73,6 @@
 <body>
 <div id="wrap">
     <form action="insert.no" method="post">
-        <!-- fieldset내부 테이블로 작성해보기-->
         <fieldset>
             <legend>공지사항 작성하기</legend>
     
@@ -88,7 +87,7 @@
                     <div class="n_title">내용</div>
                     <div class="n_body">
                         <textarea name="content" placeholder="내용을 입력하시오"></textarea>
-                        
+                         
                     </div>
                 </div>
                 
@@ -96,7 +95,7 @@
                     <div class="n_title">첨부파일</div>
                     <div class="n_body">
                         <input type="file" name="uploadFile">
-                        
+                         
                     </div>
                 </div>
 
@@ -111,6 +110,14 @@
     <hr>
 
     <table class="board" border="1">
+        <colgroup>
+            <col style="width: 50px;">
+            <col style="width: 350px;">
+            <col style="width: 100px;">
+            <col style="width: 100px;">
+            <col style="width: 100px;">
+            <col style="width: 100px;">
+        </colgroup>
         <tbody>
             <tr class="first_tr">
                 <th>번호</th>
