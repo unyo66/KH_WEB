@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        body
+        {
+            background-color: #ddd;
+            font-size: 15px;
+        }
+        .box
+        {
+            width: 750px;
+            margin: 40px auto;
+        }
+        input
+        {
+            display: none;
+        }
+        .label_box
+        {
+            width: 480px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 0;
+            text-align: center;
+        }
+        label
+        {
+            width: calc(100% / 4);
+            height: 100%;
+            color: #144;
+            font-size: 15px;
+            font-weight: 600;
+            text-shadow: 1px 0 0 rgba(255, 255, 255, 0.3);
+            display: inline-block;
+            background: linear-gradient(to bottom, #5ba4a4, #4e8c8a);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 2px 0 2px 0 rgba(0, 0, 0, 0.1), -2px 0 2px 0 rgba(0, 0, 0, 0.1);
+        }
+        label:hover
+        {
+            cursor: pointer;
+            background: linear-gradient(to bottom, #63abab, #559491);
+        }
+        #rd1:checked ~ .label_box .l1,
+        #rd2:checked ~ .label_box .l2,
+        #rd3:checked ~ .label_box .l3,
+        #rd4:checked ~ .label_box .l4
+        {
+            background: #fff;
+        }
+        .article_box
+        {
+            width: 100%;
+            height: 300px;
+            background-color: #fff;
+            position: relative;
+            box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1), -2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+        }
+        .article
+        {
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 40px;
+            right: 40px;
+            opacity: 0;
+            pointer-events: none;
+        }
+        #rd1:checked ~ .article_box .a1,
+        #rd2:checked ~ .article_box .a2,
+        #rd3:checked ~ .article_box .a3,
+        #rd4:checked ~ .article_box .a4
+        {
+            opacity: 1;
+            transition: all 0.3s;
+            transition-delay: 0.1s;
+            pointer-events: auto;
+        }
+        .title1
+        {
+            font-weight: 600;
+            color: #255;
+        }
+        .title2
+        {
+            font-weight: 600;
+            font-size: 14px;
+            color: #255;
+        }
+        .para
+        {
+            border-left: 5px solid #4e8c8a;
+            padding-left: 10px;
+            font-size: 14px;
+            font-style: italic;
+            color: #899;
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <input type="radio" name="rd" id="rd1" checked>
+        <input type="radio" name="rd" id="rd2">
+        <input type="radio" name="rd" id="rd3">
+        <input type="radio" name="rd" id="rd4">
+        <div class="label_box">
+            <label for="rd1" class="l1">
+                ABOUT
+            </label>
+            <label for="rd2" class="l2">
+                SERVICES
+            </label>
+            <label for="rd3" class="l3">
+                WORK
+            </label>
+            <label for="rd4" class="l4">
+                CONTACT
+            </label>
+        </div>
+        <div class="article_box">
+            <div class="article a1">
+                <div class="title1">Contact</div>
+                <div class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dicta sunt est architecto animi voluptatem obcaecati ex eos, vel in iusto quae? Ut delectus aut in dolor voluptatem, repellendus numquam.</div>
+                <div class="title2">How we work</div>
+                <div class="para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui necessitatibus enim aliquam laudantium corrupti. Voluptatibus, repellendus officia. Architecto voluptates corrupti ad, deleniti dignissimos ea, veritatis corporis nulla, error incidunt esse.</div>
+            </div>
+            <div class="article a2">
+                <div class="title1">Contact</div>
+                <div class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dicta sunt est architecto animi voluptatem obcaecati ex eos, vel in iusto quae? Ut delectus aut in dolor voluptatem, repellendus numquam.</div>
+                <div class="title2">How we work</div>
+                <div class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, ad expedita. Quia dignissimos placeat corporis, facilis libero harum incidunt eligendi id in rem, corrupti quidem? Cumque quia aliquam perferendis esse.</div>
+            </div>
+            <div class="article a3">
+                <div class="title1">Contact</div>
+                <div class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dicta sunt est architecto animi voluptatem obcaecati ex eos, vel in iusto quae? Ut delectus aut in dolor voluptatem, repellendus numquam.</div>
+                <div class="title2">How we work</div>
+                <div class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis placeat animi quod eligendi. Pariatur ipsa, architecto praesentium eos, maxime veniam necessitatibus iusto adipisci vero molestiae, laudantium esse cum delectus numquam!</div>
+            </div>
+            <div class="article a4">
+                <div class="title1">Contact</div>
+                <div class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dicta sunt est architecto animi voluptatem obcaecati ex eos, vel in iusto quae? Ut delectus aut in dolor voluptatem, repellendus numquam.</div>
+                <div class="title2">How we work</div>
+                <div class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint nobis, velit vitae aperiam alias quidem ullam excepturi earum architecto facilis, aliquid similique et libero vel illo nostrum beatae mollitia dolorem?</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
