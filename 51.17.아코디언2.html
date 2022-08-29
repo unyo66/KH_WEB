@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        body
+        {
+            background-color: #faa;
+        }
+        .wrap
+        {
+            height: 177px;
+            background-color: #3d4642;
+            margin-top: 200px;
+            overflow: hidden;
+            text-align: center;
+        }
+        ul
+        {
+            height: 100%;
+            /* margin: 0 auto; */
+            background-color: #00f;
+            transition: all 0.5s;
+            display: inline-block;
+        }
+        li
+        {
+            width: 72px;
+            height: 177px;
+            float: left;
+            background-color: hotpink;
+            border: 1px solid;
+            box-sizing: border-box;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+
+        }
+        li:hover
+        {
+            width: 300px;
+        }
+        .img
+        {
+            background-color: red;
+            width: 72px;
+            height: 177px;
+            display: block;
+            transition: all 0.5s;
+            text-indent: -9999px;
+        }
+        li:nth-child(1) > a.img{background: url(./img/아코디언/behance_btn.gif);}
+        li:nth-child(2) > a.img{background: url(./img/아코디언/facebook_btn.gif);}
+        li:nth-child(3) > a.img{background: url(./img/아코디언/flickr_btn.gif);}
+        li:nth-child(4) > a.img{background: url(./img/아코디언/linkedin_btn.gif);}
+        li:nth-child(5) > a.img{background: url(./img/아코디언/twitter_btn.gif);}
+        
+        li:hover > a.img
+        {
+            background-position: right;
+        }
+
+        .desc
+        {
+            width: 188px;
+            height: 100%;
+            position: absolute;
+            padding: 20px;
+            top: 0;
+            left: 72px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li class="box">
+                <a href="https://www.behance.net/" class="img i_1">behance</a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+            <li class="box">
+                <a href="https://facebook.com" class="img i_2">facebook</a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+            <li class="box">
+                <a href="https://flickr.com" class="img i_3">flicker</a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+            <li class="box">
+                <a href="https://linkedin.com" class="img i_4">linkedin</a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+            <li class="box">
+                <a href="https://twitter.com" class="img i_5">twitter</a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .wrap
+        {
+            width: 400px;
+            margin: 50px auto 0;
+        }
+        .bar
+        {
+            height: 30px;
+            line-height: 30px;
+            padding: 5px 20px;
+            font-size: 20px;
+            color: #777;
+            background: linear-gradient(#fff, #eaeaea);
+            box-shadow: 0 0 0 1px rgba(155, 155, 155, 0.3);
+        }
+        .content_box
+        {
+            height: 0;
+            font-size: 14px;
+            padding: 0 20px;
+            color: #777;
+            font-style: italic;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+        .bar:hover
+        {
+            background: linear-gradient(#eee, #dadada);
+            cursor: pointer;
+        }
+        input
+        {
+            display: none;
+        }
+        input:checked + label > .bar
+        {
+            background: #c6e1ec;
+        }
+        input:checked ~ .b_1
+        {
+            height: 55px;
+            padding: 20px;
+        }
+        input:checked ~ .b_2
+        {
+            height: 140px;
+            padding: 20px;
+        }
+        input:checked ~ .b_3
+        {
+            height: 20px;
+            padding: 20px;
+        }
+        input:checked ~ .b_4
+        {
+            height: 60px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <input type="radio" name="rd" id="rd1">
+            <label for="rd1"><div class="bar">About us</div></label>
+            <div class="content_box b_1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas expedita aut, laboriosam dignissimos animi minus molestiae mollitia rerum repellendus soluta!</div>
+        </div>
+
+        <div class="box">
+            <input type="radio" name="rd" id="rd2">
+            <label for="rd2"><div class="bar">How we work</div></label>
+            <div class="content_box b_2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum fugit nobis eius accusantium! Explicabo aut, laborum illum odit aspernatur ut accusantium. Aliquid voluptatibus error doloremque accusantium labore voluptate esse dolore nostrum quod iure ipsum quo mollitia, maxime alias qui nam quam! Modi, reiciendis quia? Incidunt maiores, porro provident autem voluptatem ratione totam accusamus eveniet, ut dolorum et, perferendis quidem voluptate?</div>
+        </div>
+
+        <div class="box">
+            <input type="radio" name="rd" id="rd3">
+            <label for="rd3"><div class="bar">Reference</div></label>
+            <div class="content_box b_3">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+        </div>
+
+        <div class="box">
+            <input type="radio" name="rd" id="rd4">
+            <label for="rd4"><div class="bar">Contact us</div></label>
+            <div class="content_box b_4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas expedita aut, laboriosam dignissimos animi minus molestiae mollitia rerum repellendus soluta!</div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        body
+        {
+            background-color: #faa;
+        }
+        .title
+        {
+            margin: 150px 0 0;
+            font-weight: 600;
+            color: #fff;
+            font-size: 80px;
+            text-align: center;
+        }
+        .wrap
+        {
+            height: 177px;
+            background-color: #888;
+            position: relative;
+        }
+        .outer
+        {
+            width: 360px;
+            height: 100%;
+            position: relative;
+            margin: 0 auto;
+            transition: all 0.5s;
+        }
+        .outer:hover
+        {
+            width: 588px;
+        }
+        .box
+        {
+            width: 72px;
+            height: 100%;
+            margin: 0;
+            border: 1px solid;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s;
+            float: left;
+        }
+        .img
+        {
+            width: 144px;
+            height: 100%;
+            transition: all 0.5s;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .i_1
+        {
+            background: url(./img/아코디언/behance_btn.gif) no-repeat;
+        }
+        .i_2
+        {
+            background: url(./img/아코디언/facebook_btn.gif) no-repeat;
+        }
+        .i_3
+        {
+            background: url(./img/아코디언/flickr_btn.gif) no-repeat;
+        }
+        .i_4
+        {
+            background: url(./img/아코디언/linkedin_btn.gif) no-repeat;
+        }
+        .i_5
+        {
+            background: url(./img/아코디언/twitter_btn.gif) no-repeat;
+        }
+        .box:hover .img
+        {
+            left: -72px;
+        }
+        .box:hover
+        {
+            width: 300px;
+        }
+        .desc
+        {
+            width: 188px;
+            height: 100%;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            left: 72px;
+            background-color: #333;
+            color: #fff;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <p class="title">CSS3 슬라이드 아코디언</p>
+    <div class="wrap">
+        <ul class="outer">
+            <li class="box">
+                <a href="https://www.behance.net/" class="img i_1"></a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+            <li class="box">
+                <a href="https://facebook.com" class="img i_2"></a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+            <li class="box">
+                <a href="https://flickr.com" class="img i_3"></a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+            <li class="box">
+                <a href="https://linkedin.com" class="img i_4"></a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+            <li class="box">
+                <a href="https://twitter.com" class="img i_5"></a>
+                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, inventore.</div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
