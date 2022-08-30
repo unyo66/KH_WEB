@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .wrap
+        {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        .box
+        {
+
+        }
+        .bg_intro
+        {
+            width: 100%;
+            height: 500px;
+
+            background-color: aqua;
+        }
+        .gradient
+        {
+            background: linear-gradient(-45deg, aqua, orange, skyblue);
+            background-size: 500%;
+
+            animation: grad 10s linear infinite;
+        }
+        @keyframes grad
+        {
+            0%{background-position: 0% 50%;}
+            50%{background-position: 100% 50%;}
+            100%{background-position: 0% 50%;}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="bg_intro gradient">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

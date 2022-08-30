@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .box
+        {
+            width: 100%;
+            height: 687px;
+            position: relative;
+            overflow: hidden;
+        }
+        .small
+        {
+            width: 260px;
+            height: 270px;
+            background: url(./img/main-cont-s3_i2.png) center / cover;
+            position: absolute;
+            top: 500px;
+            left: 39%;
+            opacity: 0;
+
+            animation-name: small;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes small
+        {
+            0%{transform: translateX(0) rotateZ(0); opacity: 1;}
+            100%{transform: translateX(-150px) rotateZ(-10deg); opacity: 1;}
+        }
+        .big
+        {
+            width: 480px;
+            height: 680px;
+            background: url(./img/main-cont-s3_i3.png) center / cover;
+            position: absolute;
+            top: 100px;
+            left: 30%;
+
+            animation: big 1s 1;
+        }
+        @keyframes big
+        {
+            0%{transform: translateY(100%);}
+            60%{transform: translateY(-10%);}
+            80%{transform: translateY(10%);}
+            100%{transform: translateY(0%);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="small"></div>
+        <div class="big"></div>
+    </div>
+</body>
+</html>

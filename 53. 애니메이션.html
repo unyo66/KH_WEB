@@ -5,27 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/common.css">
     <style>
-        .box
-        {
+    /*
+        애니메이션: 특정 조건동안 혼자 알아서 동작함
+                   (트랜스폼, 트랜지션을 이용한 움직임과는 다름.)
+
+        @keyframes: 애니메이션이 시간대에 맞춰 바뀌는 지점을 설정
+                    프레임 개수가 많을수록 부드러운 움직임 가능
+                    *keyframes가 없으면 애니메이션 동작 안함
+                    재사용 가능
+
+    
+        - 사용법 - 
+        @keyframes 이름 {
+            0% {}
+            ....
+            100%{}
+        --------------------------------------------
+            from {}
+            50% {}    
+            to {}
+        }                    
+
+        - 애니메이션 속성 - 
+            1) animation-name: keyframes 로 지정해 놓은 애니메이션을 불러온다
+            2) animation-duration: 동작시킬 시간
+            3) animation-timing-function: 속도;
+                                        linear, ease, ease-in,ease-out,ease-in-out
+            4) animation-delay: 딜레이
+                                최초에 딱 한번 동작하는 딜레이
+            5) animation-iteration-count: 반복횟수;
+                                        단위 - 정수 / infinite
+            6) animation-direction: 애니메이션 방향성 지정;
+                                    normal: 기본값
+                                    alternate: 돌아오는것 까지
+            7) animation-fill-mode: 애니메이션 끝나는 지점 설정;
+                                    100% 에서 멈출건지 아님 기본으로 돌아올게 할건지 결정
+                                    none, forwards
+    */
+        .box {
             width: 300px;
             height: 300px;
-            background: linear-gradient(#f00, #00f);
+            background: red;
+
+            /* animation: rotate 3s infinite linear; */
 
             animation-name: rotate;
             animation-duration: 1s;
             animation-timing-function: linear;
-            /* animation-delay: 3; */
+            animation-delay: 3s;
             animation-iteration-count: 3;
-            animation-direction: alternate;
-            animation-fill-mode: forwards;
+            animation-direction: ;
+            animation-fill-mode: ;
         }
-        @keyframes rotate
-        {
+        @keyframes rotate {
             0% { transform: rotate(0deg);}
-            /* 80% {transform: rotate(360deg);} */
-            100% { transform: rotate(180deg);}
+            100% { transform: rotate(360deg);}
+
+            /* from { transform: rotate(0deg);}
+            50% {}
+            to { transform: rotate(360deg);} */
         }
     </style>
 </head>

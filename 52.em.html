@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*
+        단위 - px: 기본(모든 단위가 px로 변환되서 적용)
+               %: 부모대비 크기(px)
+               
+               vw: 화면 가로 대비 크기(px)
+               vh: 화면 세로 대비 크기(px)
+
+              em: (폰트기준)부모대비 몇배
+              rem: (폰트기준)루트(최고조상-html)의 몇배
+    */  
+        body { margin: 0;}
+        .outer {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+        
+        .inner1 {
+            width: 2em;
+            height: 2em;
+            background-color: red;
+        }
+        .inner2 {
+            width: 3em;
+            height: 1em;
+            background-color: blue;
+        }
+        .inner3 {
+            width: 1em;
+            height: 5em;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner inner1"></div>
+        <div class="inner inner2"></div>
+        <div class="inner inner3"></div>
+    </div>
+</body>
+</html>
