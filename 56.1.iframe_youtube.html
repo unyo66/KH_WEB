@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        /* 
+            유튜브에서 영상 부분만 가져오기
+            1) 공유 - iframe부분 복사해오기
+            2) 필요없는 부분 삭제(title, frameborder, allow)
+        */
+        .container
+        {
+            width: 50%;
+        }
+        .box
+        {
+            width: 100%;
+            padding-bottom: 56.25%;
+            /* height: 56.25vw; 결과 같음 */
+            position: relative;
+        }
+        iframe
+        {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/srN5UchM26A" allowfullscreen></iframe>
+            <!-- 유튜브 속성
+                    사용법 : url(src) 부분에 get 방식으로 적용(~.com?키=값&키=값...)
+
+                    1) rel : 재생 종료 후 관련 영상 표시 여부 : 1 - on(기본값) / 0 - off(그 채널의 다른 영상)
+                    2) fs : 풀스크린 여부 결정 : 1(기본값) / 0(버튼 사라짐)
+                    3) controls : 컨트롤 패널 : 1(기본값) / 0
+                    4) disablekb : 키보드 컨트롤 차단 : 0(기본값) / 1(차단)
+                    5) modestbranding : 유튜브 로고 없애기 : 0(기본값) / 1(안 나옴)
+                    6) loop : 반복재생 : 0(기본값) / 1(7번 playlist와 같이 써야 동작)
+                    7) playlist : 이어서 나올 영상의 id 나열 : playlist="영상id, 영상id ..." 영상id는 영상 링크 끝부분에 있음
+                    8) autoplay : 자동재생(유튜브 정책상 동작 안함)
+            -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            브라우저별 지원하는 비디오/오디오 확장자
+                1) 비디오
+                    - mp4 : 모든 브라우저 지원, 고화질 지원, 웹용도에서는 라이센스 필요X
+                    - webm : 크롬/사파리/파이어폭스/오페라/엣지 지원, 화질 우수, 무료
+                    - ogv : 크롬/사파리/파이어폭스/오페라/엣지 지원, 화질 별로, 무료
+
+                2) 오디오
+                    - mp3 : 모든 브라우저 지원
+                    - ogg : 크롬~~ 지원
+
+                video(inline레벨) : src에 경로만 연결하면 이미지처럼 나옴, 속성들을 달아야 함
+                    속성
+                        1) conrtols(필수) : 컨트롤 바
+                        2) autoplay : 자동재생, 웹 정책에 의해 동작하지 않음, muted를 걸면 크롬에서는 autoplay 동작
+                        3) muted : 음소거
+                        4) loop : 반복재생
+                        5) poster : 썸네일 이미지, 설정하지 않으면 0초 부분이 나옴
+                audio
+                    속성
+                        1) controls(필수)
+                        2) autoplay : muted를 걸어야 동작
+                        3) loop : 반복재생
+        */
+
+        video
+        {
+        }
+    </style>
+</head>
+<body>
+    <!-- <video src="./media/Painting.mp4"></video> -->
+    <video controls><!--구버전 브라우저에서도 동작하게 여러 포맷의 파일을 소스로 제공-->
+        <source src="./media/Painting.mp4" type="video/mp4">
+        <source src="./media/Painting.ogv" type="video/ogv">
+        <source src="./media/Painting.webm" type="video/webm">
+    </video>
+</body>
+</html>

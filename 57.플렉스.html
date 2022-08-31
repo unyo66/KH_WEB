@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        /* 
+            flex : 자식 요소들의 배치 설정
+                    * 반드시 부모 자식 관계로 박스를 생성해야 함
+                    * 가끔씩 사이즈를 마음대로 할 수 없는 경우가 생김
+
+            속성은 부모용과 자식용으로 구분
+
+                부모
+                    1) display : flex
+                    2) flex-direction : 기본 축 설정
+                                    row(기본값) : 가로로 나열
+                                    column : 세로로 나열
+                                    ~~-reverse : 시작점 <-> 끝점
+                    3) flex-wrap : 줄넘김 설정
+                                nowrap(기본값) : 모든 자식들을 한 줄에 표시
+                                wrap : 자동 줄바꿈
+                                ~~-reverse :
+                    4) justify-content : 수평방향 정렬
+                                flex-start(기본값) : 왼쪽에 붙임
+                                flext-end : 오른쪽에 붙임
+                                center: 가운데 모임
+                                space-between : 양끝에 붙고 자식 간 간격 일정하게 띄움
+                                space-around : 자식 양옆에 일정한 여백이 생김
+                                space-evenly : 양끝과 자식들 사이 모두에 일정한 여백이 생김
+                    
+                    5) align-item : 수직방향 정렬(한줄)
+                                flex-start, end
+                                stretch : 높이가 없는 경우 부모 높이만큼 먹음
+                                baseline : 글자 기준선에 맞춤
+                    6) align-content : 수직방향 정렬(여러줄)
+                                stretch
+                                나머지는 justify-content 속성과 같음
+
+                    7) gap : 마진같은거, gap을 주면 알아서 마진과 calc 적용되듯이 작동함
+                
+                자식
+                    ***1) order : 요소의 순서 변경, 기본값 0, 같은 수면 코드 순서대로
+                    2) flex-grow/shrink : 부모의 크기가 변할때 자식 크기 변하는 비율 설정
+
+
+        */
+
+        .flex_container
+        {
+            border: 5px solid;
+            width: 100%;
+            height: 500px;
+
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        .box
+        {
+            display: flex;
+            /* flex-direction: row-reverse; */
+        }
+        .child
+        {
+            width: 100px;
+            height: 100px;
+        }
+
+        .red
+        {
+            background-color: #f00;
+        }
+        .green
+        {
+            background-color: #080;
+        }
+        .blue
+        {
+            background-color: #00f;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <div class="box">
+            <div class="child red"></div>
+            <div class="child green"></div>
+            <div class="child blue"></div>
+        </div>
+    </div>
+</body>
+</html>

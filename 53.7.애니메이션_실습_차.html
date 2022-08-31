@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        #wrap {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .car {
+            width: 800px;
+            height: 400px;
+
+            background: url(./img/car.png) no-repeat center / contain;
+
+            position: absolute;
+            top: 0% ;
+            left: 100%;
+
+            animation: car_move 2s infinite;
+        }
+        @keyframes car_move {
+            0% { left: 100%; }
+            100% { left: 50%; transform: translateX(-50%);}
+        }
+
+
+        .tire {
+            width: 125px;
+            height: 125px;
+            background: url(./img/tire.png) no-repeat center / contain;
+
+            position: absolute;
+
+            animation: tire_rotate 2s infinite;
+        }
+        .tire1 {
+            left: 100px;
+            bottom: 53px;
+        }
+        .tire2 {
+            right: 72px;
+            bottom: 53px;
+        }
+        @keyframes tire_rotate {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(-1080deg);}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="car">
+            <div class="tire tire1"></div>
+            <div class="tire tire2"></div>
+        </div>
+    </div>
+</body>
+</html>
