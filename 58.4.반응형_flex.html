@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .header
+        {
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            background-color: rgb(155, 255, 73);
+            color: rgb(155, 255, 73);
+            font-size: 70px;
+            transition: all 0.5s;
+        }
+        .wrap
+        {
+            max-width: 1024px;
+            width: 100%;
+            margin: 0 auto;
+            color: #fff;
+        }
+        .blue_box
+        {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .blue
+        {
+            width: calc((100% - 20px * 2) / 3);
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 50px;
+            background-color: #66f;
+            margin-bottom: 20px;
+        }
+        .red_box
+        {
+            max-width: 1024px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .red
+        {
+            width: calc((100% - 20px) / 2);
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 50px;
+            background-color: #f66;
+            margin-bottom: 20px;
+        }
+        .tada
+        {
+            display: none;
+        }
+        @media screen and (min-width: 1800px){
+            .header
+            {
+                font-size: 70px;
+                color: #fff;
+            }
+        }
+        @media screen and (min-width: 600px) and (max-width: 1000px) {
+            .header
+            {
+                font-size: 0;
+                height: 60px;
+            }
+            .blue:last-child
+            {
+                display: none;
+            }
+            .blue
+            {
+                width: calc((100% - 20px) / 2);
+            }
+            .red_box
+            {
+                flex-wrap: wrap;
+            }
+            .red
+            {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .header
+            {
+                font-size: 0;
+                height: 40px;
+            }
+            .blue_box
+            {
+                flex-wrap: wrap;
+            }
+            .blue
+            {
+                width: 100%;
+            }
+            .red_box
+            {
+                flex-wrap: wrap;
+            }
+            .red
+            {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 300px) {
+            .header
+            {
+                font-size: 0;
+                height: 40px;
+            }
+            .blue_box
+            {
+                flex-wrap: wrap;
+            }
+            .blue
+            {
+                width: 100%;
+            }
+            .red_box
+            {
+                flex-wrap: wrap;
+            }
+            .red
+            {
+                width: 100%;
+            }
+            .tada
+            {
+                display: initial;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">집에가고싶다집에가고싶다집에가고싶다</div>
+    <div class="wrap">
+        <div class="blue_box">
+            <div class="blue">1</div>
+            <div class="blue">2</div>
+            <div class="blue">3</div>
+        </div>
+        <div class="red_box">
+            <div class="red">1</div>
+            <div class="red">2</div>
+            <div class="red tada">3</div>
+            <div class="red tada">4</div>
+            <div class="red tada">5</div>
+            <div class="red tada">6</div>
+            <div class="red tada">7</div>
+            <div class="red tada">8</div>
+            <div class="red tada">9</div>
+        </div>
+    </div>
+</body>
+</html>

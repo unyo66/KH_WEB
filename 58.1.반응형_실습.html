@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        body
+        {
+            background-color: #aaa;
+        }
+        .wrap
+        {
+            width: 100%;
+        }
+        .item
+        {
+            width: calc((100% - 3% * 2 * 4) / 4);
+            height: calc((100vw - 3vw * 2 * 4) / 4);
+            margin: 3%;
+            float: left;
+            background-color: #000;
+        }
+        @media screen and (max-width: 1000px) 
+        {
+            body{background-color: #faa;}
+            .item{
+                width: calc((100% - 3% * 2 * 3) / 3);
+                height: calc((100vw - 3vw * 2 * 3) / 3);
+            }
+        }
+        @media screen and (max-width: 600px) 
+        {
+            body{background-color: #aaf;}
+            .item{
+                width: calc((100% - 3% * 2 * 2) / 2);
+                height: calc((100vw - 3vw * 2 * 2) / 2);
+            }
+        }
+        @media screen and (max-width: 400px) 
+        {
+            body{background-color: #fff;}
+            .item{
+                width: calc((100% - 3% * 2));
+                height: calc((100vw - 3vw * 2));
+            }
+        }
+        </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>

@@ -74,47 +74,85 @@
                             baseline: 문자 기준선에 정렬
         */
 
-        .flex_container
-        {
+         .flex_container {
             border: 5px solid;
+            box-sizing: border-box;
             width: 100%;
             height: 500px;
 
             display: flex;
-            flex-direction: row-reverse;
-        }
-        .box
-        {
-            display: flex;
-            /* flex-direction: row-reverse; */
-        }
-        .child
-        {
-            width: 100px;
-            height: 100px;
-        }
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
 
-        .red
-        {
-            background-color: #f00;
+            /* align-items: flex-start; */
+            /* align-content: space-around; */
+
+            /* gap: 10px; */
+        } 
+        .child {
+            /* width: 100px; */
+            /* height: 100px; */
+
+            /* margin-right: 10px; */
+ 
+            font-size: 50px;
+            color: #fff;
+            text-align: center;
+            
+            align-self: baseline;
         }
-        .green
-        {
-            background-color: #080;
+        .red { background: red;}
+        .green { background: green;}
+        .blue { background: blue;}
+
+        #box1 { 
+            /* order: 1  */
+            /* flex-grow: 7; */
+            /* flex-shrink: 1; */
+            /* flex-basis: 300px; */
+            /* flex: 1 1 100px; */
         }
-        .blue
-        {
-            background-color: #00f;
+        #box2 { 
+            /* order: 4  */
+            /* flex-grow: 1;; */
+            /* flex-shrink: 2; */
+            /* flex-basis: 300px; */
+            /* flex: 1 1 100px; */
+        }
+        #box3 { 
+            /* order: 3  */
+            /* flex-grow: 1;; */
+            /* flex-shrink: 1; */
+            /* flex-basis: 300px; */
+            /* flex: 1 1 100px; */
+        }
+        #box4 { 
+            /* order: 1  */
+            /* flex-grow: 1;; */
+            /* flex-shrink: 1; */
+            /* flex-basis: 300px; */
+            /* flex: 1 1 100px; */
         }
     </style>
 </head>
 <body>
     <div class="flex_container">
-        <div class="box">
-            <div class="child red"></div>
-            <div class="child green"></div>
-            <div class="child blue"></div>
-        </div>
+        <div class="child red" id="box1">1111</div>
+        <div class="child green" id="box2">2222</div>
+        <div class="child blue" id="box3">3333</div>
+        <!-- <div class="child red" id="box4">4</div> -->
+        <!-- <div class="child green"></div>
+        <div class="child blue"></div>
+        <div class="child red"></div>
+        <div class="child green"></div>
+        <div class="child blue"></div>
+        <div class="child red"></div>
+        <div class="child green"></div>
+        <div class="child blue"></div>
+        <div class="child red"></div>
+        <div class="child green"></div>
+        <div class="child blue"></div> -->
     </div>
 </body>
 </html>

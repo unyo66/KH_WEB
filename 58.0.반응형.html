@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        /* 
+            1) 데스크탑용 모바일용 분리 
+            
+            2) 반응형 웹
+                반응형 : 모든 픽셀에서 반응 (1px ~)
+                적응형 : 특정 범위 내에서만 반응
+                        ex) 280~480 / 600~780 / 1024~1440
+
+                반응형 주의사항
+                    1) 접속기기 가로 사이즈 먼저 생각하기
+                    2) 필수요소 2가지
+                            - <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            - 미디어쿼리  @media screen and (min-width: ~) and (max-width: ~) and (orientation: 화면상태){}
+                                    - min-width / max-width : 범위 설정
+                                    - orientation : 옵션 속성(portrait : 세로가 긴 화면 / landscape : 가로가 긴 화면 / 기본값 : 어떤 화면이든 동작)
+
+        */
+        body
+        {
+            background: #faa;
+        }
+        @media screen and (min-width: 1300px) and (max-width: 1600px) and (orientation: landscape)/*portrait일때만 동작*/
+        {
+            body
+            {
+                background: #aaf;
+            }
+        }
+        @media screen and (min-width: 1000px) and (max-width: 1300px) and (orientation: landscape)/*portrait일때만 동작*/
+        {
+            body
+            {
+                background: #afa;
+            }
+        }
+        @media screen and (min-width: 700px) and (max-width: 1000px) and (orientation: landscape)/*portrait일때만 동작*/
+        {
+            body
+            {
+                background: #faf;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
