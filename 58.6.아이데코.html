@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        input
+        {
+            display: none;
+        }
+        .top_banner
+        {
+            width: 100%;
+            height: 40px;
+            background-color: #444;
+            display: none;
+        }
+        #cb_on:checked ~ .top_banner
+        {
+            display: block;
+        }
+        #cb_off:checked ~ .wrap
+        {
+            top: 0;
+        }
+        .label_top
+        {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            float: right;
+        }
+        .wrap
+        {
+            width: 100%;
+            /* margin: 0 auto; */
+            border: 1px solid;
+            overflow: hidden;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.5s;
+        }
+        .header
+        {
+            width: 100%;
+            height: 140px;
+        }
+        .setting_bar
+        {
+            height: 40px;
+            border: 1px solid;
+        }
+        .setting
+        {
+            margin: 10px;
+            float: right;
+        }
+        .logo
+        {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        .menu_box
+        {
+            height: 100px;
+            border: 1px solid;
+        }
+        .menu_bar
+        {
+            width: 40%;
+            height: 40px;
+            margin-top: 30px;
+            float: right;
+            border: 1px solid;
+            display: flex;
+            overflow: hidden;
+        }
+        .menu
+        {
+            width: calc(100% / 4);
+            height: 40px;
+            text-align: center;
+        }
+        .menu p
+        {
+            transform: translateY(-8px);
+            transition: all 0.3s;
+        }
+        .menu:hover p
+        {
+            transform: translateY(-45px);
+        }
+        .main_banner
+        {
+            width: 100vw;
+        }
+        .title_bar
+        {
+            overflow: hidden;
+        }
+        .main_title
+        {
+            width: 250px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+        }
+        .tap
+        {
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-bottom: 5px solid transparent;
+            float: right;
+        }
+        .tap:hover
+        {
+            border-bottom: 5px solid #aaa;
+        }
+        #rd_1:checked ~ .wrap .b2,
+        #rd_2:checked ~ .wrap .b1
+        {
+            display: none;
+        }
+        #rd_1:checked ~ .wrap .t1,
+        #rd_2:checked ~ .wrap .t2
+        {
+            border-bottom: 5px solid #666;
+        }
+        .item
+        {
+            width: calc((100% - 10px * 2 * 4) / 4);
+            margin: 10px;
+            position: relative;
+            float: left;
+            font-size: 0;
+            overflow: hidden;
+        }
+        .item_img
+        {
+            width: 100%;
+        }
+        .discount
+        {
+            background-color: #faa;
+            font-size: 15px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateY(-18px);
+            transition: all 0.3s;
+        }
+        .item:hover .discount
+        {
+            transform: translateY(0px);
+        }
+    </style>
+</head>
+<body>
+    <input type="radio" name="rd" id="rd_1" checked>
+    <input type="radio" name="rd" id="rd_2">
+    <input type="radio" name="cb" id="cb_on" checked>
+    <input type="radio" name="cb" id="cb_off">
+    <div class="top_banner">
+        <label for="cb_off" class="label_top"></label>
+    </div>
+    <div class="wrap">
+        <div class="header">
+            <div class="setting_bar">
+                <a href="#"><div class="setting">로그인</div></a>
+                <a href="#"><div class="setting">회원가입</div></a>
+            </div>
+            <div class="menu_box">
+                <a href="#"><img src="./img/반응형/iDeco/logo.png" alt="logo" class="logo"></a>
+                <div class="menu_bar">
+                    <a href="#" class="menu"><p>메뉴</p><p>menu</p></a>
+                    <a href="#" class="menu"><p>메뉴</p><p>menu</p></a>
+                    <a href="#" class="menu"><p>메뉴</p><p>menu</p></a>
+                    <a href="#" class="menu"><p>메뉴</p><p>menu</p></a>
+                </div>
+            </div>
+        </div>
+        <img src="./img/반응형/iDeco/main_banner1.jpg" alt="main_banner" class="main_banner">
+        <div class="main">
+            <div class="title_bar">
+                <div class="main_title">카테고리별 <b>인기상품</b>입니다.</div>
+                <label for="rd_2" class="tap t2">중분류02</label>
+                <label for="rd_1" class="tap t1">중분류01</label>
+            </div>
+            <div class="item_box b1">
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_2.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_2.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_2.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_2.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_2.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_2.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_2.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_2.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+            </div>
+            <div class="item_box b2">
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_3.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_3.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_3.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_3.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_3.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_3.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_3.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+                <a href="#" class="item">
+                    <img src="./img/반응형/iDeco/tab_1_3.jpg" alt="item_img" class="item_img">
+                    <div class="discount">10%</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="popup"></div>
+</body>
+</html>
