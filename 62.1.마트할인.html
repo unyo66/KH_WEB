@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p1 = prompt("물품1");
+        let p2 = prompt("물품2");
+        let p3 = prompt("물품3");
+        let total = p1 * 1 + p2 * 1 + p3 * 1;
+        let rate = 0;
+        let ret = total;
+        if (isNaN(total) || p1 < 0 || p2 < 0 || p3 < 0)
+        {
+            document.write("잘못된 입력입니다.");
+        }
+        else
+        {
+            if (total >= 50000)
+            {
+                rate = 20;
+            }
+            else if (total >= 10000)
+            {
+                rate = 10;
+            }
+            ret *= (100 - rate) / 100;
+            document.write(`전체 상품 금액: ${total}원<br>할인율: ${rate}%<br>할인 금액: ${total - ret}원<br>최종 금액: ${ret}원`);
+        }
+    </script>
+</body>
+</html>
