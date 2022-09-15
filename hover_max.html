@@ -36,6 +36,7 @@
         .hover_point
         {
             order: 1;
+            transition-delay: 0.15s;
         }
         .inner:nth-child(14),
         .inner:nth-child(15),
@@ -55,11 +56,23 @@
         .hover_point:hover
         {
             background-color: #000;
+            transition-delay: 0s;
         }
         .hover_point:hover ~ .inner
         {
             background-color: #aaa;
             transition-delay: 0.1s;
+        }
+        .inner:nth-child(8),
+        .inner:nth-child(9),
+        .inner:nth-child(10),
+        .inner:nth-child(13),
+        .inner:nth-child(14),
+        .inner:nth-child(17),
+        .inner:nth-child(18),
+        .inner:nth-child(19)
+        {
+            transition-delay: 0.05s;
         }
         .hover_point:hover ~ .inner:nth-child(8),
         .hover_point:hover ~ .inner:nth-child(9),

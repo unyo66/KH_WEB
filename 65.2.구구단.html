@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input = Number(prompt("몇 단?"));
+        let count = 0;
+        while (isNaN(input) || input < 2 || input > 9)
+        {
+            if (input > 9 && input < 20)
+            {
+                if (prompt("혹시 인도식? (y / n)") == "y")
+                {
+                    break;
+                }
+            }
+            count++;
+            if (count == 5)
+            {
+                break;
+            }
+            input = prompt("잘못된 입력입니다.");
+        }
+
+        if (count == 5)
+        {
+            document.write("입력 초과");
+        }
+        else if (input > 9)
+        {
+            document.write("== 인도식 ==<br>");
+            document.write("== " + input + "단 ==<br><br>");
+            for (let i = 1; i <= 19; i++)
+            {
+                document.write(input + " X " + i + " = " + (input * i) + "<br>");
+            }
+        }
+        else
+        {
+            document.write("== " + input + "단 ==<br><br>");
+            for (let i = 1; i <= 9; i++)
+            {
+                document.write(input + " X " + i + " = " + (input * i) + "<br>");
+            }
+        }
+    </script>
+</body>
+</html>

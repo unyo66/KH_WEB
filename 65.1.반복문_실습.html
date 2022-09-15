@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if (prompt("문제1 / 문제2 (숫자로만 입력)") == 1)
+        {
+            let end = Number(prompt("끝수"));
+            let sum = 0;
+            for (let i = 1; i <= end; i++)
+            {
+                sum += i;
+            }
+            document.write("1부터 " + end + "까지의 합은 " + sum + "입니다.");
+        }
+        else
+        {
+            let start = Number(prompt("첫수"));
+            let end = Number(prompt("끝수"));
+            let sum = 0;
+            for (let i = start; i <= end; i++)
+            {
+                sum += i;
+            }
+            document.write(start + "부터 " + end + "까지의 합은 " + sum + "입니다.");
+        }
+
+    </script>
+</body>
+</html>

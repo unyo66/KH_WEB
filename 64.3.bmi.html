@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = prompt("이름?");
+        let kg = prompt("체중?");
+        while (isNaN(kg))
+        {
+            kg = prompt("체중 다시");
+        }
+        let m = prompt("신장?");
+        while (isNaN(m))
+        {
+            m = prompt("신장 다시");
+        }
+        if (m > 10)
+        {
+            m /= 100;
+        }
+        let bmi = (kg / (m * m)).toFixed(2);
+        let ret;
+        if (bmi >= 40){ret = "고도비만";}
+        else if (bmi >= 35){ret = "중증도비만";}
+        else if (bmi >= 25){ret = "경도비만";}
+        else if (bmi >= 20){ret = "과체중";}
+        else if (bmi >= 18.5){ret = "정상";}
+        else{ret = "저체중";}
+        document.write(`"${name}"님의 BMI수치는 ${bmi}이고 ${ret}입니다.`);
+    </script>
+</body>
+</html>
