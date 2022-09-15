@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function cal(n1, sign, n2)
+        {
+            let ret = 0;
+            if (sign == "+"){ret = n1 + n2}
+            else if (sign == "-"){ret = n1 - n2}
+            else if (sign == "*"){ret = n1 * n2}
+            else if (sign == "/"){ret = n1 / n2}
+            else if (sign == "%"){ret = n1 % n2}
+            else{ret = "signError"}
+            
+            return ret;
+        }
+        // let n1 = prompt("숫자1");
+        // while (isNaN (n1)){n1 = + prompt("숫자1 다시")};
+        // let sign = prompt("기호");
+        // let n2 = prompt("숫자2");
+        // while (isNaN(n2)){n2 = + prompt("숫자1 다시")};
+        // document.write(n1 + " " + sign + " " + n2 + " = " + cal(+n1, sign, +n2));
+
+        function deleteBlank(input)
+        {
+            // for (let i = 0; i < input.length; i++)
+            // {
+            //     if (input[i] == " ")
+            //     {
+            //         for (let j = i; j < input.length - 1; j++)
+            //         {
+            //             input[j] = input[j + 1];
+            //         }
+            //     }
+            // }
+            for (let i = 0; i < input.length; i++)
+            {
+                input[i] = + input[i];
+            }
+            return input;
+        }
+        function getEnd(input)
+        {
+            let end = 0;
+            while (typeof(input[end]) == String && end < 20)
+            {
+                end++;
+            }
+            return end;
+        }
+        function getSign(input)
+        {
+            let sign = 0;
+            while (input[sign] >= 0 && input[sign] < 10 && sign < 20)
+            {
+                sign++;
+            }
+            return sign;
+        }
+
+        function getNum(input, start, end)
+        {
+            let n = +input[start];
+            for (let i = start + 1; i < end; i++)
+            {
+                n = n * 10 + +input[i];
+            }
+            return n;
+        }
+
+        let input = prompt();
+        let n1 = getNum(input, 0, getSign(input));
+        let sign = input[getSign(input)];
+        let n2 = getNum(input, (getSign(input) + 1), input.length);
+        // document.write(`sign : ${sign} \nsignindex:  ${getSign(input)}\n `);
+
+        document.write(n1 + " " + sign + " " + n2 + " = " + cal(+n1, sign, +n2));
+    </script>
+</body>
+</html>

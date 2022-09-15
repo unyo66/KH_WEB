@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ft(n)
+        {
+            if (n < 10)
+            {
+                document.write("0" + n + "<br>");
+                // console.log("0" + n + "\n");
+            }
+            else
+            {
+                document.write(n + "<br>");
+                // console.log(n + "\n");
+            }
+        }
+
+        let input1 = +prompt("입력");
+        while (isNaN(input1) || input1 < 0)
+        {
+            input1 = +prompt("입력 다시");
+        }
+        ft(input1);
+
+        let input2 = +prompt("입력");
+        while (isNaN(input2) || input2 < 0)
+        {
+            input2 = +prompt("입력 다시");
+        }
+        ft(input2);
+
+        let input3 = +prompt("입력");
+        while (isNaN(input3) || input3 < 0)
+        {
+            input3 = +prompt("입력 다시");
+        }
+        ft(input3);
+    </script>
+</body>
+</html>
