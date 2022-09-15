@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n1 = Number(prompt("첫 수"));
+        while (isNaN(n1) || n1 < 2 || n1 > 9)
+        {
+            n1 = Number(prompt("첫 수 다시 입력"))
+        }
+        let n2 = Number(prompt("마지막 수"));
+        while (isNaN(n2) || n2 < 2 || n2 > 9)
+        {
+            n2 = Number(prompt("마지막 수 다시 입력"))
+        }
+
+        for (let i = 0; i <= 9; i++)
+        {
+            for (let j = n1; j <= n2; j++)
+            {
+                if (i == 0)
+                {
+                document.write("==" + j +"단==")
+                }
+                else
+                {
+                    document.write(j + " X " + i + " = " + (j * i) + " ");
+                }
+                if ((j * i) < 10)
+                {
+                    document.write("<tap>");
+                }
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

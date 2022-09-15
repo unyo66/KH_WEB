@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input;
+        let total = 0;
+        let discount = 0;
+
+        while (input != 0)
+        {
+            input = + prompt("물품 가격");
+            while (isNaN(input) || input < 0)
+            {
+                input = + prompt("물품 가격 다시!")
+            }
+            total += input;
+        }
+        // do
+        // {
+        //     input = + prompt("물품 가격");
+        //     while (isNaN(input) || input < 0)
+        //     {
+        //         input = + prompt("물품 가격 다시!")
+        //     }
+        //     total += input;
+        // }
+        // while (input != 0)
+
+
+        if (total > 50000)
+        {
+            discount = 20;
+        }
+        else if (total > 10000)
+        {
+            discount = 10;
+        }
+        document.write("전체 상품 금액 : " + total + "<br>할인율 : " + discount + "%<br>할인 금액 : " + (total * discount / 100) + "<br>최종 금액 : " + (total * (100 - discount) / 100));
+    </script>
+</body>
+</html>
