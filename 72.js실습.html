@@ -13,17 +13,52 @@
     </style>
 </head>
 <body>
-    <input type="button" value="-" onclick="minus()">
-    <input type="text" value="0" class="txt">
-    <input type="button" value="+" onclick="plus()">
-    <div><span class="o_price"></span><span>원</span></div>
-    <h3>최종금액 : 
-    </h3>
-    <span class="f_price"></span><span>원</span>
+    <div>
+        <input type="button" value="-" onclick="minus()">
+        <input type="text" value="0" class="txt">
+        <input type="button" value="+" onclick="plus()">
+    </div>
+    <div>
+        <h3>개당 금액 : </h3>
+        <span class="o_price"></span><span>원</span>
+    </div>
+    <div>
+        <h3>최종 금액 : </h3>
+        <span class="f_price"></span><span>원</span>
+    </div>
     <script>
+        function comma(n)
+        {
+            let com;
+            if (String(n).length % 3 == 0)
+            {
+                com = Math.floor(String(n).length / 3) - 1;
+            }
+            else
+            {
+                com = Math.floor(String(n).length / 3);
+            }
+            let count = String(n).length + com;
+            let retArr = new Array(count);
+            let j = 0;
+            for (let i = 0; i < retArr.length; i++)
+            {
+                if (count % 4 == 0)
+                {
+                    retArr[i] = ",";
+                }
+                else
+                {
+                    retArr[i] = String(n)[j];
+                    j++;
+                }
+                count--;
+            }
+            return retArr.join("");
+        }
         let txt = document.getElementsByClassName("txt")[0];
         let or = 10000;
-        document.getElementsByClassName("o_price")[0].innerHTML = or;
+        document.getElementsByClassName("o_price")[0].innerHTML = comma(or);
         document.getElementsByClassName("f_price")[0].innerHTML = 0;
         function minus()
         {
@@ -31,12 +66,12 @@
             {            
                 txt.value--;
             }
-            document.getElementsByClassName("f_price")[0].innerHTML = String(or * Number(txt.value));
+            document.getElementsByClassName("f_price")[0].innerHTML = comma(or * Number(txt.value));
         }
         function plus()
         {
             txt.value++;
-            document.getElementsByClassName("f_price")[0].innerHTML = or * Number(txt.value);
+            document.getElementsByClassName("f_price")[0].innerHTML = comma(or * Number(txt.value));
         }
     </script>
 </body>

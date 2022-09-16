@@ -10,21 +10,21 @@
     <script>
         function comma(n)
         {
-            let count = String(n).length;
             let com;
-            if (count % 3 == 0)
+            if (String(n).length % 3 == 0)
             {
-                com = Math.floor(count / 3) - 1;
+                com = Math.floor(String(n).length / 3) - 1;
             }
             else
             {
-                com = Math.floor(count / 3);
+                com = Math.floor(String(n).length / 3);
             }
-            let retArr = new Array(count + com);
+            let count = String(n).length + com;
+            let retArr = new Array(count);
             let j = 0;
             for (let i = 0; i < retArr.length; i++)
             {
-                if (count % 3 == 0)
+                if (count % 4 == 0)
                 {
                     retArr[i] = ",";
                 }
@@ -35,10 +35,9 @@
                 }
                 count--;
             }
-            // return count;
-            return retArr;
+            return retArr.join("");
         }
-        document.write(comma(100));
+        document.write(comma(1000000));
     </script>
 </body>
 </html>
