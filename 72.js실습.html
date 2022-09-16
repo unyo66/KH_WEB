@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3
+        {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="-" onclick="minus()">
+    <input type="text" value="0" class="txt">
+    <input type="button" value="+" onclick="plus()">
+    <div><span class="o_price"></span><span>원</span></div>
+    <h3>최종금액 : 
+    </h3>
+    <span class="f_price"></span><span>원</span>
+    <script>
+        let txt = document.getElementsByClassName("txt")[0];
+        let or = 10000;
+        document.getElementsByClassName("o_price")[0].innerHTML = or;
+        document.getElementsByClassName("f_price")[0].innerHTML = 0;
+        function minus()
+        {
+            if (txt.value > 1)
+            {            
+                txt.value--;
+            }
+            document.getElementsByClassName("f_price")[0].innerHTML = String(or * Number(txt.value));
+        }
+        function plus()
+        {
+            txt.value++;
+            document.getElementsByClassName("f_price")[0].innerHTML = or * Number(txt.value);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = "ABCDEFGHIJKLMNOPQRSTUWXYZD";
+
+        //특정 문자의 위치 찾기
+        document.write(str.indexOf("D"));
+        document.write(str.lastIndexOf("D"));
+        document.write("<br>");
+        
+        //~부터 끝까지
+        document.write(str.slice(3) + "<br>");
+        document.write(str.substring(3) + "<br>");
+        document.write(str.substr(3) + "<br>");
+        document.write("<br>");
+        
+        //~부터 ~까지 잘라내기
+        document.write(str.slice(3, 5) + "<br>");//3번째부터 5번째까지
+        document.write(str.substring(3, 5) + "<br>");//slice와 같음
+        document.write(str.substr(3, 5) + "<br>");//3번째부터 5개
+        document.write("<br>");
+
+        //조각내 배열에 넣기
+        document.write(str.split("D") + "<br>");//D를 기준으로 나눠져서 배열에 들어감(D는 없어짐)
+        document.write("<br>");
+        
+        //특정 문자(열)을 다른 문자(열)로 바꾸기
+        document.write(str.replace("D", "뒤") + "<br>");//첫번째 하나만
+        document.write(str.replaceAll("D", "뒤") + "<br>");//모두다
+
+        //전체 정보 중에 내가 찾으려는 문자열이 있는지 확인
+        //("찾으려는 정보").match("전체 정보")
+        //스마트 기기로 접속했음을 나타내는 정보가 포함되어있을 경우 모바일 페이지로 보내는 등 활용
+
+    </script>
+</body>
+</html>

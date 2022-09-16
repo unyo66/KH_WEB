@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function comma(n)
+        {
+            let count = String(n).length;
+            let com;
+            if (count % 3 == 0)
+            {
+                com = Math.floor(count / 3) - 1;
+            }
+            else
+            {
+                com = Math.floor(count / 3);
+            }
+            let retArr = new Array(count + com);
+            let j = 0;
+            for (let i = 0; i < retArr.length; i++)
+            {
+                if (count % 3 == 0)
+                {
+                    retArr[i] = ",";
+                }
+                else
+                {
+                    retArr[i] = String(n)[j];
+                    j++;
+                }
+                count--;
+            }
+            // return count;
+            return retArr;
+        }
+        document.write(comma(100));
+    </script>
+</body>
+</html>
