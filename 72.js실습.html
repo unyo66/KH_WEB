@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .menu
+        {
+            display: flex;
+            height: 40px;
+        }
+        .btn
+        {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type=button]
+        {
+            width: 40px;
+            height: 20px;
+            padding: 0;
+        }
         h3
         {
             display: inline-block;
@@ -13,32 +29,33 @@
     </style>
 </head>
 <body>
-    <div>
-        <input type="button" value="-" onclick="minus()">
+    <div class="menu">
         <input type="text" value="0" class="txt">
-        <input type="button" value="+" onclick="plus()">
+        <div class="btn">
+            <input type="button" value="△" onclick="plus()">
+            <input type="button" value="▽" onclick="minus()">
+        </div>
     </div>
     <div>
         <h3>개당 금액 : </h3>
-        <span class="o_price"></span><span>원</span>
+        <span class="o_price">10000</span>
     </div>
     <div>
         <h3>최종 금액 : </h3>
-        <span class="f_price"></span><span>원</span>
+        <span class="f_price"></span>
     </div>
     <script>
         function comma(n)
         {
-            let com;
+            let count;
             if (String(n).length % 3 == 0)
             {
-                com = Math.floor(String(n).length / 3) - 1;
+                count = String(n).length + Math.floor(String(n).length / 3) - 1;
             }
             else
             {
-                com = Math.floor(String(n).length / 3);
+                count = String(n).length + Math.floor(String(n).length / 3);
             }
-            let count = String(n).length + com;
             let retArr = new Array(count);
             let j = 0;
             for (let i = 0; i < retArr.length; i++)
@@ -56,22 +73,24 @@
             }
             return retArr.join("");
         }
+
         let txt = document.getElementsByClassName("txt")[0];
-        let or = 10000;
-        document.getElementsByClassName("o_price")[0].innerHTML = comma(or);
-        document.getElementsByClassName("f_price")[0].innerHTML = 0;
+        let oPrice = document.getElementsByClassName("o_price")[0].innerHTML;
+        let fPrice = document.getElementsByClassName("f_price")[0];
+        document.getElementsByClassName("o_price")[0].innerHTML = `${comma(oPrice)}원`;
+        fPrice.innerHTML = 0;
         function minus()
         {
             if (txt.value > 1)
             {            
                 txt.value--;
             }
-            document.getElementsByClassName("f_price")[0].innerHTML = comma(or * Number(txt.value));
+            fPrice.innerHTML = `${comma(oPrice * Number(txt.value))}원`;
         }
         function plus()
         {
             txt.value++;
-            document.getElementsByClassName("f_price")[0].innerHTML = comma(or * Number(txt.value));
+            fPrice.innerHTML = `${comma(oPrice * Number(txt.value))}원`;
         }
     </script>
 </body>

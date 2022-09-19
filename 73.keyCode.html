@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt" onkeyup="google()">
+    <script>
+        /*
+            keyCode : 키보드 각각의 키마다 가지고 있는 고유번호
+
+            onkeydown : 키가 눌릴때
+            onkeyup : 키가 떨어질때
+            keypress : 한국어 지원이 완벽하지 않아 안씀
+        */
+        function search(input)
+        {
+            location.href = `https://www.google.com/search?q=${input}`;
+        }
+        function google() 
+        {
+            let txt_id = document.getElementById("txt");
+            console.log(txt_id.value.length);
+
+            if (event.keyCode == 13)
+            {
+                search(text_id.value);
+            }
+        }
+    </script>
+</body>
+</html>

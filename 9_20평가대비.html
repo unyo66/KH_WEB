@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box
+        {
+            width: 290px;
+            border: 1px solid;
+            padding: 20px;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .box div
+        {
+            height: 35px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .txt_title
+        {
+            display: flex;
+            justify-content: center;
+        }
+        .box input
+        {
+            height: 20px;
+            border: 0;
+            border-bottom: 1px dashed;
+            outline: none;
+        }
+        .pw_notice
+        {
+            color: #777;
+            font-size: 13px;
+            display: none;
+            position: absolute;
+            top: 30%;
+            right: 0;
+            transform: translateX(102%);
+        }
+        .focusNotice
+        {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" class="box">
+        <input type="radio" name="rd" id="rd_id">
+        <input type="radio" name="rd" id="rd_pw">
+        <input type="radio" name="rd" id="rd_pw2">
+        <input type="radio" name="rd" id="rd_email">
+        <input type="radio" name="rd" id="rd_address">
+        <div><div class="txt_title">아이디</div><input type="text" class="txt_inner" id="id" onfocus="focusChk(this)"></div>
+        <p class="focusNotice"></p>
+        <div><div class="txt_title">비밀번호</div><input type="text" class="txt_inner" id="pw" onfocus="focusChk(this)"></div>
+        <p class="focusNotice"></p>
+        <div><div class="txt_title">비밀번호 확인</div><input type="text" class="txt_inner" id="pw2" onfocus="focusChk(this)"></div>
+        <p class="focusNotice"></p>
+        <div><div class="txt_title">이메일</div><input type="text" class="txt_inner" id="email" onfocus="focusChk(this)"></div>
+        <p class="focusNotice"></p>
+        <div><div class="txt_title">주소</div><input type="text" class="txt_inner" id="address" onfocus="focusChk(this)"></div>
+        <p class="focusNotice"></p>
+    </form>
+    <script>
+        let count = [0, 0, 0, 0, 0];
+        let index = 0;
+
+        function focusChk(id)
+        {
+            for (let i = 0; i < 5; i++)
+            {
+                if (document.getElementsByClassName("txt_inner")[i] == document.getElementById(id.id))
+                {
+                    index = i;
+                }
+            }
+            count[index]++;
+            for (let i = 0; i < 5; i++)
+            {
+                if (i != index)
+                {
+                    document.getElementsByClassName("focusNotice")[i].innerText = "";
+                    if (count[i] != 0  && document.getElementsByClassName("txt_inner")[i].value == "")
+                    {
+                        document.getElementsByClassName("focusNotice")[i].innerText = "필수입력항목";
+                    }
+                }
+                
+            }
+            document.getElementById(`rd_${id.id}`).checked = true;
+            for (let i = 0; i < 5; i++)
+            {
+                console.log(`${i}번째 : ${count[i]}`)
+            }
+        }
+    </script>
+</body>
+</html>

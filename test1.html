@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="radio" name="rd" id="rdn1">
+        <input type="radio" name="rd" id="rdn2">
+        <input type="radio" name="rd" id="rdn3">
+        <input type="radio" name="rd" id="rdn4">
+        <input type="button" id="btn1" onclick="chkRd(id)">
+        <input type="button" id="btn2" onclick="chkRd(id)">
+        <input type="button" id="btn3" onclick="chkRd(id)">
+        <input type="button" id="btn4" onclick="chkRd(id)">
+        <button type="submit">submit</button>
+    </form>
+    <script>
+        function chkRd(id)
+        {
+            console.log(document.getElementById(`rd${id[2]}${id[3]}`).checked = true);
+        }
+    </script>
+</body>
+</html>
