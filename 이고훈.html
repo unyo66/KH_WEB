@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            margin: 0;
+        }
+        .wrap
+        {
+            background-color: rgb(200, 229, 255);
+            height: 100vh;
+            padding-top: 50px;
+        }
+        .form
+        {
+            width: 400px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            background-color: #eee;
+            padding: 50px 10px 0 10px;
+        }
+        th
+        {
+            text-align: left;
+        }
+        input
+        {
+            border: none;
+            border-bottom: 1px dashed #000;
+            background-color: inherit;
+            outline: none;
+        }
+        input[type=text],
+        input[type=password]
+        {
+            width: 96%;
+        }
+        input[type=email]
+        {
+            width: 45%;
+        }
+        .notice_design
+        {
+            padding-right: 10px;
+            text-align: right;
+            font-size: 12px;
+            opacity: 0;
+        }
+        .notice_pw
+        {
+            color: #000;
+            display: none;
+            opacity: 1;
+        }
+        button
+        {
+            width: 360px;
+            height: 50px;
+            margin: 30px 20px 10px 20px;
+            border-radius: 0;
+            border: none;
+            background-color: rgb(178, 245, 193);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <form action="#" class="form">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>아이디</th>
+                        <td><input type="text" class="input_text" onfocus="pwNotice(this); mustNotice(0);"></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><div class="notice_design notice_must">필수 입력 항목입니다</div></td>
+                    </tr>
+                    <tr>
+                        <th>패스워드</th>
+                        <td><input type="password" class="input_text" id="pw" onfocus="pwNotice(this); mustNotice(1);"></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><div class="notice_design notice_pw">영문자 대/소문자, 특수문자, 숫자 포함 8~32자</div></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><div class="notice_design notice_must">필수 입력 항목입니다</div></td>
+                    </tr>
+                    <tr>
+                        <th>패스워드 확인</th>
+                        <td><input type="password" class="input_text" onfocus="pwNotice(this); mustNotice(2);"></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><div class="notice_design notice_must">필수 입력 항목입니다</div></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td><input type="email" class="input_text" onfocus="pwNotice(this); mustNotice(3);">@<input type="email" class="input_text" onfocus="pwNotice(this); mustNotice(3);"></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><div class="notice_design notice_must">필수 입력 항목입니다</div></td>
+                    </tr>
+                    <tr>
+                        <th>주소</th>
+                        <td><input type="text" class="input_text" onfocus="pwNotice(this); mustNotice(4);"></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><div class="notice_design notice_must">필수 입력 항목입니다</div></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><input type="text" class="input_text" onfocus="pwNotice(this); mustNotice(5);"></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><div class="notice_design notice_must">필수 입력 항목입니다</div></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit">가입</button>
+        </form>
+    </div>
+    <script>
+        function pwNotice(isPw)
+        {
+            if (isPw.id == "pw")
+            {
+                document.getElementsByClassName("notice_pw")[0].style.display = "block";
+                document.getElementsByClassName("notice_must")[1].style.display = "none";
+            }
+            else
+            {
+                document.getElementsByClassName("notice_pw")[0].style.display = "none";
+                document.getElementsByClassName("notice_must")[1].style.display = "block";
+            }
+        }
+        function mustNotice(n)
+        {
+            for (let i = 0; i < n; i++)
+            {
+                if (document.getElementsByClassName("input_text")[i].value == "")
+                {
+                    document.getElementsByClassName("notice_must")[i].style.opacity = "1";
+                }
+                else
+                {
+                    document.getElementsByClassName("notice_must")[i].style.opacity = "0";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
