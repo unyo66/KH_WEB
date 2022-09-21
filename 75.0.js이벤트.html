@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer
+        {
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+        }
+        .box
+        {
+            width: 100px;
+            height: 100px;
+            background-color: #faa;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer"><div class="box"></div></div>
+    <script>
+        /*
+            이벤트 : 마우스가 클릭되거나 키보드의 키가 눌리거나
+
+            이벤트 리스너
+                특정 요소에 이벤트 리스너를 달아주는 방법
+                    요소.addEventListener("이벤트명", 익명함수(function(){}))
+
+            이벤트 종류(이벤트 리스너일때는 on빼고)
+                1) 마우스 : onclick, ondblclick
+                            onmouseover(요즘에는 onmouseenter)
+                            onmouseout(요즘에는 onmouseleave)
+                            onmousemove
+                2) 키보드 : onkeydown, onkeyup
+                            event.keyCode : 키보드의 키값
+
+                onload - DOM 구조가 다 로드된 이후에 동작
+                    body 위에 명시해도 됨. html 끝까지 갔다가 동작함.
+        */
+        
+        let outer = document.getElementsByClassName("outer")[0];
+        outer.addEventListener("mouseenter", function(){outer.style.background = "blue"});
+        outer.addEventListener("mouseleave", function(){outer.style.background = "#fff"});
+        let box = document.getElementsByClassName("box")[0];
+        box.addEventListener("mouseenter", function(){box.style.background = "red"});
+        box.addEventListener("mouseleave", function(){box.style.background = "#faa"});
+        outer.addEventListener("mousemove", function(){colorChange()});
+        var i = 0;
+        function colorChange()
+        {
+            let colorArr = ["black", "gray", "white", "gray"];
+            outer.style.background = colorArr[i];
+            if (i != 2)
+            {
+                i++;
+            }
+            else
+            {
+                i = 0;
+            }
+        }
+    </script>
+</body>
+</html>

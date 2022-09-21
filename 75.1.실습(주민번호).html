@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="txt txt_1"> - <input type="text" class="txt txt_2">
+    <button class="btn">확인</button>
+    <script>
+        let t1 = document.getElementsByClassName("txt_1")[0];
+        let t2 = document.getElementsByClassName("txt_2")[0];
+        let btn = document.getElementsByClassName("btn")[0];
+        t1.addEventListener("keyup", function(){
+            if (t1.value.length == 6)
+            {
+                t2.focus();
+            }
+            console.log(this);
+        });
+        btn.addEventListener("click", function(){
+            let tmp = document.getElementsByClassName('txt');
+            let qty = [6,7];
+            if (tmp[0].value.length == qty[0] && tmp[1].value.length == qty[1] && isNum(tmp) == 0)
+            {
+                alert("YES");
+            }
+            else
+            {
+                alert("NO");
+            }
+        });
+
+        function isNum(tmp)
+        {
+            let tChk = 0;
+            let tIndex = tmp.length - 1;
+            while (tIndex >= 0)
+            {//input창 수량에 따라 반복
+                if (tChk == 0)
+                {//플래그가 0일 경우 반복하지 않고 종료
+                    for (let i = 0; i < tmp[tIndex].length; i++)
+                    {//각 input창 텍스트 길이만큼 검사
+                        if (!(tmp[tIndex].value[i] >= 0 || tmp[tIndex].value[i] <= 9))
+                        {//각 자리가 숫자가 아니면 플래그 1로 변경
+                            tChk = 1;
+                        }
+                    }
+                }
+                tIndex--;
+            }
+            return tChk;
+        }
+
+        // function instKillStr(tmp)
+        // {
+        //     let tChk = 0;
+        //     let tIndex = tmp.length - 1;
+        //     while (tIndex >= 0)
+        //     {//input창 수량에 따라 반복
+        //         for (let i = 0; i < tmp[tIndex].length; i++)
+        //             {//각 input창 텍스트 길이만큼 검사
+        //                 if (!(tmp[tIndex].value[i] >= 0 || tmp[tIndex].value[i] <= 9))
+        //                 {//각 자리가 숫자가 아니면 지우기
+        //                     tmp[tIndex].value = tmp[tIndex].value.slice(1, i) + tmp[tIndex].value.slice((i + 2));
+        //                 }
+        //             }
+        //         tIndex--;
+        //     }
+        //     return tChk;
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .abc
+        {
+            width: 200px;
+            margin: 20px auto;
+            color: red;
+        }
+        .abc:hover
+        {
+            cursor: pointer;
+        }
+        .outer_ul
+        {
+            width: 50%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .inner_li
+        {
+            width: 50%;
+            height: 80px;
+            border: 1px solid;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 55px;
+            color: #fff;
+            background-color: #faa;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+    <div class="box"></div>
+
+    <!-- <ul class="outer_ul">
+        <li class="inner_li"></li>
+        <li class="inner_li"></li>
+        <li class="inner_li"></li>
+        <li class="inner_li"></li>
+    </ul> -->
+    <script>
+        /*
+            createElement() : 요소(태그)를 직접 만드는 메서드
+                                DOM을 다루는 표준방식, HTML의 요소를 객체로 접근
+            createTextNode() : 글자를 만드는 메서드
+            
+            appendChild() : 자식으로 집어넣기
+
+            setAttribute() : 속성 집어넣기
+        */
+
+        let el_h1 = document.createElement("h1");
+        el_h1.setAttribute("class", "abc");
+
+        let txt_h1 = document.createTextNode("헬로월드");
+
+        el_h1.appendChild(txt_h1);
+
+        document.getElementsByClassName("box")[0].appendChild(el_h1);
+        //////////////////////////////////////////////////////////
+
+        let el_ul = document.createElement("ul");
+        el_ul.setAttribute("class", "outer_ul");
+        
+        for (let i = 0; i < 6; i++)
+        {let el_li = document.createElement("li");
+        el_li.setAttribute("class", "inner_li");
+        el_li.setAttribute("id", "inner_li_" + (i + 1));
+        let txt_li = document.createTextNode(i + 1);
+        el_li.appendChild(txt_li);
+        el_ul.appendChild(el_li);}
+
+        document.getElementsByClassName("box")[0].appendChild(el_ul);
+
+        document.getElementsByClassName("abc")[0].addEventListener("click", function(){
+            if (document.getElementsByClassName("outer_ul")[0].innerHTML != "")
+            {
+                document.getElementsByClassName("outer_ul")[0].removeChild(document.getElementsByClassName("inner_li")[0]);
+            }
+            else
+            {
+                for (let i = 0; i < 6; i++)
+                {
+                    let el_li = document.createElement("li");
+                    el_li.setAttribute("class", "inner_li");
+                    el_li.setAttribute("id", "inner_li_" + (i + 1));
+                    let txt_li = document.createTextNode(i + 1);
+                    el_li.appendChild(txt_li);
+                    el_ul.appendChild(el_li);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

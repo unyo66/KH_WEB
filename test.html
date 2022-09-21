@@ -1,47 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        ul
+        {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            border: 1px solid;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li
+        {
+            width: calc(100% / 4);
+            height: 200px;
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+        .show_more
+        {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .show_more:hover
+        {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <ul class="ul_items">
+        <li class="li_items"></li>
+        <li class="li_items"></li>
+        <li class="li_items"></li>
+        <li class="li_items"></li>
+        <li class="li_items"></li>
+        <li class="li_items"></li>
+        <li class="li_items"></li>
+        <li class="li_items"></li>
+    </ul>
+    <div class="show_more" onclick="showMore()">더보기↓</div>
     <script>
-        function deleteBlank(input)
+        function showMore()
         {
-            for (let i = 0; i < input.length; i++)
-            {
-                input[i] = + input[i];
-            }
-            return input;
+            let el = document.querySelectorAll(".ul_items")[0];
+            for (let i = 0; i < 4; i++)
+            {el.innerHTML += `<li class="li_items"></li>`;}
         }
-        function getsign(input)
-        {
-            let sign = 0;
-            while (input[sign] != "+" && sign < 20)
-            {
-                sign++;
-            }
-            return sign;
-        }
-        function getNum(input, start, end)
-        {
-            let n = +input[start];
-            for (let i = start + 1; i < end; i++)
-            {
-                n = n * 10 + +input[i];
-            }
-            return n;
-        }
-        let input = prompt();    
-        // let sign = input[getsign(input)];
-        // document.write(getsign(input));
-        // for (let i = 0; i < input.length; i++)
-        // {
-        //     document.write(input[i]);
-        // }
-        document.write(getNum(input, 0, 4));
     </script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="txt txt_1"> - <input type="text" class="txt txt_2">
+    <button class="btn">확인</button>
+    <script>
+        let t1 = document.getElementsByClassName("txt_1")[0];
+        let t2 = document.getElementsByClassName("txt_2")[0];
+        let btn = document.getElementsByClassName("btn")[0];
+        t1.addEventListener("keyup", function(){instKillStr()});
+        function instKillStr()
+        {
+            console.log("keyCode: " + event.keyCode);
+            if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105))
+            {
+                t1.value = t1.value.slice(0, -1);
+            }
+        }
+    </script>
+</body>
+</html>
