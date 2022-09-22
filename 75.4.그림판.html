@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .canvas
+        {
+            width: 800px;
+            height: 600px;
+            margin: 30px auto;
+            border: 1px solid;
+            position: relative;
+        }
+        .brush
+        {
+            width: 5px;
+            height: 5px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background-color: #000;
+            pointer-events: none;
+        }
+        .pixel
+        {
+            width: 5px;
+            height: 5px;
+            background-color: #000;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas"></div>
+    <div class="brush"></div>
+    <div class="delete">delete</div>
+    <script>
+        var updown = 0;
+        let canvas = document.getElementsByClassName("canvas")[0];
+        document.addEventListener("mousedown", function(){updown = 1;});
+        document.addEventListener("mouseup", function(){updown = 0;});
+        canvas.addEventListener("mousemove", function(){paint(event.clientX, event.clientY)});
+        document.addEventListener("mousemove", function(){stick2mouse(event.clientX, event.clientY)});
+        document.getElementsByClassName("delete")[0].addEventListener("click", function(){deleteAll();})
+        var i = 0;
+        function paint(x, y)
+        {
+            if (updown == 1)
+            {
+                let mkpixel = document.createElement("span");
+                mkpixel.setAttribute("class", "pixel");
+                document.body.appendChild(mkpixel);
+                document.getElementsByClassName("pixel")[i].style.top = y + "px";
+                document.getElementsByClassName("pixel")[i].style.left = x + "px";
+                i++;
+            }
+        }
+        function deleteAll()
+        {
+            while (i >= 0)
+            {
+                // document.getElementsByClassName("pixel")[i].setAttribute("id", "forRemove");
+                // document.getElementById("forRemove").remove();
+                i--;
+            }
+        }
+        function stick2mouse(x, y)
+        {
+            document.getElementsByClassName("brush")[0].style.top = y + "px";
+            document.getElementsByClassName("brush")[0].style.left = x + "px";
+        }
+    </script>
+</body>
+</html>

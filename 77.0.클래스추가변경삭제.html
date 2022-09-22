@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .size
+        {
+
+        }
+        .bg_color
+        {
+
+        }
+        .font
+        {
+            
+        }
+        .font_color
+        {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="size m_r_0 bg_color font" id="box1">글씨</div>
+    <script>
+        /*
+            클래스 추가 변경 삭제
+                classList : 배열
+                className : 문자열
+
+                1) 확인
+                    요소.classList : 배열 형태로 받아옴
+                    요소.className : 클래스 사이에 공백이 여러칸 있으면 그대로 문자열화
+
+                2) 삽입(처음에 띄어쓰기 해야함)
+                    요소.classList.add("a", "b", "c");
+                    요소.classList += "a b c";
+
+                3) 수정
+                    요소.classList.replace("a", "b");
+
+                4) 삭제
+                    요소.classList.remove("삭제할 클래스");
+
+                5) 토글 : 없으면 삽입, 있으면 삭제
+                    요소.classList.toggle("a");
+
+                6) 있는지 확인 : t/f 반환
+                    요소.classList.contains("a");
+        */
+        
+        let box1 = document.getElementById("box1");
+
+        console.log(box1.classList);
+        console.log(box1.className);
+        box1.className += " font_color";
+        console.log(box1.classList.contains("font_color1", "size1"))
+    </script>
+</body>
+</html>

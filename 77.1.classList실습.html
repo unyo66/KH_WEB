@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .skyblue{background-color: skyblue;}
+        .pink{background-color: pink;}
+        .white{background-color: white;}
+    </style>
+</head>
+<body>
+    <div class="box">헬로월드</div>
+    <button class="btn">확인</button>
+    
+    <script>
+        let colorArr = ["skyblue", "pink", "white"];
+        document.getElementsByClassName("btn")[0].addEventListener("click", function(){colorBtn()})
+        let i = 0;
+        function colorBtn()
+        {
+            let boxClass = document.getElementsByClassName("box")[0].classList;
+            for (let j = 0; j < 3; j++)
+            {
+                if (boxClass.contains(colorArr[j]))
+                {
+                    boxClass.remove(colorArr[j]);
+                }
+            }
+            if (i == 2)
+            {
+                boxClass.add(colorArr[2]);
+                i = 0;
+            }
+            else
+            {
+                boxClass.add(colorArr[i]);
+                i++;
+            }
+        }
+    </script>
+</body>
+</html>

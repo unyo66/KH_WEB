@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap
+        {
+            margin: 20px auto;
+        }
+        .delete:hover,
+        .restart:hover,
+        li
+        {
+            cursor: pointer;
+        }
+        .txt_red{color: red;}
+        .txt_blue{color: blue;}
+        .txt_green{color: green;}
+        li
+        {
+            width: 70px;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+    <span class="delete">delete</span>
+    <span class="restart">restart</span>
+    <div class="wrap"></div>
+    <script>
+        var howMany = +prompt("how many?");
+        function mkLi()
+        {
+            let el_ul = document.createElement("ul");
+            el_ul.setAttribute("class", "outer_ul");
+            for (let i = 0; i < howMany; i++)
+            {
+                let el_li = document.createElement("li");
+                let color;
+                if (i % 3 == 0)
+                {
+                    color = "red";
+                }
+                else if (i % 3 == 1)
+                {
+                    color = "blue";
+                }
+                else
+                {
+                    color = "green";
+                }
+                el_li.setAttribute("class", "txt_" + color);
+                el_li.appendChild(document.createTextNode("menu_" + (i + 1)));
+                el_ul.appendChild(el_li);
+            }
+            document.getElementsByClassName("wrap")[0].appendChild(el_ul);
+        }
+        mkLi();
+        function txtDelete(tmp)
+        {
+            document.getElementsByClassName("outer_ul")[0].removeChild(tmp);
+        }
+        function txtDeleteAll(i)
+        {
+            while (i >= 0)
+            {
+                document.getElementsByClassName("outer_ul")[0].removeChild(document.getElementsByTagName("li")[i]);
+                i--;
+            }
+        }
+        for (let i = 0; i < howMany; i++)
+        {
+            document.getElementsByTagName("li")[i].addEventListener("click", function(){txtDelete(this)});
+        }
+        document.getElementsByClassName("delete")[0].addEventListener("click", function(){txtDeleteAll(document.getElementsByTagName("li").length - 1)})
+        document.getElementsByClassName("restart")[0].addEventListener("click", function(){howMany = prompt("how many?"); mkLi()})
+    
+        
+    
+    </script>
+</body>
+</html>
