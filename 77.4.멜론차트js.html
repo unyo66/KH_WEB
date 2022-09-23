@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <title>Document</title>
+    <style>
+        .wrap
+        {
+            position: relative;
+        }
+        .box
+        {
+            width: 500px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .btn_box
+        {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .menu
+        {
+            width: calc((100% - 1px * 2) / 3);
+            text-align: center;
+            line-height: 50px;
+            font-weight: 600;
+            background-color: #ded;
+            position: relative;
+        }
+        .menu:hover
+        {
+            cursor: pointer;
+            font-weight: 900;
+        }
+        .checked_menu
+        {
+            width: 100%;
+            height: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgb(158, 226, 102);
+            display: none;
+        }
+        .chart_box
+        {
+            width: 100%;
+            height: calc(100% - 50px);
+            border-top: 1px solid #fff;
+            position: absolute;
+            bottom: 0;
+        }
+        .chart
+        {
+            display: none;
+        }
+        .chart1
+        {
+            display: block;
+        }
+        .chart_content
+        {
+            width: 100%;
+            height: calc(100% / 10);
+            line-height: 50px;
+            background-color: #ded;
+            text-align: center;
+            font-weight: 900;
+            position: relative;
+        }
+        .chart_content:nth-of-type(2n - 1)
+        {
+            background-color: #bcb;
+        }
+        .chart_content:hover
+        {
+            width: 100%;
+            height: 80px;
+            cursor: pointer;
+            line-height: 80px;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="btn_box">
+                <div class="menu">
+                    <div class="checked_menu"></div>
+                    가수명
+                </div>
+                <div class="menu">
+                    <div class="checked_menu"></div>
+                    앨범명
+                </div>
+                <div class="menu">
+                    <div class="checked_menu"></div>
+                    곡명
+                </div>
+            </div>
+            <div class="chart_box">
+                <ul class="chart chart1">
+                    <li class="chart_content">가수명</li>
+                    <li class="chart_content">가수명</li>
+                    <li class="chart_content">가수명</li>
+                    <li class="chart_content">가수명</li>
+                    <li class="chart_content">가수명</li>
+                    <li class="chart_content">가수명</li>
+                    <li class="chart_content">가수명</li>
+                    <li class="chart_content">가수명</li>
+                    <li class="chart_content">가수명</li>
+                    <li class="chart_content">가수명</li>
+                </ul>
+                <ul class="chart chart2">
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                    <li class="chart_content">앨범</li>
+                </ul>
+                <ul class="chart chart3">
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                    <li class="chart_content">곡</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        for (let i = 0; i < 3; i++)
+        {
+            document.getElementsByClassName("menu")[i].addEventListener("click", function()
+            {
+                document.getElementsByClassName("chart")[i].style.display = "block";
+                document.getElementsByClassName("checked_menu")[i].style.display = "block";
+                for (let j = 0; j < 3; j++)
+                {
+                    if (j != i)
+                    {
+                        document.getElementsByClassName("chart")[j].style.display = "none";
+                        document.getElementsByClassName("checked_menu")[j].style.display = "none";
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="child" id="c_1">웹퍼블리셔</div>
+        <div class="child" id="c_2">프론트엔드</div>
+        <div class="child" id="c_3">백엔드</div>
+    </div>
+    <script>
+        let parent = document.getElementsByClassName("parent")[0];
+        let child = document.getElementsByClassName("child");
+        let c_2 = document.getElementById("c_2");
+        /*
+        노드 : 텍스트를 포함해 모두 잡기(안씀)
+        요소 : 요소만 잡기
+        */
+       //노드
+        console.log(parent.childNodes);
+        console.log(c_2.previousSibling);
+        console.log(c_2.nextSibling);
+        console.log(c_2.parentNode);
+
+        console.log("");
+        //요소
+        console.log(parent.children);
+        console.log(parent.firstElementChild);
+        console.log(parent.lastElementChild);
+        console.log(c_2.previousElementSibling);
+        console.log(c_2.nextElementSibling);
+        console.log(c_2.parentElement);
+    </script>
+</body>
+</html>

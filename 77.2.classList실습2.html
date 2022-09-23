@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .outer_ul
+        {
+            width: 800px;
+            height: 400px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .inner_li
+        {
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+        .bg_pink
+        {
+            background-color: pink;
+        }
+        .bg_skyblue
+        {
+            background-color: skyblue;
+        }
+        .bg_gray
+        {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+    <script>
+        let liQnt = 8;
+        let createUl = document.createElement("ul");
+        createUl.setAttribute("class", "outer_ul");
+        for (let i = 0; i < liQnt; i++)
+        {
+            let createLi = document.createElement("li");
+            if (i % 2 == 0)
+            {
+                createLi.setAttribute("class", "inner_li bg_pink");
+            }
+            else
+            {
+                createLi.setAttribute("class", "inner_li bg_skyblue");
+            }
+            createLi.appendChild(document.createTextNode("menu" + (i + 1)));
+            createUl.appendChild(createLi);
+        }
+        document.getElementsByClassName("wrap")[0].appendChild(createUl);
+
+        for (let i = 0; i < liQnt; i++)
+        {
+            let li = document.getElementsByClassName("inner_li");
+            li[i].addEventListener("click", function()
+            {
+                for (let j = 0; j < liQnt; j++)//클릭하면 싹다 원래 색으로
+                {
+                    if (j % 2 == 0)
+                    {
+                        li[j].classList.replace("bg_gray", "bg_pink");
+                    }
+                    else
+                    {
+                        li[j].classList.replace("bg_gray", "bg_skyblue");
+                    }
+                }
+
+                li[i].classList.replace(li[i].classList[1], "bg_gray");//클릭한 애만 회색
+            })
+        }
+    </script>
+</body>
+</html>
