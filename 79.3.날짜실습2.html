@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dt = new Date();
+        let yoil = ["일", "월", "화", "수", "목", "금", "토"];
+        function zero(n)
+        {
+            if (n < 10)
+            {
+                n = "0" + n;
+            }
+            return n;
+        }
+        let h = 23;
+        let ap;
+        if (h < 12 || h == 24)
+        {
+            ap = "AM";
+        }
+        else
+        {
+            ap = "PM";
+        }
+        if (h > 12)
+        {
+            h -= 12;
+        }
+        //am : 1~11, 24
+        //pm : 12~23
+        document.write(`${dt.getFullYear()}-${zero(dt.getMonth() + 1)}-${zero(dt.getDate())} ${yoil[dt.getDay()]}요일 ${zero(h)}:${zero(dt.getMinutes())}:${zero(dt.getSeconds())} ${ap}`);
+    </script>
+</body>
+</html>

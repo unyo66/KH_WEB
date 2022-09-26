@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mid
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let dt = new Date();
+        let yoil = ["일", "월", "화", "수", "목", "금", "토"];
+        function zero(n)
+        {
+            if (n < 10)
+            {
+                n = "0" + n;
+            }
+            return n;
+        }
+        let h = 23;
+        let ap;
+        if (h < 12 || h == 24)
+        {
+            ap = "AM";
+        }
+        else
+        {
+            ap = "PM";
+        }
+        if (h > 12)
+        {
+            h -= 12;
+        }
+        //am : 1~11, 24
+        //pm : 12~23
+        let flag = 1;
+        let big = document.createElement("h1");
+        big.appendChild(document.createTextNode(`${dt.getFullYear()}-${zero(dt.getMonth() + 1)}-${zero(dt.getDate())} ${yoil[dt.getDay()]}요일`));
+        big.setAttribute("class", "mid");
+        document.body.appendChild(big);
+
+
+        let small = document.createElement("h1");
+        small.appendChild(document.createTextNode(`${zero(h)}:${zero(dt.getMinutes())}:${zero(dt.getSeconds())} ${ap}`));
+        small.setAttribute("class", "mid");
+        document.body.appendChild(small);
+
+        let bbx = document.createElement("div");
+        let btn = document.createElement("button");
+        btn.appendChild(document.createTextNode(`24시간제로 변경`));
+        bbx.appendChild(btn);
+        bbx.setAttribute("class", "mid");
+        document.body.appendChild(bbx);
+
+        btn = document.getElementsByTagName("button")[0];
+        btn.addEventListener("click", function(){
+            flag *= -1;
+            if (flag == -1)
+            {
+                document.getElementsByTagName("h1")[1].innerText = `${zero(dt.getHours())}:${zero(dt.getMinutes())}:${zero(dt.getSeconds())}`;
+
+                document.getElementsByTagName("button")[0].innerText = "12시간제로 변경";
+            }
+            else
+            {
+                document.getElementsByTagName("h1")[1].innerText = `${zero(h)}:${zero(dt.getMinutes())}:${zero(dt.getSeconds())} ${ap}`;
+
+                document.getElementsByTagName("button")[0].innerText = "24시간제로 변경";
+            }
+        })
+    </script>
+</body>
+</html>

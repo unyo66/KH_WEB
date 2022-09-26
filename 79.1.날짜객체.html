@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="clock"></div>
+    <script>
+        /*
+            Date객체 : 로컬시간을 나타냄(Number)
+            
+                getMonth : 월, 0부터 셈
+                getDate : 일
+                getDay : 요일, 0~6 : 일~토
+                getHours : 시, 24시간제
+                
+
+            생성자 함수
+                1) 일반적으로 대문자로 시작함
+                    소문자로 해도 에러는 아니지만 대문자로 만드는게 일반적
+                    (JS 생성자 함수 모두 대문자 시작)
+                    생성자 함수 사용시 new 키워드 사용
+        */
+        let dt = new Date();
+        console.log(dt);
+        console.log(dt.getFullYear());
+        console.log(dt.getMonth());
+        console.log(dt.getDate());
+        console.log(dt.getDay());
+        console.log(dt.getHours());
+        console.log(dt.getMinutes());
+        console.log(dt.getSeconds());
+        console.log(dt.getMilliseconds());
+        let h = dt.getHours();
+        if (h > 12)
+        {
+            h = `오후 ${h - 12}`;
+        }
+        else
+        {
+            h = `오전 ${h}`;
+        }
+        let clock = document.getElementsByClassName("clock")[0];
+        function getClock()
+        {
+            clock.innerText = `${dt.getFullYear()}년 ${dt.getMonth() + 1}월 ${dt.getDate()}일 ${h}시 ${dt.getMinutes()}분`;
+        }
+
+        // getTime : 기준시 (1970.1.1 0:0:0 부터 밀리초)
+        let dt1 = new Date(2022, 8, 30);//9월 30일
+        let dt2 = new Date();
+        console.log(dt1.getTime());
+        console.log(dt2.getTime());
+        console.log((dt1.getTime() - dt2.getTime()) / (1000 * 60 * 60 * 24));
+    </script>
+</body>
+</html>

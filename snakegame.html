@@ -4,99 +4,186 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>뱀</title>
     <style>
         .ground
         {
-            width: 600px;
-            height: 400px;
             display: flex;
             flex-wrap: wrap;
             border: 1px solid;
         }
         .tile
         {
-            width: 100px;
-            height: 100px;
+            width: 50px;
+            height: 50px;
             border: 1px solid;
             box-sizing: border-box;
         }
-        .snake
+        .s1,
+        .s2,
+        .s3,
+        .s4,
+        .s5,
+        .s6
         {
             background-color: #000;
+        }
+        .l_up:hover
+        {
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="ground">
-        <div class="tile 1"></div>
-        <div class="tile 2"></div>
-        <div class="tile 3"></div>
-        <div class="tile 4"></div>
-        <div class="tile 5"></div>
-        <div class="tile 6"></div>
-        <div class="tile 7"></div>
-        <div class="tile 8"></div>
-        <div class="tile 9 snake"></div>
-        <div class="tile 10"></div>
-        <div class="tile 11"></div>
-        <div class="tile 12"></div>
-        <div class="tile 13"></div>
-        <div class="tile 14"></div>
-        <div class="tile 15"></div>
-        <div class="tile 16"></div>
-        <div class="tile 17"></div>
-        <div class="tile 18"></div>
-        <div class="tile 19"></div>
-        <div class="tile 20"></div>
-        <div class="tile 21"></div>
-        <div class="tile 22"></div>
-        <div class="tile 23"></div>
-        <div class="tile 24"></div>
     </div>
+    <div class="l_up">length up</div>
     <script>
-        document.addEventListener("keydown", function(){move(event.keyCode);});
+        let snake = ["s1", "s2", "s3", "s4", "s5", "s6"];
+        let speed = 500;//뱀 속도(밀리초)
+        let initPos = 45;//뱀 초기 위치
+        let h = 10;//횡 길이
+        let v = 10;//종 길이
+        let drtn = 39;//초기 방향 37 38 39 40 : 왼 위 오 아
+        let length = 4;
 
-        function move(drtn)
+        let ground = document.getElementsByClassName("ground")[0];//그라운드 크기 설정
+        ground.style.width = h * 50 + "px";
+        ground.style.height = v * 50 + "px";
+
+        for (let i = 0; i < (h * v); i++)//그라운드에 타일 삽입
         {
-            let lctn;
-            for (let i = 0; i < 24; i++)
-            {
-                if(document.getElementsByClassName("tile")[i].classList.contains("snake"))
-                lctn = i;
-            }
-            document.getElementsByClassName("tile")[lctn].classList.remove("snake");
+            let mkTile = document.createElement("div");
             
-            if (drtn == 37)
+            mkTile.setAttribute("class", `tile ${i + 1}`);
+            ground.appendChild(mkTile);
+        }
+        for (let i = 0; i < length; i++)
+        {
+            document.getElementsByClassName("tile")[initPos - i].classList.add(snake[i]);
+        }
+        document.addEventListener("keydown", function(){//방향키 눌리면 방향설정함수 발동
+            drtn = event.keyCode;
+            changeDrtn(drtn);
+        });
+        document.getElementsByClassName("l_up")[0].addEventListener("click", function(){
+
+        })
+        let lctn;
+        function changeDrtn(drtn)//누른 방향키에 따라 방향 바뀜
+        {
+            if (isWall(drtn) == 0)
             {
-                if(!(document.getElementsByClassName("tile")[lctn].classList.contains("1") || document.getElementsByClassName("tile")[lctn].classList.contains("7") || document.getElementsByClassName("tile")[lctn].classList.contains("13") || document.getElementsByClassName("tile")[lctn].classList.contains("19")))
+                if (drtn == 37)
                 {
                     lctn -= 1;
+                }
+                else if (drtn == 38)
+                {
+                    lctn -= v;
+                }
+                else if (drtn == 39)
+                {
+                    lctn += 1;
+                }
+                else if (drtn == 40)
+                {
+                    lctn += v;
+                }
+            }
+        }
+        let wallFlag = 0;
+        function isWall(drtn)//벽에 부딪혔는지 확인
+        {
+            wallFlag = 0;
+            let tile = document.getElementsByClassName("tile")[lctn].classList;
+            if (drtn == 37)
+            {
+                for (let i = 0; i < v; i++)
+                {
+                    if ((tile.contains(h * i + 1)))
+                    {
+                        wallFlag = 1;
+                    }
                 }
             }
             else if (drtn == 38)
             {
-                if(!(document.getElementsByClassName("tile")[lctn].classList[1] <= 6))
+                if (tile[1] <= h)
                 {
-                    lctn -= 6;
+                    wallFlag = 1;
                 }
             }
             else if (drtn == 39)
             {
-                if(!(document.getElementsByClassName("tile")[lctn].classList.contains("6") || document.getElementsByClassName("tile")[lctn].classList.contains("12") || document.getElementsByClassName("tile")[lctn].classList.contains("18") || document.getElementsByClassName("tile")[lctn].classList.contains("24")))
+                for (let i = 0; i < v; i++)
                 {
-                    lctn += 1;
+                    if (tile.contains(h * (i + 1)))
+                    {
+                        wallFlag = 1;
+                    }
                 }
             }
             else if (drtn == 40)
             {
-                if(!(document.getElementsByClassName("tile")[lctn].classList[1] > 18))
+                if (tile[1] > h * (v - 1))
                 {
-                    lctn += 6;
+                    wallFlag = 1;
                 }
             }
-            document.getElementsByClassName("tile")[lctn].classList.add("snake");
+            return wallFlag;
         }
+
+        function move()//원래 위치에서 snake클래스 지우고 새로운 위치에 삽입
+        {
+            let head;
+            for (let i = 0; i < h * v; i++)
+            {
+                if(document.getElementsByClassName("tile")[i].classList.contains(snake[i]))
+                {
+                    lctn = i;
+                    head = i;
+                }
+            }
+            document.getElementsByClassName("tile")[lctn].classList.remove(snake[0]);
+            changeDrtn(drtn);
+            document.getElementsByClassName("tile")[lctn].classList.add(snake[0]);
+            for (let i = 1; i < length; i++)
+            {
+                if (i == 1)
+                {
+                    
+                }
+                else
+                {
+                    for (let j = 0; j < h * v; j++)
+                    {
+                        if(document.getElementsByClassName("tile")[j].classList.contains(snake[i]))
+                        {
+                            lctn = j;
+                        }
+                        document.getElementsByClassName("tile")[lctn].classList.remove(snake[i]);
+                        if(document.getElementsByClassName("tile")[j].classList.contains(snake[i - 1]))
+                        {
+                            head = j;
+                        }
+                    }
+
+                    document.getElementsByClassName("tile")[head].classList.add(snake[i]);
+                    console.log(head);
+                }
+            }
+            // for (let j = 0; j < h * v; j++)
+            //         {
+            //             if(document.getElementsByClassName("tile")[j].classList.contains(snake[0]))
+            //             lctn = j;
+            //         }
+            //         document.getElementsByClassName("tile")[lctn].classList.remove(snake[0]);
+            //         changeDrtn(drtn);
+            //         document.getElementsByClassName("tile")[lctn].classList.add(snake[0]);
+        }
+
+        setInterval(move, speed);//시간에 따라 반복
 
     </script>
 </body>

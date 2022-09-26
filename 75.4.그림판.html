@@ -31,6 +31,10 @@
             transform: translate(-50%, -50%);
             position: absolute;
         }
+        .delete:hover
+        {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -38,34 +42,47 @@
     <div class="brush"></div>
     <div class="delete">delete</div>
     <script>
-        var updown = 0;
+        let updown = 0;
         let canvas = document.getElementsByClassName("canvas")[0];
         document.addEventListener("mousedown", function(){updown = 1;});
         document.addEventListener("mouseup", function(){updown = 0;});
-        canvas.addEventListener("mousemove", function(){paint(event.clientX, event.clientY)});
+        canvas.addEventListener("mousemove", function(){paint(event.offsetX, event.offsetY)});
         document.addEventListener("mousemove", function(){stick2mouse(event.clientX, event.clientY)});
         document.getElementsByClassName("delete")[0].addEventListener("click", function(){deleteAll();})
-        var i = 0;
+        let i = 0;
         function paint(x, y)
         {
             if (updown == 1)
             {
-                let mkpixel = document.createElement("span");
-                mkpixel.setAttribute("class", "pixel");
-                document.body.appendChild(mkpixel);
+                let mkPixel = document.createElement("span");
+                mkPixel.setAttribute("class", "pixel");
+                // document.body.appendChild(mkPixel);
+                canvas.appendChild(mkPixel);
                 document.getElementsByClassName("pixel")[i].style.top = y + "px";
                 document.getElementsByClassName("pixel")[i].style.left = x + "px";
                 i++;
             }
         }
+        let pix = document.getElementsByClassName("pixel");
         function deleteAll()
         {
-            while (i >= 0)
+            while (i > 0)
             {
-                // document.getElementsByClassName("pixel")[i].setAttribute("id", "forRemove");
-                // document.getElementById("forRemove").remove();
+                canvas.children[i - 1].remove();
                 i--;
             }
+            
+            // for (let j = 0; j < pix.length; j++)
+            // {
+            //     pix[j].remove();
+            // }
+
+            // for (let j = pix.length - 1; j >= 0; j--)
+            // {
+            //     pix[j].remove();
+            // }
+
+            
         }
         function stick2mouse(x, y)
         {

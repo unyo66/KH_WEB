@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id_for_d">아이디</div>
+    <div class="delete_id">아이디 삭제</div>
+    <div class="class_for_d">클래스</div>
+    <div class="delete_class">클래스 삭제</div>
+    <script>
+        document.getElementsByClassName("delete_id")[0].addEventListener("click", function(){document.getElementById("id_for_d").remove();});
+        document.getElementsByClassName("delete_class")[0].addEventListener("click", function(){document.getElementsByClassName("class_for_d")[0].remove();});
+    </script>
+</body>
+</html>

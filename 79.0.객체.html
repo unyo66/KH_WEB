@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            자바스크립트에서 클래스 개념이 도입된지 얼마 안됨.
+
+            객체 - object
+                    *클래스를 이용해서 만든것
+                    key + value
+                    객체 안에는 변수, 배열, 함수, 객체 등을 사용할 수 있다.
+        */
+
+        let Ob1 = {
+            class_name:"스마트웹",
+            time: "15:30~21:50",
+            name:["프론트엔드", "백엔드"],
+
+            alertName:function()
+            {
+                alert(`${this.name[1]}`);
+            },
+            alertTime:function()
+            {
+                alert(this.time);
+            }
+        }
+        Ob1.alertName();
+        Ob1.time = "15:30~22:50";
+        Ob1.alertTime();
+    </script>
+</body>
+</html>

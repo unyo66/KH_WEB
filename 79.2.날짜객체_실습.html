@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dt = new Date();
+        let yoil = ["일", "월", "화", "수", "목", "금", "토"];
+        function zero(n)
+        {
+            if (n < 10)
+            {
+                return "0" + n;
+            }
+            else
+            {
+                return n;
+            }
+        }
+        console.log(`${dt.getFullYear()}-${zero(dt.getMonth() + 1)}-${zero(dt.getDate())} ${yoil[dt.getDay()]} ${zero(dt.getHours())}:${zero(dt.getMinutes())}:${zero(dt.getSeconds())}`);
+        document.write(`${dt.getFullYear()}-${zero(dt.getMonth() + 1)}-${zero(dt.getDate())} ${yoil[dt.getDay()]} ${zero(dt.getHours())}:${zero(dt.getMinutes())}:${zero(dt.getSeconds())}`);
+        document.write(`${dt.getFullYear()}-${zero(dt.getMonth() + 1)}-${zero(dt.getDate())} ${yoil[dt.getDay()]} ${zero(dt.getHours())}:${zero(dt.getMinutes())}:${zero(dt.getSeconds())}`);
+    </script>
+</body>
+</html>
