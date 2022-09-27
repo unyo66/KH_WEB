@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function chk_mobile(ua) {
+        const m_regex = [
+            /android/i,
+            /iphone/i,
+            /ipad/i,
+            /blackberry/i
+        ]
+
+        // some : 배열을 돌면서 검사
+        return m_regex.some(mobile => ua.match(mobile))
+    }
+
+    let isMobile = chk_mobile(navigator.userAgent);
+
+    if(isMobile) {
+        alert("모바일")
+    }
+    else {
+        alert("데탑")
+    }
+
+</script>
+</body>
+</html>

@@ -136,43 +136,58 @@
 
         function move()//원래 위치에서 snake클래스 지우고 새로운 위치에 삽입
         {
-            let head;
-            for (let i = 0; i < h * v; i++)
+            let lctnAdd;
+            for (let j = length - 1; j >= 0; j--)
             {
-                if(document.getElementsByClassName("tile")[i].classList.contains(snake[i]))
+                for (let i = 0; i < h * v; i++)
                 {
-                    lctn = i;
-                    head = i;
+                    if (document.getElementsByClassName("tile")[i].classList.contains(snake[j]))
+                    {
+                        lctn = i;
+                    }
+                    if (document.getElementsByClassName("tile")[i].classList.contains(snake[j - 1]))
+                    {
+                        lctnAdd = i;
+                    }
                 }
-            }
-            document.getElementsByClassName("tile")[lctn].classList.remove(snake[0]);
-            changeDrtn(drtn);
-            document.getElementsByClassName("tile")[lctn].classList.add(snake[0]);
-            for (let i = 1; i < length; i++)
-            {
-                if (i == 1)
+                document.getElementsByClassName("tile")[lctn].classList.remove(snake[j]);
+
+                if (j == 0)
                 {
-                    
+                    changeDrtn(drtn);
+                    document.getElementsByClassName("tile")[lctn].classList.add(snake[j]);
                 }
                 else
                 {
-                    for (let j = 0; j < h * v; j++)
-                    {
-                        if(document.getElementsByClassName("tile")[j].classList.contains(snake[i]))
-                        {
-                            lctn = j;
-                        }
-                        document.getElementsByClassName("tile")[lctn].classList.remove(snake[i]);
-                        if(document.getElementsByClassName("tile")[j].classList.contains(snake[i - 1]))
-                        {
-                            head = j;
-                        }
-                    }
-
-                    document.getElementsByClassName("tile")[head].classList.add(snake[i]);
-                    console.log(head);
+                    document.getElementsByClassName("tile")[lctnAdd].classList.add(snake[j]);
                 }
             }
+
+            // for (let i = 1; i < length; i++)
+            // {
+            //     if (i == 1)
+            //     {
+                    
+            //     }
+            //     else
+            //     {
+            //         for (let j = 0; j < h * v; j++)
+            //         {
+            //             if(document.getElementsByClassName("tile")[j].classList.contains(snake[i]))
+            //             {
+            //                 lctn = j;
+            //             }
+            //             document.getElementsByClassName("tile")[lctn].classList.remove(snake[i]);
+            //             if(document.getElementsByClassName("tile")[j].classList.contains(snake[i - 1]))
+            //             {
+            //                 head = j;
+            //             }
+            //         }
+
+            //         document.getElementsByClassName("tile")[head].classList.add(snake[i]);
+            //         console.log(head);
+            //     }
+            // }
             // for (let j = 0; j < h * v; j++)
             //         {
             //             if(document.getElementsByClassName("tile")[j].classList.contains(snake[0]))

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="reload" onclick="reload()"><!--새로고침-->
+    <input type="button" value="href" onclick="href()"><!--링크이동, 뒤로가기 사용가능-->
+    <input type="button" value="replace" onclick="replace()"><!--링크이동, 뒤로가기 사용불가-->
+    <script>
+        function reload()
+        {
+            location.reload();
+        }
+        function href()
+        {
+            location.href="http://naver.com";
+        }
+        function replace()
+        {
+            location.replace("http://naver.com");
+        }
+    </script>
+</body>
+</html>

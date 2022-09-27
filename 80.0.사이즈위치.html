@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /*
+            화면, 브라우저 전체, 사용 가능한 브라우저 사이즈
+
+            1) screen : 화면 자체의 크기
+            2) document.body.client~ : 실제 body 사이즈
+            3) window.inner~ : 윈도우창 안쪽 실제 사용가능한 body사이즈
+            4) window.outer~ : 윈도우창 바깥쪽까지 사이즈
+            5) window.screen~ : 스크린 기준 윈도우창 위치
+            6) 선택자.offsetTop : 문서 최상단으로부터의 위치
+            7) scrollY : 최상단으로부터 현재 스크롤 위치
+
+            ///
+            clientWidth : 패딩을 포함한 사이즈
+            clientHeight
+            offsetWidth : 
+            offsetHeight
+            scrollHeight
+        */
+        document.write("===screen===<br>");
+        document.write(screen.width + "<br>");
+        document.write(screen.height + "<br>");
+        document.write("===document.body.client===<br>");
+        document.write(document.body.clientWidth + "<br>");
+        document.write(document.body.clientHeight + "<br>");
+        document.write("===window.inner===<br>");
+        document.write(window.innerWidth + "<br>");
+        document.write(window.innerHeight + "<br>");
+        document.write("===window.outer===<br>");
+        document.write(window.outerWidth + "<br>");
+        document.write(window.outerHeight + "<br>");
+        document.write("===선택자.offsetTop===<br>");
+        document.write(window.innerWidth + "<br>");
+        document.write(window.innerHeight + "<br>");
+        document.write(scrollY);
+        document.addEventListener("scroll", function(){
+            if (scrollY >= 200)
+        {
+        document.body.style.background = "red";
+        }
+            if (scrollY >= 400)
+            {
+        document.body.style.background = "white";
+            }
+        })
+        
+    </script>
+</body>
+</html>
