@@ -21,11 +21,6 @@
     <input type="text" id="txt_send_msg">
     <button onclick="btn_send_msg()">정보넘기기</button>
 <script>
-    // 부모창에서 자식창으로 메세지 전달
-    function btn_send_msg() {
-        child.document.getElementById("txt1").value = document.getElementById("txt_send_msg").value;
-    }
-
 /*
     - window
         창(브라우저) 관리
@@ -42,7 +37,7 @@
                                         _blank (기본값)
                                         _self 
         window.open("경로", '옵션', '옵션2') - 새 창을 띄움
-                                            옵션2: 새 창의 크기, 위치 결정
+                                              옵션2: 새 창의 크기, 위치 결정
         
 
 */
@@ -68,7 +63,28 @@
         let pos_y = (window.outerHeight - child_y) / 2; 
         
         child = window.open("84.1.window자식창.html", "_blank", "width="+child_x+", height="+child_y+", left="+pos_x+", top="+pos_y);
+
     }
+    // 부모창에서 자식창으로 메세지 전달
+    function btn_send_msg() {
+        // id=txt_send_msg 잡아서 그 안의 value값 변수에 저장
+        let tmp_msg = document.getElementById('txt_send_msg').value;
+
+        // 1번방법: 대놓고 자식꺼 건드리기
+        // child 변수 안에 있는 자식창 안의 id=txt1 안의 value 에 "abcd"
+        // child.document.getElementById('txt1').value = tmp_msg;
+
+        // 2번방법: 자식한테 값만 주입(전달)해서 자식이 알아서 txt1에 넣게하기(장점: 유지보수할때 부모창을 볼 필요가 없다.)
+        child.tmp_msg(tmp_msg)
+        
+    }
+    document.getElementById('txt_send_msg').addEventListener('keydown', function(){
+        // 입력한게 13이면 
+        if(event.keyCode==13) {
+            btn_send_msg()
+        }
+    })
+
 
     function close_window() {  
         window.close();

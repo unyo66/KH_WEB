@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="시작" onclick="start()">
+    <input type="button" value="끝" onclick="stop()">
+    <script>
+        /*
+            setInterval(실행할 코드, 밀리초);
+            clearInterval(멈출 인터벌);
+        */
+        let itv;
+        function start()
+        {
+            clearInterval(itv);
+            itv = setInterval(function(){
+                console.log(1);
+            }, 100);
+        }
+        function stop()
+        {
+            clearInterval(itv);
+        }
+    </script>
+</body>
+</html>

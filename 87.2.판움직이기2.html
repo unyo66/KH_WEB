@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .banner_box
+        {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            /* overflow: hidden; */
+        }
+        .banner
+        {
+            width: 100%;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            z-index: 50;
+            transition: left 0.5s;
+        }
+        .red
+        {
+            background-color: darkred;
+            left: 0;
+        }
+        .green
+        {
+            background-color: darkgreen;
+            left: 100%;
+        }
+        .blue
+        {
+            background-color: darkblue;
+            left: -100%;
+        }
+        .zindex_1
+        {
+            z-index: 1;
+        }
+        .zindex_99
+        {
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="banner_box">
+            <div class="banner red"></div>
+            <div class="banner green"></div>
+            <div class="banner blue"></div>
+        </div>
+        <input type="button" value="<" class="btn">
+        <input type="button" value=">" class="btn">
+    </div>
+    <script>
+        const btnL = document.getElementsByClassName("btn")[0];
+        const btnR = document.getElementsByClassName("btn")[1];
+
+        const banner = document.getElementsByClassName("banner");
+
+        let count = 99;
+        let left = ["-100%", "0", "100%"];
+        let right = ["100%", "0", "-100%"];
+
+        function goL()
+        {
+            banner[count % banner.length].style.left = "-100%";
+            banner[count % banner.length].classList.remove("zindex_1");
+            banner[(count + 1) % banner.length].style.left = "0";
+            banner[(count + 1) % banner.length].classList.remove("zindex_1");
+            banner[(count + 2) % banner.length].style.left = "100%";
+            banner[(count + 2) % banner.length].classList.add("zindex_1");
+            count += 1;
+        }
+        function goR()
+        {
+            banner[count % banner.length].style.left = "100%";
+            banner[count % banner.length].classList.remove("zindex_1");
+            banner[(count + 1) % banner.length].style.left = "-100%";
+            banner[(count + 1) % banner.length].classList.add("zindex_1");
+            banner[(count + 2) % banner.length].style.left = "-0";
+            banner[(count + 2) % banner.length].classList.remove("zindex_1");
+            count -= 1;
+            if (count == 0)
+            {
+                count += 99;
+            }
+        }
+        // function goR()
+        // {
+        //     banner[(2 - count % banner.length)].style.left = "100%";
+        //     banner[(2 - count % banner.length)].classList.remove("zindex_1");
+        //     banner[(2 - (count + 1) % banner.length)].style.left = "0";
+        //     banner[(2 - (count + 1) % banner.length)].classList.remove("zindex_1");
+        //     banner[(2 - (count + 2) % banner.length)].style.left = "-100%";
+        //     banner[(2 - (count + 2) % banner.length)].classList.add("zindex_1");
+        //     count += 1;
+        // }
+            // banner[(2 - curr_index % 3)].style.left = "0";
+            // banner[(2 - curr_index % 3)].classList.remove("zIndex_1");
+            // banner[(2 - (curr_index + 1) % 3)].style.left = "-100%";
+            // banner[(2 - (curr_index + 1) % 3)].classList.add("zIndex_1");
+            // banner[(2 - (curr_index + 2) % 3)].style.left = "100%";
+            // banner[(2 - (curr_index + 2) % 3)].classList.remove("zIndex_1");
+            // curr_index += 1;
+
+        btnL.addEventListener("click", function(){goL(); console.log(count);});
+        btnR.addEventListener("click", function(){goR(); console.log(count);})
+    </script>
+</body>
+</html>

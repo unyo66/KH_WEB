@@ -35,6 +35,8 @@
     </style>
 </head>
 <body>
+    <div class="pause">pause</div>
+    <div class="release">release</div>
     <div class="ground">
     </div>
     <div class="l_up">length up</div>
@@ -198,7 +200,35 @@
             //         document.getElementsByClassName("tile")[lctn].classList.add(snake[0]);
         }
 
-        setInterval(move, speed);//시간에 따라 반복
+        let itv;
+        let itvFlag = 1;
+        document.addEventListener("DOMContentLoaded", function(){release(); itvFt();});
+        document.getElementsByClassName("pause")[0].addEventListener("click", function(){pause(); itvFt();});
+        document.getElementsByClassName("release")[0].addEventListener("click", function(){release(); itvFt();});
+        function release()
+        {
+            clearInterval(itv);
+            itv = setInterval(move, speed);//시간에 따라 반복
+            itvFlag = 1;
+        }
+        function pause()
+        {
+            clearInterval(itv);
+            itvFlag = 0;
+        }
+        function itvFt()
+        {
+            if (itvFlag == 0)
+            {
+                document.getElementsByClassName("release")[0].style.display = "block";
+                document.getElementsByClassName("pause")[0].style.display = "none";
+            }
+            else if (itvFlag == 1)
+            {
+                document.getElementsByClassName("pause")[0].style.display = "block"
+                document.getElementsByClassName("release")[0].style.display = "none"
+            }
+        }
 
     </script>
 </body>

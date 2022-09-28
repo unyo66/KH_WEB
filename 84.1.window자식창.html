@@ -10,11 +10,17 @@
     <h1>자식창</h1>
     <input type="text" placeholder="1234" id="txt1">
     <input type="button" value="확인" id="btn" onclick="tmp_msg()">
-    <script>
-        // function tmp_msg()
-        // {
-        //     document.getElementById("txt1").value = "";
-        // }
-    </script>
+
+    <input type="button" value="확인" id="btn" onclick="parent_close()">
+    
+<script>
+    function tmp_msg(tmp_msg) {
+        document.getElementById('txt1').value = tmp_msg;
+        // document.getElementById('txt1').value="abcd"
+    }
+    function parent_close() {
+        window.opener.close()
+    }
+</script>
 </body>
 </html>
