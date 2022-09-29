@@ -12,7 +12,7 @@
             height: 400px;
             position: relative;
             /* overflow: hidden; */
-        }
+        }   
         .banner
         {
             width: 100%;
@@ -41,10 +41,6 @@
         {
             z-index: 1;
         }
-        .zindex_99
-        {
-            z-index: 99;
-        }
     </style>
 </head>
 <body>
@@ -64,8 +60,6 @@
         const banner = document.getElementsByClassName("banner");
 
         let count = 99;
-        let left = ["-100%", "0", "100%"];
-        let right = ["100%", "0", "-100%"];
 
         function goL()
         {
@@ -83,7 +77,7 @@
             banner[count % banner.length].classList.remove("zindex_1");
             banner[(count + 1) % banner.length].style.left = "-100%";
             banner[(count + 1) % banner.length].classList.add("zindex_1");
-            banner[(count + 2) % banner.length].style.left = "-0";
+            banner[(count + 2) % banner.length].style.left = "0";
             banner[(count + 2) % banner.length].classList.remove("zindex_1");
             count -= 1;
             if (count == 0)
