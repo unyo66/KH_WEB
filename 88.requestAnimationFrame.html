@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="시작" onclick="start()">
+    <input type="button" value="멈춤" onclick="stop()">
+    <script>
+        /*
+            setInterval과 비슷하지만 화면을 보고있지 않을때는 멈춤(리소스를 적게씀)
+            기본 속도 : 1초에 60번을 목표, 기기 사양에 따라 속도 차이가 있음
+            아직 웹표준이 정해지지 않은 상태
+        */
+        let count = 0;
+        let index = 0;
+        let interval;
+
+        function start()
+        {
+            console.log("count : " + count);
+            if (count % 60 == 0)
+            {
+                console.log("index : " + index++);
+            }
+            count ++;
+            interval = window.requestAnimationFrame(start);
+        }
+
+        function stop()
+        {
+            cancelAnimationFrame(interval);
+        }
+    </script>
+</body>
+</html>

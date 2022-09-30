@@ -6,49 +6,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .wrap
+        body
         {
-            max-width: 1100px;
-            margin: 0 auto;
+            margin: 0;
+            background-color: #000;
         }
-        .header
+        ul
         {
-            width: 100%;
-            height: 150px;
-            border: 1px solid;
-            box-sizing: border-box;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .open_filter
+        {
+            display: none;
         }
         .main
         {
+            width: 1100px;
+            /* max-width: 1100px; */
+            margin: 0 auto;
+            color: #fff;
+            background-color: #444;
+            position: relative;
+        }
+        .header
+        {
+            width: 1100px;
+            height: 80px;
+            border: 1px solid;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .logo
+        {
+            width: 180px;
+            height: 60px;
+            background-color: #faa;
+        }
+        .menu_box
+        {
+            width: 300px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .search_box
+        {
+            display: flex;
+            /* align-items: center; */
+        }
+        .search_bar
+        {
+            width: 300px;
+            height: 30px;
+            padding: 0;
+            outline: none;
+        }
+        .search_btn
+        {
+            width: 34px;
+            height: 34px;
+            background-color: #444;
+        }
+        .sign_box
+        {
+            width: 150px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+
+
+        .contents_area
+        {
             width: 100%;
             border: 1px solid;
             box-sizing: border-box;
+            position: absolute;
+            top: 80px;
             display: flex;
         }
-        .filter_box
+        .article
         {
             width: 70%;
             border: 1px solid;
             box-sizing: border-box;
         }
-        .filter_table
+        .filter_box
         {
             width: 100%;
         }
-        tr
+        .filter_ul
         {
+            width: 100%;
             height: 60px;
+            line-height: 60px;
+            display: flex;
+            border: 1px solid;
+            box-sizing: border-box;
+            position: relative;
         }
-        th
+        .options
         {
-            /* width: 100px; */
+            width: 110px;
+            text-align: center;
+            border-right: 1px solid;
+            box-sizing: border-box;
+        }
+        .filter_name
+        {
+            width: 80px;
+            padding-left: 10px;
             border: 1px solid;
             box-sizing: border-box;
         }
-        td
+        .more_options
         {
-            width: 150px;
-            padding-left: 10px;
+            width: 30px;
+            text-align: center;
+            background-color: #faa;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .open_filter:checked ~ .filter_hide
+        {
+            display: inline-flex;
+        }
+        .filter_hide
+        {
+            display: none;
+        }
+        .c_options_bar
+        {
+            height: 50px;
+            line-height: 50px;
+            padding: 5px;
+        }
+        .c_options
+        {
+            padding: 10px;
             border: 1px solid;
             box-sizing: border-box;
         }
@@ -75,62 +184,143 @@
         .aside
         {
             width: 30%;
+            height: auto;
+            border: 1px solid;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .thumb
+        {
+            width: 50%;
+            height: 200px;
+            float: left;
             border: 1px solid;
             box-sizing: border-box;
         }
-        
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="header">
-
-        </div>
         <div class="main">
-            <div class="filter_box">
-                <table class="filter_table">
-                    <tr>
-                        <th>장르</th>
-                        <td>액션</td>
-                        <td>코미디</td>
-                        <td>로맨스</td>
-                        <td>모두보기</td>
-                    </tr>
-                    <tr>
-                        <th>국가</th>
-                        <td>한국</td>
-                        <td>미국</td>
-                        <td>일본</td>
-                        <td>모두보기</td>
-                    </tr>
-                    <tr>
-                        <th>등급</th>
-                        <td>전체이용가</td>
-                        <td>12세 관람가</td>
-                        <td>15세 관람가</td>
-                        <td>청소년 관람불가</td>
-                    </tr>
-                    <tr>
-                        <th>길이</th>
-                        <td>~ 90분</td>
-                        <td>90분 ~ 120분</td>
-                        <td>120분 ~</td>
-                        <td></td>
-                    </tr>
-                </table>
-                <div class="filter_footer">
-                    <div class="hide_mine">
-                        내가 본 영화 숨기기
-                        <span class="chk">v</span>
-                    </div>
-                    <div class="show_all">
-                        <span class="amount">oo</span>
-                        개의 영화 모두보기
-                    </div>
+            <div class="header">
+                <div class="logo">logo</div>
+                <div class="menu_box">
+                    <div class="menu">홈</div>
+                    <div class="menu">검색</div>
+                    <div class="menu">예고편</div>
+                </div>
+                <div class="search_box">
+                    <input type="text" name="" class="search_bar">
+                    <div class="search_btn">sc!</div>
+                </div>
+                <div class="sign_box">
+                    <div class="sign">sign up</div>
+                    <div class="sign">sign in</div>
                 </div>
             </div>
-            <div class="aside">
-                
+            <div class="contents_area">
+                <div class="article">
+                    <div class="filter_box">
+                        <ul class="filter_ul">
+                            <li class="filter_name">장르</li>
+                            <li class="options">액션</li>
+                            <li class="options">코미디</li>
+                            <li class="options">로맨스</li>
+                            <li class="options">공포</li>
+                            <li class="options">다큐</li>
+                            <label for="chk1" class="more_options">V</label>
+                        </ul>
+                        <input type="checkbox" name="" class="open_filter" id="chk1">
+                        <ul class="filter_ul filter_hide">
+                            <li class="filter_name"></li>
+                            <li class="options">판타지</li>
+                            <li class="options">SF</li>
+                            <li class="options">범죄</li>
+                            <li class="options">스릴러</li>
+                            <li class="options">학원</li>
+                        </ul>
+                        <ul class="filter_ul">
+                            <li class="filter_name">국가</li>
+                            <li  class="options">한국</li>
+                            <li  class="options">미국</li>
+                            <li  class="options">일본</li>
+                            <li  class="options">영국</li>
+                            <label for="chk2" class="more_options">V</label>
+                        </ul>
+                        <input type="checkbox" name="" class="open_filter" id="chk2">
+                        <ul class="filter_ul filter_hide">
+                            <li class="filter_name"></li>
+                            <li class="options">대만</li>
+                            <li class="options">프랑스</li>
+                            <li class="options">러시아</li>
+                            <li class="options">남아공</li>
+                        </ul>
+                        <ul class="filter_ul">
+                            <li class="filter_name">개봉년도</li>
+                            <li class="options">2020년대</li>
+                            <li class="options">2010년대</li>
+                            <li class="options">2000년대</li>
+                            <li class="options">~1990년대</li>
+                            <label for="chk3" class="more_options">V</label>
+                        </ul>
+                        <input type="checkbox" name="" class="open_filter" id="chk3">
+                        <ul class="filter_ul filter_hide">
+                            <li class="filter_name"></li>
+                            <li class="options"></li>
+                            <li class="options"></li>
+                            <li class="options"></li>
+                            <li class="options"></li>
+                        </ul>
+                        <ul class="filter_ul">
+                            <li class="filter_name">길이</li>
+                            <li class="options">~ 90분</li>
+                            <li class="options">90분 ~ 120분</li>
+                            <li class="options">120분 ~</li>
+                            <label for="chk4" class="more_options">V</label>
+                        </ul>
+                        <input type="checkbox" name="" class="open_filter" id="chk4">
+                        <ul class="filter_ul filter_hide">
+                            <li class="filter_name"></li>
+                            <li class="options"></li>
+                            <li class="options"></li>
+                            <li class="options"></li>
+                            <li class="options"></li>
+                        </ul>
+                        <ul class="filter_ul">
+                            <li class="filter_name">등급</li>
+                            <li class="options">전체이용가</li>
+                            <li class="options">12세 관람가</li>
+                            <li class="options">15세 관람가</li>
+                            <li class="options">청소년 관람불가</li>
+                        </ul>
+                    </div>
+                    <div class="c_options_bar">
+                        <span class="c_options">액션</span>
+                        <span class="c_options">12세 관람가</span>
+                        <span class="c_options">2020년대</span>
+                        <span class="c_options">90분 ~ 120분</span>
+                    </div>
+                    <div class="filter_footer">
+                        <div class="hide_mine">
+                            내가 본 영화 숨기기
+                            <span class="chk">v</span>
+                        </div>
+                        <div class="show_all">
+                            <span class="amount">oo</span>
+                            개의 영화 모두보기
+                        </div>
+                    </div>
+                </div>
+                <div class="aside">
+                    <div class="thumb"></div>
+                    <div class="thumb"></div>
+                    <div class="thumb"></div>
+                    <div class="thumb"></div>
+                    <div class="thumb"></div>
+                    <div class="thumb"></div>
+                    <div class="thumb"></div>
+                    <div class="thumb"></div>
+                </div>
             </div>
         </div>
     </div>

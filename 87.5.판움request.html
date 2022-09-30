@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .main_banner {
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            background: skyblue;
+
+            position: relative;
+        }    
+        .banner {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            left: 0;
+            top: 0; 
+            
+        }
+        .banner1 { background: red;}
+        .banner2 { background: green; left: 100%; }
+        .banner3 { background: blue; left: 100%; }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <input type="button" value="◀" class="btn_slide btn_slide_L">
+    <input type="button" value="▶" class="btn_slide btn_slide_R">
+
+    <div class="main_banner">
+        <div class="banner banner1">1</div>
+        <div class="banner banner2">2</div>
+        <div class="banner banner3">3</div>
+    </div>
+</div>
+
+<script>
+    const banner = document.getElementsByClassName('banner');
+
+    const btn_slide_L = document.getElementsByClassName('btn_slide_L')[0];
+    const btn_slide_R = document.getElementsByClassName('btn_slide_R')[0];
+
+    let curr_index = 0;
+    let pos_x = 0;
+    btn_slide_R.addEventListener("click", function(){slide(1);});
+    btn_slide_L.addEventListener("click", function(){slide(-1);});
+    function slide(m)
+    {
+        console.log(curr_index);
+        if (curr_index <= 0)
+        {
+            curr_index += 3;
+        }
+        banner[curr_index % 3].style.left = -1 * m * pos_x + "%";
+        banner[(curr_index + m) % 3].style.left = m * (100 - pos_x) + "%";
+        pos_x+= 1;
+        let interval = requestAnimationFrame(function(){slide(m)});
+        if (pos_x > 100)
+        {
+            cancelAnimationFrame(interval);
+            pos_x = 0;
+            curr_index += m;
+        }
+    }
+    // btn_slide_R.addEventListener("click", () =>{
+    //     let interval = setInterval(function(){
+    //         //나갈 판
+    //         banner[curr_index % 3].style.left = -pos_x + "%";
+
+    //         //들어올 판
+    //         banner[(curr_index + 1) % 3].style.left = (100 - pos_x) + "%";
+
+    //         pos_x+= 1;
+
+    //         if (pos_x > 100)
+    //         {
+    //             clearInterval(interval);
+    //             pos_x = 0;
+    //             curr_index += 1;
+    //         }
+
+    //     }, 10);
+        
+    // }
+    // )
+    // btn_slide_L.addEventListener("click", () =>{
+    //     let interval = setInterval(function(){
+    //         //나갈 판
+    //         banner[curr_index % 3].style.left = pos_x + "%";
+
+    //         //들어올 판
+    //         banner[(curr_index - 1) % 3 < 0 ? 2 : (curr_index - 1) % 3].style.left = -1 * (100 - pos_x) + "%";
+
+    //         pos_x+= 1;
+
+    //         if (pos_x > 100)
+    //         {
+    //             clearInterval(interval);
+    //             pos_x = 0;
+    //             curr_index -= 1;
+    //         }
+
+    //     }, 10);
+    // })
+
+</script>
+</body>
+</html>
