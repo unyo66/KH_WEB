@@ -5,11 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./project_header.css">
     <style>
+        @font-face 
+        {
+        font-family: 'CBNUJIKJI';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/CBNUJIKJI.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
         body
         {
             margin: 0;
             background-color: #000;
+            font-family: 'CBNUJIKJI';
+        }
+
+        .options,
+        .result_options
+        {
+            cursor: pointer;
         }
         ul
         {
@@ -22,7 +37,7 @@
             margin: 0;
             padding: 0;
         }
-        .open_filter
+        .more_checkbox
         {
             display: none;
         }
@@ -35,58 +50,6 @@
             background-color: #444;
             position: relative;
         }
-        .header
-        {
-            width: 1100px;
-            height: 80px;
-            border: 1px solid;
-            box-sizing: border-box;
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-        }
-        .logo
-        {
-            width: 180px;
-            height: 60px;
-            background-color: #faa;
-        }
-        .menu_box
-        {
-            width: 300px;
-            display: flex;
-            justify-content: space-evenly;
-        }
-        .search_box
-        {
-            display: flex;
-            /* align-items: center; */
-        }
-        .search_bar
-        {
-            width: 300px;
-            height: 30px;
-            padding: 0;
-            outline: none;
-        }
-        .search_btn
-        {
-            width: 34px;
-            height: 34px;
-            background-color: #444;
-        }
-        .sign_box
-        {
-            width: 150px;
-            display: flex;
-            justify-content: space-evenly;
-        }
-
 
 
         .contents_area
@@ -125,6 +88,10 @@
             border-right: 1px solid;
             box-sizing: border-box;
         }
+        .checked
+        {
+            background-color: #222;
+        }
         .filter_name
         {
             width: 80px;
@@ -135,31 +102,62 @@
         .more_options
         {
             width: 30px;
+            height: 58px;
             text-align: center;
-            background-color: #faa;
+            background-color: #333;
             position: absolute;
             top: 0;
             right: 0;
+            opacity: 0.9;
         }
-        .open_filter:checked ~ .filter_hide
+        .more_options:hover
+        {
+            cursor: pointer;
+        }
+        .more_checkbox:checked + .hided_filter
         {
             display: inline-flex;
+            align-items: center;
         }
-        .filter_hide
+        .hided_filter
         {
             display: none;
         }
-        .c_options_bar
+        .result_options_bar
         {
             height: 50px;
             line-height: 50px;
             padding: 5px;
         }
-        .c_options
+        .result_options
         {
             padding: 10px;
+            margin: 0 10px;
             border: 1px solid;
             box-sizing: border-box;
+        }
+        .result_options_tmp_phrase
+        {
+            text-align: center;
+            font-size: 20px;
+            animation: phrase 1s infinite, color 1s infinite;
+        }
+        @keyframes phrase
+        {
+            0%{transform: translateY(0%);}
+            55%{transform: translateY(10%);}
+            65%{transform: translateY(-10%);}
+            80%{transform: translateY(0%);}
+            85%{transform: translateY(-5%);}
+            90%{transform: translateY(0%);}
+            95%{transform: translateY(-2%);}
+            100%{transform: translateY(0%);}
+        }
+        @keyframes color
+        {
+            0%{color: white;}
+            55%{color: hotpink;}
+            100%{color: white;}
         }
         .filter_footer
         {
@@ -176,6 +174,30 @@
             width: 25%;
             border: 1px solid;
             box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hide_mine_check_box
+        {
+            width: 13px;
+            height: 13px;
+            margin: 0 5px;
+            display: inline-block;
+            border: 3px solid hotpink;
+            position: relative;
+        }
+        .hide_mine_check
+        {
+            width: 25px;
+            position: absolute;
+            top: -70%;
+            left: -35%;
+            display: none;
+        }
+        .display
+        {
+            display: inline-block;
         }
         .show_all
         {
@@ -184,12 +206,11 @@
         .aside
         {
             width: 30%;
-            height: auto;
             border: 1px solid;
             box-sizing: border-box;
-            overflow: hidden;
+            overflow: scroll;
         }
-        .thumb
+        .thumbnail
         {
             width: 50%;
             height: 200px;
@@ -199,11 +220,11 @@
         }
     </style>
 </head>
-<body>
+<body onselectstart="return false">
     <div class="wrap">
         <div class="main">
             <div class="header">
-                <div class="logo">logo</div>
+                <div class="logo">FILMAP</div>
                 <div class="menu_box">
                     <div class="menu">홈</div>
                     <div class="menu">검색</div>
@@ -211,11 +232,12 @@
                 </div>
                 <div class="search_box">
                     <input type="text" name="" class="search_bar">
-                    <div class="search_btn">sc!</div>
+                    <div class="search_btn"></div>
+                    <div class="search_page"></div>
                 </div>
                 <div class="sign_box">
-                    <div class="sign">sign up</div>
-                    <div class="sign">sign in</div>
+                    <div class="sign">로그인</div>
+                    <div class="sign">회원가입</div>
                 </div>
             </div>
             <div class="contents_area">
@@ -228,10 +250,10 @@
                             <li class="options">로맨스</li>
                             <li class="options">공포</li>
                             <li class="options">다큐</li>
-                            <label for="chk1" class="more_options">V</label>
+                            <label for="more_checkbox1" class="more_options">▾</label>
                         </ul>
-                        <input type="checkbox" name="" class="open_filter" id="chk1">
-                        <ul class="filter_ul filter_hide">
+                        <input type="checkbox" name="" class="more_checkbox" id="more_checkbox1">
+                        <ul class="filter_ul hided_filter">
                             <li class="filter_name"></li>
                             <li class="options">판타지</li>
                             <li class="options">SF</li>
@@ -245,10 +267,10 @@
                             <li  class="options">미국</li>
                             <li  class="options">일본</li>
                             <li  class="options">영국</li>
-                            <label for="chk2" class="more_options">V</label>
+                            <label for="more_checkbox2" class="more_options">▾</label>
                         </ul>
-                        <input type="checkbox" name="" class="open_filter" id="chk2">
-                        <ul class="filter_ul filter_hide">
+                        <input type="checkbox" name="" class="more_checkbox" id="more_checkbox2">
+                        <ul class="filter_ul hided_filter">
                             <li class="filter_name"></li>
                             <li class="options">대만</li>
                             <li class="options">프랑스</li>
@@ -261,10 +283,10 @@
                             <li class="options">2010년대</li>
                             <li class="options">2000년대</li>
                             <li class="options">~1990년대</li>
-                            <label for="chk3" class="more_options">V</label>
+                            <label for="more_checkbox3" class="more_options">▾</label>
                         </ul>
-                        <input type="checkbox" name="" class="open_filter" id="chk3">
-                        <ul class="filter_ul filter_hide">
+                        <input type="checkbox" name="" class="more_checkbox" id="more_checkbox3">
+                        <ul class="filter_ul hided_filter">
                             <li class="filter_name"></li>
                             <li class="options"></li>
                             <li class="options"></li>
@@ -276,10 +298,10 @@
                             <li class="options">~ 90분</li>
                             <li class="options">90분 ~ 120분</li>
                             <li class="options">120분 ~</li>
-                            <label for="chk4" class="more_options">V</label>
+                            <label for="more_checkbox4" class="more_options">▾</label>
                         </ul>
-                        <input type="checkbox" name="" class="open_filter" id="chk4">
-                        <ul class="filter_ul filter_hide">
+                        <input type="checkbox" name="" class="more_checkbox" id="more_checkbox4">
+                        <ul class="filter_ul hided_filter">
                             <li class="filter_name"></li>
                             <li class="options"></li>
                             <li class="options"></li>
@@ -294,35 +316,121 @@
                             <li class="options">청소년 관람불가</li>
                         </ul>
                     </div>
-                    <div class="c_options_bar">
-                        <span class="c_options">액션</span>
-                        <span class="c_options">12세 관람가</span>
-                        <span class="c_options">2020년대</span>
-                        <span class="c_options">90분 ~ 120분</span>
+                    <div class="result_options_bar">
+                        <div class="result_options_tmp_phrase">취향에 따라 골라보세요!</div>
                     </div>
                     <div class="filter_footer">
                         <div class="hide_mine">
                             내가 본 영화 숨기기
-                            <span class="chk">v</span>
+                            <div class="hide_mine_check_box">
+                                <img class="hide_mine_check" src="./img/check.png" alt="check">
+                            </div>
                         </div>
                         <div class="show_all">
-                            <span class="amount">oo</span>
+                            <span class="filtered_qtt">100</span>
                             개의 영화 모두보기
                         </div>
                     </div>
                 </div>
                 <div class="aside">
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function putHeight1()//article 높이에 따라 aside 높이 바꾸기
+        {
+            document.getElementsByClassName("aside")[0].setAttribute("style", "height:" + (document.getElementsByClassName("filter_box")[0].clientHeight + document.getElementsByClassName("result_options_bar")[0].clientHeight + document.getElementsByClassName("filter_footer")[0].clientHeight + 4) + "px");
+            console.log((document.getElementsByClassName("filter_box")[0].clientHeight + document.getElementsByClassName("result_options_bar")[0].clientHeight + document.getElementsByClassName("filter_footer")[0].clientHeight));
+            console.log(document.getElementsByClassName("aside")[0].getAttribute("style"));
+        }
+        putHeight1();//aside 높이 초기 설정
+        function putHeight2()//article 높이 구해온 후 적용해야 하기에 지연
+        {
+            setTimeout(function()
+            {
+                putHeight1()
+            }, 10);
+        }
+        for (let i = 0; i < 4; i++)//옵션 더보기 버튼 눌리면 aside 높이 변경
+        {
+            document.getElementsByClassName("more_options")[i].addEventListener("click", function(){putHeight2();});
+        }
+
+        function tmp_qtt(n)//db 연결 전 임시 최종 수량
+        {
+            document.getElementsByClassName("filtered_qtt")[0].innerText -= n;
+        }
+
+        ///체크된 옵션 표시/해제, 밑에 한번에 보여주는 기능
+        let opt = document.getElementsByClassName("options");
+        let rOpt = document.getElementsByClassName("result_options");
+        function phrase(n)//입맛에 따라 골라보세요 문구
+        {
+            setTimeout(function(){
+                if (n == 1)
+                {
+                    if (document.getElementsByClassName("result_options_bar")[0].innerHTML.match("span") == null)
+                    {
+                        document.getElementsByClassName("result_options_tmp_phrase")[0].style.display = "block";
+                    }
+                }
+                else if (n == 0)
+                {
+                    document.getElementsByClassName("result_options_tmp_phrase")[0].style.display = "none";
+                }
+            }, 20)
+        }
+        for (let i = 0; i < opt.length; i++)
+        {
+            opt[i].addEventListener("click", function(){//모든 옵션에 버튼 달기
+                opt[i].classList.toggle("checked");//눌리면 회색, 풀리면 원래대로
+                setTimeout(function(){
+                    if (opt[i].classList.contains("checked"))
+                    {
+                        let newResult = document.createElement("span");//체크된 옵션 보여주는 result span 만들어서 맨밑에 요소 넣기
+                        newResult.setAttribute("class", "result_options");
+                        newResult.setAttribute("id", "result" + i);
+                        newResult.innerText = opt[i].innerText;
+
+                        newResult.addEventListener("click", function(){//result span에 누르면 해제되는 기능 넣기
+                            opt[i].classList.toggle("checked");
+                            newResult.remove();
+                            tmp_qtt(-5);
+                            phrase(1);
+                        })
+
+                        document.getElementsByClassName("result_options_bar")[0].appendChild(newResult);
+                        phrase(0);
+
+                        tmp_qtt(5);//임시값
+                    }
+                    else
+                    {
+                        document.getElementById("result" + i).remove();
+                        phrase(1);
+                        tmp_qtt(-5);
+                    }
+                }, 1)
+            })
+        }
+        document.getElementsByClassName("hide_mine_check_box")[0].addEventListener("click", function(){
+            document.getElementsByClassName("hide_mine_check")[0].classList.toggle("display");
+        })
+        document.getElementsByClassName("search_bar")[0].addEventListener("focus", function(){
+            document.getElementsByClassName("hide_mine_check")[0].classList.toggle("display");
+        })
+        document.getElementsByClassName("search_bar")[0].addEventListener("blur", function(){
+            document.getElementsByClassName("hide_mine_check")[0].classList.toggle("display");
+        })
+    </script>
 </body>
 </html>

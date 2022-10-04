@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .timer
+        {
+            width: 110px;
+            height: 20px;
+            text-align: center;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <input type="button" value="시작" id="btn_start">
+        <input type="button" value="멈춤" id="btn_stop">
+        <div class="timer"></div>
+    </div>
+    <script>
+        let timer = document.getElementsByClassName("timer")[0];
+        function zero(n)
+        {
+            if (n < 10)
+            {
+                n = "0" + n;
+            }
+            return n;
+        }
+        function currTime()
+        {
+            let dt = new Date();
+            let ap;
+            let h = dt.getHours();
+            if (h < 12 || h == 24)
+            {
+                ap = "AM";
+            }
+            else
+            {
+                ap = "PM";
+            }
+            if (h > 12)
+            {
+                h -= 12;
+            }
+            timer.innerText = `${zero(h)}:${zero(dt.getMinutes())}:${zero(dt.getSeconds())} ${ap}`;
+        }
+        let itv;
+        function start()
+        {
+            currTime();
+            clearInterval(itv);
+            itv = setInterval(currTime, 1000);
+        }
+        function stop()
+        {
+            clearInterval(itv);
+        }
+        // start();
+        document.getElementById("btn_start").addEventListener("click", function(){start()});
+        document.getElementById("btn_stop").addEventListener("click", function(){stop()});
+    </script>
+</body>
+</html>

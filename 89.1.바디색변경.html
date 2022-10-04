@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // document.body.style.background = "pink";
+        // setInterval(function(){
+        //     document.body.style.background = "pink";
+        // }, 2000);
+        // setTimeout(function(){
+        //     document.body.style.background = "skyblue";
+        //     setInterval(function(){
+        //     document.body.style.background = "skyblue";
+        // }, 2000);
+        // }, 1000);
+
+        let count = 0;
+        let colorArray = ["pink", "skyblue"];
+        setInterval(function(){
+            document.body.style.background = colorArray[(count++) % colorArray.length];
+        }, 1000)
+    </script>
+</body>
+</html>
