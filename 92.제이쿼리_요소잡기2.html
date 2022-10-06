@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <style>
+        div
+        {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid;
+        }
+        .box
+        {
+            width: 150px;
+            height: 150px;
+            background-color: green;
+        }
+        #box1
+        {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="box"></div>
+    <div id="box1"></div>
+
+    <ul class="outer_ul">
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+    </ul>
+
+    <p>비트스터디</p>
+    <span>비트스터디</span>
+    <p>비트스터디</p>
+    <script>
+        /*
+            요소잡기
+                1) 위아래
+                prev() - 선택한 요소의 바로 위 요소
+                prevAll() - 위 싹
+                prevAll("선택자") - 위 싹 중에 선택요소만
+
+                next()
+                nextAll
+                nextAll("선택자")
+
+                2) 부모자식
+                parent() - 부모
+                parents() - 조상 싹
+                parents("선택자") - 조상 중 선택요소만
+
+                children() - 자식들 싹
+                children("선택자") - 자식 중 선택요소만
+                find() - 자손들
+
+                3) 요소 자체의 인덱스 번호 또는 순서
+                index()
+                eq()
+                
+                4) 자기자신
+                this
+        */
+        // $(document).ready(function(){
+        //     $(".outer_ul").prev().css({
+        //         background: "orange"
+        //     })
+        // });
+        // $(document).ready(function(){
+        //     $(".outer_ul").prevAll().css({
+        //         background: "orange"
+        //     })
+        // });
+        // $(document).ready(function(){
+        //     $(".outer_ul").prevAll(".box, #box1").css({
+        //         background: "orange"
+        //     })
+        // });
+        $(document).ready(function(){
+            $("div").eq(1).click(function(){
+                $("div").eq(0).css({
+                    background: "blue"
+                })
+            })
+        });
+    </script>
+</body>
+</html>

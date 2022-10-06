@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .b_list
+        {
+            width: 500px;
+            border: 1px solid;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <ul class="b_list">
+        <li>게시글 1번</li>
+        <li>게시글 2번</li>
+        <li>게시글 3번</li>
+        <li>게시글 4번</li>
+        <li>게시글 5번</li>
+        <li>게시글 6번</li>
+        <li>게시글 7번</li>
+        <li>게시글 8번</li>
+        <li>게시글 9번</li>
+        <li>게시글 10번</li>
+    </ul>
+    <script>
+        $(document).ready(function(){
+            pns();
+            grey();
+        });
+        function pns()
+        {
+            $("li:nth-child(2n)").css({
+                background: "skyblue"
+            });
+            $("li:nth-child(2n-1)").css({
+                background: "pink"
+            });
+        }
+
+        let gArr = new Array(10);
+        let li = $(".b_list li");
+        gArr.fill(0);
+        function grey()
+        {
+            // for (let i = 0; i < 10; i++)
+            // {
+            //     li.eq(i).click(function(){
+            //         if (gArr[i] == 0)
+            //         {
+            //             li.eq(i).css({
+            //             background: "grey"
+            //             })
+            //             gArr[i] = 1;
+            //         }
+            //         else
+            //         {
+            //             pns();
+            //             gArr[i] = 0;
+            //         }
+            //     });
+            // }
+            $("li").click(function(){
+                $(this).css({
+                    background: "grey"
+                });
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input
+        {
+            width: 100px;
+        }
+        .box
+        {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="왼쪽으로" id="btn_left">
+    <input type="button" value="멈춤" id="btn_stop">
+    <input type="button" value="오른쪽으로" id="btn_right">
+    <div class="box"></div>
+    <script>
+        document.getElementById("btn_left").addEventListener("click", function(){left();;});
+        document.getElementById("btn_stop").addEventListener("click", function(){stop();});
+        document.getElementById("btn_right").addEventListener("click", function(){right();;});
+        let posLeft = 10;
+        let itv;
+        function right()
+        {
+            clearInterval(itv);
+            itv = setInterval(function(){
+                posLeft++;
+                document.getElementsByClassName("box")[0].style.left = posLeft + "px";
+                if (posLeft > window.innerWidth - document.getElementsByClassName("box")[0].offsetWidth)
+                {
+                    posLeft = 0;
+                }
+            }, 5);
+        }
+        function left()
+        {
+            clearInterval(itv);
+            itv = setInterval(function(){
+                posLeft--;
+                document.getElementsByClassName("box")[0].style.left = posLeft + "px";
+                if (posLeft <= 0)
+                {
+                    posLeft =  window.innerWidth - document.getElementsByClassName("box")[0].offsetWidth;
+                }
+            }, 5);
+        }
+        function stop()
+        {
+            clearInterval(itv);
+        }
+    </script>
+</body>
+</html>

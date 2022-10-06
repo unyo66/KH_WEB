@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input
+        {
+            width: 100px;
+        }
+        .box
+        {
+            width: 50px;
+            height: 50px;
+            min-height: 20px;
+            background-color: blue;
+            position: absolute;
+            top: 500px;
+            left: 10px;
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="왼쪽으로" id="btn_left">
+    <input type="button" value="멈춤" id="btn_stop">
+    <input type="button" value="오른쪽으로" id="btn_right">
+    <div class="box"></div>
+    <script>
+        document.getElementById("btn_left").addEventListener("click", function(){left();;});
+        document.getElementById("btn_stop").addEventListener("click", function(){stop();});
+        document.getElementById("btn_right").addEventListener("click", function(){right();;});
+        document.addEventListener("keydown", function(){
+            if (event.keyCode == 37)
+            {
+                left();
+            }
+            else if (event.keyCode == 39)
+            {
+                right();
+            }
+            if (event.keyCode == 32)
+            {
+                jjibu();
+            }
+        })
+        document.addEventListener("keyup", function(){
+            if (event.keyCode == 32)
+            {
+                document.getElementsByClassName("box")[0].style.transform = "scaleY(1)";
+                h = 1;
+                jump();
+            }
+        })
+
+        let posLeft = 10;
+        let posTop = 500;
+        let itv;
+        let updown = 0;
+        let h = document.getElementsByClassName("box")[0].style.height;
+        function right()
+        {
+            clearInterval(itv);
+            itv = setInterval(function(){
+                posLeft++;
+                document.getElementsByClassName("box")[0].style.left = posLeft * 2 + "px";
+                if (posLeft > window.innerWidth - document.getElementsByClassName("box")[0].offsetWidth)
+                {
+                    posLeft = 0;
+                }
+            }, 5);
+        }
+        function left()
+        {
+            clearInterval(itv);
+            itv = setInterval(function(){
+                posLeft--;
+                document.getElementsByClassName("box")[0].style.left = posLeft * 2 + "px";
+                if (posLeft <= 0)
+                {
+                    posLeft =  window.innerWidth - document.getElementsByClassName("box")[0].offsetWidth;
+                }
+            }, 5);
+        }
+        let itv2;
+        let speed;
+        function jump()
+        {
+            clearInterval(itv2);
+            itv2 = setInterval(function(){
+                if (updown == 0)
+                {
+                    if (posTop > 475)
+                    {
+                        speed = 8;
+                    }
+                    else if (posTop > 450)
+                    {
+                        speed = 6;
+                    }
+                    else if (posTop > 425)
+                    {
+                        speed = 4;
+                    }
+                    else if (posTop > 400)
+                    {
+                        speed = 3;
+                    }
+                    else if (posTop > 375)
+                    {
+                        speed = 2;
+                    }
+                    else if (posTop == 350)
+                    {
+                        updown = 1;
+                    }
+                    posTop -= speed;
+                }
+                else if (updown == 1)
+                {
+                    if (posTop < 350)
+                    {
+                        speed = 1;
+                    }
+                    else if (posTop < 375)
+                    {
+                        speed = 2;
+                    }
+                    else if (posTop < 400)
+                    {
+                        speed = 3;
+                    }
+                    else if (posTop < 425)
+                    {
+                        speed = 4;
+                    }
+                    else if (posTop < 450)
+                    {
+                        speed = 5;
+                    }
+                    else if (posTop < 475)
+                    {
+                        speed = 7;
+                    }
+                    else if (posTop > 500)
+                    {
+                        updown = 0;
+                        posTop = 500;
+                        clearInterval(itv2);
+                    }
+                    posTop += speed;
+                }
+                document.getElementsByClassName("box")[0].style.top = posTop + "px";
+                console.log(speed);
+            }, 5);
+        }
+
+        let itv3;
+        h = 1;
+        function jjibu()
+        {
+            h -= 0.1;
+            document.getElementsByClassName("box")[0].style.transform = "scaleY(" + h + ")";
+            if (h < 0.5)
+            {
+                h = 0.6;
+            }
+        }
+        function stop()
+        {
+            clearInterval(itv);
+            clearInterval(itv2);
+        }
+    </script>
+</body>
+</html>
