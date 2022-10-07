@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <title>Document</title>
+    <style>
+        .menu_box
+        {
+            width: 522px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .img2,
+        .img3,
+        .img4
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu_box">
+        <div class="menu"><img src="./img/탭/btn1.jpg" alt=""></div>
+        <div class="menu"><img src="./img/탭/btn2.jpg" alt=""></div>
+        <div class="menu"><img src="./img/탭/btn3.jpg" alt=""></div>
+        <div class="menu"><img src="./img/탭/btn4.jpg" alt=""></div>
+    </div>
+    <div class="img img1"><img src="./img/탭/spring.jpg" alt=""></div>
+    <div class="img img2"><img src="./img/탭/summer.jpg" alt=""></div>
+    <div class="img img3"><img src="./img/탭/fall.jpg" alt=""></div>
+    <div class="img img4"><img src="./img/탭/winter.jpg" alt=""></div>
+    
+    <script>
+        $(document).ready(function(){
+            $(".menu").click(function(){
+            $(".img").css({
+                display: "none"
+            });
+            $(".img").eq($(this).index()).css({
+                display: "block"
+            });
+        });
+        });
+    </script>
+</body>
+</html>

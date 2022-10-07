@@ -44,32 +44,30 @@
             });
         }
 
-        let gArr = new Array(10);
+        let i;
         let li = $(".b_list li");
+        let gArr = new Array(10);
         gArr.fill(0);
         function grey()
         {
-            // for (let i = 0; i < 10; i++)
-            // {
-            //     li.eq(i).click(function(){
-            //         if (gArr[i] == 0)
-            //         {
-            //             li.eq(i).css({
-            //             background: "grey"
-            //             })
-            //             gArr[i] = 1;
-            //         }
-            //         else
-            //         {
-            //             pns();
-            //             gArr[i] = 0;
-            //         }
-            //     });
-            // }
-            $("li").click(function(){
-                $(this).css({
+            $("li").click(function()
+            {
+                i = $(this).index();
+                if (gArr[i] == 0)
+                {
+                    $(this).css({
                     background: "grey"
-                });
+                    });
+                    gArr[i] = 1;
+                }
+                else
+                {
+                    li.eq(i).css({
+                    background: i % 2 == 0 ? "pink" : "skyblue"
+                    });
+                    gArr[i] = 0;
+                }
+
             })
         }
     </script>

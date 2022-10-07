@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .sec {
+            width: 100%;
+            height: 1000px;
+            border-bottom: 1px solid;
+            box-sizing: border-box;
+
+            font-size: 100px;
+            font-weight: 900;
+            text-align: center;
+
+            position: relative;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            transition: all 0.5s;
+
+            position: absolute;
+            top: 0;
+            left: -180px; 
+            /* left: 50%;
+            transform: translate(-50%, 0%); */
+        }
+        .red {background: red}
+
+        .txt {
+            font-size: 60px;
+            background-color: skyblue;
+
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+            opacity: 0.3;
+            transition: all 0.5s;
+        }
+
+        .sec3_img {
+            width: 100%;
+            height: 400px;
+            background: url(https://www.dunkindonuts.co.kr/assets/images/main/img_banner_1_2.jpg) no-repeat fixed center / cover;
+        }
+        .circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: 50%;
+            background: url(https://www.dunkindonuts.co.kr/assets/images/main/bg_map.png) no-repeat center / cover;
+            transition: all 0.5s;
+            opacity: 0;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            translate: -50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sec">sec0</div>
+    <div class="sec">sec1
+        <div class="box red"></div>
+    </div>
+    <div class="sec">sec2
+        <span class="txt">!!취업성공!!</span>
+    </div>
+    <div class="sec">sec3
+        <div class="sec3_img">
+            <div class="circle"></div>
+        </div>
+    </div>
+    
+<script>
+    /*
+    - $('선택자').scrollTop(): 최 상단으로부터의 현재 스크롤의 위치
+                                js의 scrollY 같은거
+    - $('선택자').offset().top: 문서 최 상단으로부터의 요소의 위치
+                                js의 offsetTop 같은거
+    */
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            // 브라우저의 위치
+            let s_top = $(window).scrollTop();
+
+            // 빨간박스의 위치
+            let o_top = $('.red').offset().top;
+
+            console.log(s_top, o_top)
+
+        /* '모니터 상단의 위치'와 '빨간박스 위치'가 같으면
+            '빨간박스' 가운데로 이동
+        */
+            if(s_top >= o_top) {
+                $('.box').css({
+                    left: '50%',
+                    transform: 'translate(-50%, 0%)',
+                })
+            }
+        /* '모니터 상단의 위치'와 'sec2 상단 위치'가 같으면
+            .sec2 > .txt 의 위치(top:60 => top: 50%) 변경
+        */
+            const sec2_o_top = $('.sec').eq(2).offset().top;
+            if(s_top >= sec2_o_top) {
+                $('.sec').eq(2).children('.txt').css({
+                    top: '50%',
+                    opacity: 1
+                });
+            }
+
+            if (s_top >= $(".sec").eq(3).offset().top)
+            {
+                $(".circle").css({
+                    opacity: 1,
+                    transform: "rotateY(360deg)"
+                })
+            }
+        });
+
+        
+        // console.log($('.sec').eq(0).offset().top)
+        // console.log($('.sec').eq(1).offset().top)
+        // console.log($('.sec').eq(2).offset().top)
+        // console.log($('.red').offset().top)
+    });
+</script>
+</body>
+</html>
