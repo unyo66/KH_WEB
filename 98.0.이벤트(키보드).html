@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+    <input type="text" id="txt1" autofocus>
+    <input type="button" id="btn" value="이동">
+<script>
+    $(document).ready(function(){
+/*
+    키보드
+        1) keydown - 키 누를때
+        2) keyup - 키 뗄떼
+        3) keypress - 한글 안됨
+                      특수키 안되는 것들 있음
+*/
+        $('#txt1').keydown(function(){
+            if(event.keyCode == 13) {
+                // location.href= "http://"+$('#txt1').val()
+                href($('#txt1').val())
+            }
+        });
+
+        $('#btn').click(function(){
+            // txt1에 써있는 사이트로 이동
+        /*
+            순서
+                1) txt1에 있는 값 가져오기
+                2) 
+                3) 페이지 이동 (location.href="")
+        */
+            // console.log($('#txt1').val())
+            // location.href= "http://"+$('#txt1').val()
+            href($('#txt1').val())
+        });
+
+        function href(tmp_url) {
+            location.href= "http://"+tmp_url
+        }
+    });
+</script>
+</body>
+</html>

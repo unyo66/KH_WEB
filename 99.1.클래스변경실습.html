@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        #wrap {
+            width: 522px;
+        }
+        #btn_box {
+            display: flex;
+            justify-content: space-between;
+        }
+        #pan_box {
+            height: 400px;
+            /* border: 1px solid */
+            margin-top: 8px;
+
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+        #pan_box > img {
+            display: none;
+        }
+
+        .spring {background: url(./img/탭/spring.jpg);}
+        .summer {background: url(./img/탭/summer.jpg);}
+        .fall {background: url(./img/탭/fall.jpg);}
+        .winter {background: url(./img/탭/winter.jpg);}
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="btn_box">
+        <img src="./img/탭/btn1.jpg" alt="" title="버튼 봄" id="btn_spring">
+        <img src="./img/탭/btn2.jpg" alt="" title="버튼 여름" id="btn_summer">
+        <img src="./img/탭/btn3.jpg" alt="" title="버튼 가을" id="btn_fall">
+        <img src="./img/탭/btn4.jpg" alt="" title="버튼 겨울" id="btn_winter">
+    </div>
+    <div id="pan_box"></div>
+</div>
+
+    
+<script>
+    $(document).ready(function(){
+        $('#pan_box > img').eq(0).css({display:'block'});
+
+        const arr = ['spring', 'summer', 'fall','winter'];
+        $('#btn_box > img').click(function(){
+
+            let curr_index = $(this).index(); // 현재 누른 번째
+            let clazz_name = arr[curr_index];
+            $('#pan_box').removeClass().addClass(clazz_name)    
+        });
+
+
+        // $('#btn_spring').click(function(){
+        //     $('#pan_box').removeClass().addClass('spring')                
+        // })
+        // $('#btn_summer').click(function(){
+        //     $('#pan_box').removeClass().addClass('summer')                
+        // })
+        // $('#btn_fall').click(function(){
+        //     $('#pan_box').removeClass().addClass('fall')                
+        // })
+        // $('#btn_winter').click(function(){
+        //     $('#pan_box').removeClass().addClass('winter')                
+        // })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .menu
+        {
+            width: 100%;
+            height: 60px;
+            background-color: #faa;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .sec
+        {
+            width: 100%;
+            height: 1000px;
+            margin: 60px 0;
+            background-color: #aaf;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="menu">
+            <li><a href="#sec1">menu1</a></li>
+            <li><a href="#sec2">menu2</a></li>
+            <li><a href="#sec3">menu3</a></li>
+        </ul>
+
+        <div class="sec" id="sec1">sec1</div>
+        <div class="sec" id="sec2">sec2</div>
+        <div class="sec" id="sec3">sec3</div>
+    </div>
+    <script>
+        /*
+            페이지 내부이동(애니메이션)
+                1. 클릭한 a태그의 href 속성값과 매칭되는 섹션의 위치(offset().top)찾기
+                2. body의 scrollTop 속성에 해당 위치값 삽입
+        */
+
+        $(document).ready(function(){
+            $(".menu a").click(function(){
+                event.preventDefault();//기본 이벤트를 실행하지 않게 함(a태그 기능 삭제)
+                let href = $(this).attr("href");
+                let pos = $(href).offset().top;
+
+                $("html, body").animate({
+                    scrollTop: pos - 60
+                })
+            });
+        });
+    </script>
+</body>
+</html>

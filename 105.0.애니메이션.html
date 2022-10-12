@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        /*
+            ==animate 사용법==
+
+            $("선택자").animate({
+                
+            }, 밀리초, "속도")
+
+            시간을 안주면 알아서 적용
+            transition과 쓸 수 없음
+            css의 transform은 동작하지만 가급적 쓰지 말 것
+        */
+        $(document).ready(function(){
+            $(".box").css({
+                width: 100,
+                height: 100,
+                background: "red",
+
+                position: "absolute",
+                top: 0,
+                left: 0
+            });
+
+            $(".box").animate({
+                left: 200,
+            }).animate({
+                left: 200,
+                top: 200
+            }).animate({
+                left: 0,
+                top: 200
+            }).animate({
+                left: 0,
+                top: 0
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        /* #wrap {height: 1000px; overflow: hidden;} */
+        h1 { color: blue; }
+        .txt { color: red;}
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1>
+    <h1>비트스터디</h1> 
+
+
+</div>
+<script>
+$(document).ready(function(){
+/*
+    무한스크롤 - 문서의 높이: $(document).height() 
+                 s_bot : s_top + $(window).height()
+                 특정 요소 앞/뒤에 요소 삽입: append, prepend
+
+*/
+    let count = 0;
+    let d_height = $(document).height();
+    $(window).scroll(function(){
+
+        let s_bot = $(window).scrollTop() + $(window).height()
+        console.log(d_height, s_bot)
+
+
+        if(count < 5 && d_height <= s_bot) {
+            // 아이디 wrap 인 요소의 끝자식으로 '<h1>비트스터디</h1>' 넣기
+            // 1. wrap 요소 잡기
+            // 2. 자식으로 넣기 (append, appendTo)
+ 
+            for(let i=0; i<4; i++) {
+                $('#wrap').append(`<h1 class="txt">비트스터디 ${i}</h1>`)
+                // $('<h1>비트스터디333</h1> ').appendTo('#wrap').css({color: 'red'})
+            }
+            d_height = $(document).height();
+            count++
+        }
+        
+    });
+});
+</script>
+</body>
+</html>

@@ -24,7 +24,11 @@
         .s3,
         .s4,
         .s5,
-        .s6
+        .s6,
+        .s7,
+        .s8,
+        .s9,
+        .s10
         {
             background-color: #000;
         }
@@ -41,12 +45,13 @@
     </div>
     <div class="l_up">length up</div>
     <script>
-        let snake = ["s1", "s2", "s3", "s4", "s5", "s6"];
+        let snake = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10"];
         let speed = 500;//뱀 속도(밀리초)
         let initPos = 45;//뱀 초기 위치
         let h = 10;//횡 길이
         let v = 10;//종 길이
         let drtn = 39;//초기 방향 37 38 39 40 : 왼 위 오 아
+        let tmp_drtn;
         let length = 4;
 
         let ground = document.getElementsByClassName("ground")[0];//그라운드 크기 설정
@@ -65,7 +70,16 @@
             document.getElementsByClassName("tile")[initPos - i].classList.add(snake[i]);
         }
         document.addEventListener("keydown", function(){//방향키 눌리면 방향설정함수 발동
-            drtn = event.keyCode;
+            tmp_drtn = event.keyCode;
+            console.log(tmp_drtn);
+            if (tmp_drtn >= 37 && tmp_drtn <= 40)
+            {
+                drtn = tmp_drtn;
+            }
+            else if (tmp_drtn == 80)
+            {
+                itvFt();
+            }
             changeDrtn(drtn);
         });
         document.getElementsByClassName("l_up")[0].addEventListener("click", function(){
@@ -202,9 +216,9 @@
 
         let itv;
         let itvFlag = 1;
-        document.addEventListener("DOMContentLoaded", function(){release(); itvFt();});
-        document.getElementsByClassName("pause")[0].addEventListener("click", function(){pause(); itvFt();});
-        document.getElementsByClassName("release")[0].addEventListener("click", function(){release(); itvFt();});
+        document.addEventListener("DOMContentLoaded", function(){itvFt();});
+        document.getElementsByClassName("pause")[0].addEventListener("click", function(){itvFt();});
+        document.getElementsByClassName("release")[0].addEventListener("click", function(){itvFt();});
         function release()
         {
             clearInterval(itv);
@@ -222,11 +236,13 @@
             {
                 document.getElementsByClassName("release")[0].style.display = "block";
                 document.getElementsByClassName("pause")[0].style.display = "none";
+                release();
             }
             else if (itvFlag == 1)
             {
-                document.getElementsByClassName("pause")[0].style.display = "block"
-                document.getElementsByClassName("release")[0].style.display = "none"
+                document.getElementsByClassName("pause")[0].style.display = "block";
+                document.getElementsByClassName("release")[0].style.display = "none";
+                pause();
             }
         }
 

@@ -5,8 +5,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        .outer {
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="outer">
+        <div class="box"></div>
+    </div>
+<script>
+    $(document).ready(function(){
+    /*
+        1) $('선택자').click(function(){ }) - 한번 클릭
+        2) $('선택자').dblclick(function(){ }) - 두번 클릭
+        3) $('선택자').mouseup(function(){ })
+        4) $('선택자').mousedown(function(){ }) 
+
+        5) $('선택자').mouseover(function(){ })
+           $('선택자').mouseout(function(){ })
+        * 버블링 효과 - 부모와 자식이 겹쳐있을때 나타나는 현상
+                        안쪽 요소에 마우스 이벤트가 동작 하더라도 바깥쪽 요소의 out과 over가 다시 동작
+        * 버블링 효과 막기 - event.stopPropagetion()
+                            감싸고 있는 부모 요소의 이벤트를 동작하지 않게 함
+
+        6) $('선택자').mouserenter(function(){ }) - 마우스 올렸을때
+           $('선택자').mouseleave(function(){ }) - 마우스 빠져나갔을때
+        * 버블링 효과 없음
+
+        7)  $('선택자').hover(function(){
+                // hover
+            }, function(){
+                // out
+            })
+
+        8) $('선택자').mousemove(function(){ })
+
+        - 새로운 방식 : 나중에 추가된 요소도 잡을수 있다.
+            $(document).on('이벤트', '선택자', function(){
+            
+            })
+
+        - 한번에 여러 이벤트 줄때
+            $('선택자').on({
+                이벤트: function(){
+
+                },
+                이벤트2: function(){
+
+                },
+                이벤트3: function(){
+
+                }
+            })
+
+        
+    */
+   
+        // $(document).on('click', '.box', function(){
+        //     console.log("클릭2")
+        // })
+        // $('.box').click(function(){
+        //     console.log("클릭")
+        // })
+        // $('.box').mouseenter(function(){
+        //     console.log("마우스 엔터")
+        // })
+        // $('.box').mouseleave(function(){
+        //     console.log("마우스 리브")
+        // })
+        $('.box').on({
+            click:function(){
+                console.log("클릭")
+            },
+            mouseenter:function(){
+                console.log("엔터")
+            },
+            mouseleave:function(){
+                console.log("리브")
+            },
+            // mouseover:function(){
+            //     event.stopPropagation();
+            //     console.log("오버")
+            // },
+            // mouseout:function(){
+            //     event.stopPropagation();
+            //     console.log("아웃")
+            // },
+        })
+        $('.outer').on({ 
+            // mouseover:function(){
+            //     console.log("오버 부모")
+            // },
+            // mouseout:function(){
+            //     console.log("아웃 부모")
+            // },
+            mouseenter:function(){
+                console.log("엔터 부모")
+            },
+            mouseleave:function(){
+                console.log("리브 부모")
+            },
+        })
+
+        $('.outer').hover(
+            function(){
+                $(this).css({background: 'skyblue'})
+            }, 
+            function(){
+                $(this).css({background: 'pink'})
+            }
+        )
+
+        $('.outer').mousemove(function(){ 
+            console.log(event.offsetX, event.offsetY)
+
+        })
+    });
+</script>
 </body>
 </html>

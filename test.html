@@ -5,8 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .div
+        {
+            width: 500px;
+            height: 1000px;
+            background-color: black;
+            margin-top: 500px;
+        }
+        #hidden_focus
+        {
+
+        }
+    </style>
 </head>
 <body>
+    <div class="div">
+        <input type="text" id="hidden_focus" autofocus>
+    </div>
     <script>
         let arr = new Array(5);
         console.log(arr[3]);

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+    
+<script>
+    $(document).ready(function(){
+
+    });
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+    <img src="./img/afreeca_banner.jpg" alt="">
+<script>
+    $(document).ready(function(){
+    /*
+        속성
+        1) attr: HTML의 속성을 취급
+                $('img').attr('속성명') => 속성값 가져오기
+                $('img').attr('속성명', '속성값') => 속성에 새로운 값 덮어쓰기
+
+        2) prop: 자바스크립트의 속성을 취급
+                 (HTML속성을 제어)
+
+    */
+        console.log($('img').attr('src'))
+        console.log($('img').prop('src'))
+
+        $('img').prop('src', './img/1.jpg')
+    });
+</script>
+</body>
+</html>

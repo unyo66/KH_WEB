@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+    </style>
+</head>
+<body>
+    <input type="button" value="시작" id="start">
+    <input type="button" value="멈춤" id="stop">
+    <div class="box"></div>
+    <script>
+        /*
+            stop(): 애니메이션 하나 삭제
+            stop(true): 스택의 애니메이션 모두 삭제
+
+            delay(밀리초): 애니메이션 하나에 딜레이 걸기
+        */
+        $(document).ready(function(){
+            $(".box").css({
+                width: 100,
+                height: 100,
+                background: "red",
+
+                position: "absolute",
+                top: 50,
+                left: 0
+            });
+            $("#start").click(function(){
+                $(".box").animate({
+                left: 200,
+                }).stop().animate({
+                    left: 200,
+                    top: 250
+                }).animate({
+                    left: 0,
+                    top: 250
+                }).delay(500).animate({
+                    left: 0,
+                    top: 50
+                })
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+        }
+        .red { background: red; }
+        .green { background: green; }
+        .blue { background: blue; }
+    </style>
+</head>
+<body>
+    <input type="button" value="빨" id="btn_red">
+    <input type="button" value="초" id="btn_green">
+    <input type="button" value="파" id="btn_blue">
+
+    <div id="box" class="tmp tmp2 tmp3"></div>
+
+<script>
+$(document).ready(function(){
+/*
+    클래스 변경 - 추가, 삭제
+        1) 추가 - $('선택자').addClass("클래스명")
+        2) 삭제 - $('선택자').removeClass(); => 해당 요소의 모든 클래스가 삭제
+                  $('선택자').removeClass('클래스명'); => 명시한 클래스만 삭제
+*/
+    const box = $('#box');
+
+    // $(document).on('click','#btn_red', function(){
+        //     box.addClass('red')
+        // });
+    $('#btn_red').click(function(){
+        // 각 줄마다 하나씩 없애도 되고
+        // box.removeClass('tmp');
+        // box.removeClass('tmp2');
+        // 체이닝 방식으로 한줄에 없애도 되고
+        // box.removeClass('tmp').removeClass('tmp2');
+        // 한방에 다 없애도 된다.
+        // box.removeClass('tmp tmp2')
+        
+        box.removeClass();
+        box.addClass('red');
+    });
+    $('#btn_green').click(function(){
+        box.removeClass();
+        box.addClass('green')
+    });
+    $('#btn_blue').click(function(){
+        box.removeClass();
+        box.addClass('blue')
+    });
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .wrap
+        {
+            background-color: grey;
+            position: relative;
+        }
+        .top_btn
+        {
+            position: fixed;
+            top: 45%;
+            right: 20px;
+            background-color: white;
+            padding: 5px 8px 8px;
+            box-shadow: 1px 1px 1px black;
+            font-weight: 900;
+        }
+        .header
+        {
+            width: 100%;
+            height: 100px;
+            background-color: olive;
+        }
+        .main_banner
+        {
+            width: 100%;
+            height: 300px;
+            background-color: darkgoldenrod;
+        }
+        .content_area
+        {
+            width: 1100px;
+            margin: 50px auto;
+            background-color: blue;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .item
+        {
+            width: calc((100% - 30px) / 4);
+            height: 300px;
+            background-color: yellowgreen;
+            display: flex;
+            flex-flow: column-reverse;
+        }
+        .item_title
+        {
+            width: 100%;
+            height: 60px;
+            background-color: hotpink;
+        }
+        .color0
+        {
+            background-color: darkcyan;
+        }
+        .color1
+        {
+            background-color: orange;
+        }
+        .color2
+        {
+            background-color: firebrick;
+        }
+        .color3
+        {
+            background-color: silver;
+        }
+        .color4
+        {
+            background-color: purple;
+        }
+        .footer
+        {
+            width: 100%;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <a href="#" class="top_btn">top</a>
+        <div class="header">
+
+        </div>
+        <div class="main_banner">
+
+        </div>
+        <div class="content_area">
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+            <div class="item">
+                <div class="item_title"></div>
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            let count = 0;
+            $(window).scroll(function(){
+                let d_height = $(".footer").offset().top;
+                let s_bot = $(window).scrollTop() + $(window).height();
+                console.log(d_height, s_bot);
+
+                if(count < 5 && s_bot >= d_height + 100) 
+                {
+                    for(let i=0; i<8; i++) 
+                    {
+                        $(".content_area").append(`<div class="item"><div class="item_title color${count}"></div></div>`);
+                    }
+                    d_height = $(document).height();
+                    count++
+                }
+        
+    });
+        });
+    </script>
+</body>
+</html>

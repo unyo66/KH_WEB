@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .opt_box
+        {
+            height: 50px;
+            background-color: hotpink;
+            display: flex;
+            gap: 10px;
+        }
+        .btn_color
+        {
+            width: 40px;
+            height: 40px;
+            border: 5px solid red;
+        }
+        .black{background-color: black; color: white;}
+        .white{background-color: white;}
+        .grey{background-color: grey;}
+        .pink{background-color: pink;}
+
+        .sel_color_box
+        {
+            height: 100px;
+        }
+        .delete
+        {
+            width: 50px;
+            height: 50px;
+            line-height: 45px;
+            text-align: center;
+            color: black;
+            float: right;
+            font-size: 30px;
+            background-color: white;
+        }
+        .btn_color:hover,
+        .delete:hover
+        {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="opt_box">
+        <div class="btn_color black">black</div>
+        <div class="btn_color white">white</div>
+        <div class="btn_color grey">grey</div>
+        <div class="btn_color pink">pink</div>
+    </div>
+    <div class="opt_selected">
+    </div>
+    <script>
+        $(document).ready(function(){
+            let color;
+            let length;
+            let flag = true;
+            $(".btn_color").click(function(){
+                length = $(".opt_selected").children().length;
+                color = $(this).attr("class").replace("btn_color ", "");
+                for (let i = 0; i < length; i++)
+                {
+                    if ($(".sel_color_box").eq(i).attr("class").replace("sel_color_box ", "") == color)
+                    {
+                        flag = false;
+                    }
+                }
+
+                if (flag)
+                {
+                    $(".opt_selected").append(`<div class="sel_color_box ${color}">${color}<span class="delete">x</span></div>`);
+                }
+                else
+                {
+                    alert("이미 담은 상품입니다.");
+                }
+                
+                $(".delete").click(function(){
+                    $(this).parent().remove();
+                    console.log($(this).parent());
+                });
+            });
+
+
+        });
+    </script>
+</body>
+</html>

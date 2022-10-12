@@ -60,6 +60,7 @@
             position: absolute;
             top: 80px;
             display: flex;
+            padding: 20px 0;
         }
         .article
         {
@@ -70,6 +71,7 @@
         .filter_box
         {
             width: 100%;
+            padding-bottom: 15px;
         }
         .filter_ul
         {
@@ -77,6 +79,8 @@
             height: 60px;
             line-height: 60px;
             display: flex;
+            margin-bottom: 5px;
+            gap: 5px;
             /* border: 1px solid; */
             box-sizing: border-box;
             position: relative;
@@ -85,12 +89,13 @@
         {
             width: 110px;
             text-align: center;
-            border-right: 1px solid;
+            /* border-right: 1px solid; */
             box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.4);
         }
         .checked
         {
-            background-color: #222;
+            background-color: rgba(255, 105, 180, 0.1);
         }
         .filter_name
         {
@@ -98,6 +103,8 @@
             padding-left: 10px;
             /* border: 1px solid; */
             box-sizing: border-box;
+            color: hotpink;
+            background-color: rgba(255, 105, 180, 0.1);
         }
         .more_options
         {
@@ -128,6 +135,7 @@
             height: 50px;
             line-height: 50px;
             padding: 5px;
+            background-color: rgba(255, 105, 180, 0.1);
         }
         .result_options
         {
@@ -165,14 +173,14 @@
             height: 80px;
             line-height: 80px;
             text-align: center;
-            /* border: 1px solid; */
+            /* border-top: 1px solid; */
             box-sizing: border-box;
             display: flex;
         }
         .hide_mine
         {
             width: 25%;
-            /* border: 1px solid; */
+            /* border-right: 1px solid; */
             box-sizing: border-box;
             display: flex;
             justify-content: center;
@@ -184,7 +192,7 @@
             height: 13px;
             margin: 0 5px;
             display: inline-block;
-            /* border: 3px solid hotpink; */
+            border: 3px solid hotpink;
             position: relative;
         }
         .hide_mine_check
@@ -202,21 +210,36 @@
         .show_all
         {
             width: 75%;
+            font-size: 30px;
         }
         .aside
         {
             width: 30%;
             /* border: 1px solid; */
             box-sizing: border-box;
-            overflow: scroll;
+            overflow-y: scroll;
+        }
+        .aside::-webkit-scrollbar
+        {
+            width: 10px;
+        }
+        .aside::-webkit-scrollbar-thumb {
+            background-color: #555;
+        }
+        .aside::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+        .aside::-webkit-scrollbar-corner {
+            background-color: transparent;
         }
         .thumbnail
         {
             width: 50%;
             height: 200px;
             float: left;
-            /* border: 1px solid; */
+            border: 1px solid #222;
             box-sizing: border-box;
+            background: url(./썸네일.jpg) center / cover;
         }
     </style>
 </head>
@@ -323,7 +346,7 @@
                         <div class="hide_mine">
                             내가 본 영화 숨기기
                             <div class="hide_mine_check_box">
-                                <img class="hide_mine_check" src="./img/check.png" alt="check">
+                                <img class="hide_mine_check" src="./check.png" alt="check">
                             </div>
                         </div>
                         <div class="show_all">
@@ -333,7 +356,7 @@
                     </div>
                 </div>
                 <div class="aside">
-                    <div class="thumbnail"><img src="" alt=""></div>
+                    <div class="thumbnail"></div>
                     <div class="thumbnail"></div>
                     <div class="thumbnail"></div>
                     <div class="thumbnail"></div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .chk {
+            display: block;
+        }
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function() {
+        /*
+            chk_all 누르면 아래 10개 체크박스 체크 됐다가 해제되게 하기
+            *체크박스 체크 여부 확인 
+                $('선택자').is(':checked')
+                체크 되어 있으면 true
+                체크 안되어 있으면 false
+        */
+            $('.chk_all').click(function(){
+                console.log($('.chk_all').is(':checked'))
+
+                let curr_chk = $('.chk_all').is(':checked');
+                if(curr_chk) { // true 나오면 아래 10개 다 체크하기
+                    $('.chk').prop('checked', true);
+                }
+                else {
+                    $('.chk').prop('checked', false);
+                }
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="checkbox" class="chk_all"> 전체
+    <hr>
+    <input type="checkbox" class="chk">
+    <input type="checkbox" class="chk">
+    <input type="checkbox" class="chk">
+    <input type="checkbox" class="chk">
+    <input type="checkbox" class="chk">
+    <input type="checkbox" class="chk">
+    <input type="checkbox" class="chk">
+    <input type="checkbox" class="chk">
+    <input type="checkbox" class="chk">
+    <input type="checkbox" class="chk">
+</body>
+</html>
