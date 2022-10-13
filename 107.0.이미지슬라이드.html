@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .main_banner
+        {
+            width: 600px;
+            height: 300px;
+            border: 1px solid;
+            margin: 20px auto;
+            position: relative;
+        }
+        .banner
+        {
+            width: 100%;
+            height: 100%;
+            font-size: 100px;
+            font-weight: 900;
+            color: white;
+            text-align: center;
+
+            position: absolute;
+            top: 0;
+            left: 100%;
+        }
+        .red{background-color: red;}
+        .green{background-color: green;}
+        .blue{background-color: blue;}
+    </style>
+</head>
+<body>
+    <div class="main_banner">
+        <div class="banner red">0</div>
+        <div class="banner green">1</div>
+        <div class="banner blue">2</div>
+    </div>
+    <input type="button" value="왼쪽" id="btn_l">
+    <input type="button" value="오른쪽" id="btn_r">
+    <script>
+        /*
+            1) 버튼에 클릭 감지 주기
+            2)
+        */
+        $(document).ready(function(){
+            $(".banner").eq(0).css({
+                left: 0
+            });
+            let index = 0;
+            $("#btn_r").click(function(){
+                $(".banner").eq(index % 3).animate({
+                    left: -100 + "%"
+                });
+                $(".banner").eq((index + 1) % 3).animate({
+                    left: 100 + "%"
+                }, 0).animate({
+                    left: 0
+                });
+                index += 1;
+            });
+            $("#btn_l").click(function(){
+                $(".banner").eq(index % 3).animate({
+                    left: 100 + "%"
+                });
+                $(".banner").eq((index - 1) % 3).animate({
+                    left: -100 + "%"
+                }, 0).animate({
+                    left: 0
+                });
+                index += -1;
+            });
+        })
+    </script>
+</body>
+</html>

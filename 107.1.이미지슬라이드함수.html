@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .main_banner
+        {
+            width: 600px;
+            height: 300px;
+            border: 1px solid;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .banner
+        {
+            width: 100%;
+            height: 100%;
+            line-height: 280px;
+            font-size: 100px;
+            font-weight: 900;
+            color: white;
+            text-align: center;
+
+            position: absolute;
+            top: 0;
+            left: 100%;
+        }
+        .red{background-color: red;}
+        .green{background-color: green;}
+        .blue{background-color: blue;}
+        
+        .btn
+        {
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            top: 40%;
+        }
+        .btn:hover
+        {
+            cursor: pointer;
+        }
+        #btn_l
+        {
+            left: 10px;
+        }
+        #btn_r
+        {
+            right: 10px;
+        }
+        .indicator
+        {
+            height: 40px;
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .circle
+        {
+            width: 30px;
+            height: 30px;
+            border: 3px solid white;
+            border-radius: 20px;
+        }
+        .filled
+        {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_banner">
+        <div class="banner red">0</div>
+        <div class="banner green">1</div>
+        <div class="banner blue">2</div>
+        <div id="btn_l" class="btn">◁</div>
+        <div id="btn_r" class="btn">▷</div>
+        <div class="indicator"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            let index = 0;
+            //인디케이터 삽입
+            let b_length = $(".banner").length;
+            for (let i = 0; i < b_length; i++)
+            {
+                $(".indicator").append(`<div class="circle"></div>`);
+            }
+            //
+            //인디케이터 채우는 함수
+            function fillIndicator(){
+                $(".circle").removeClass("filled");
+                $(".circle").eq(index % 3).addClass("filled");
+            }
+            fillIndicator();
+            //
+            //인디케이터 누르면 슬라이드 실행하는 for문
+            // for (let i = 0; i < 3; i++)
+            // {
+            //     $(".circle").eq(i).click(function(){
+            //         if ((index) % 3 == (i == 0 ? i + 2 : i - 1))//0 - 2 1 - 0 2 - 1
+            //         {
+            //             slide(1, 200);
+            //             fillIndicator();
+            //         }
+            //         else if ((index) % 3 == (i == 2 ? i - 2 : i + 1))//0 - 1 1 - 2 2 - 0
+            //         {
+            //             slide(1, 200);
+            //             setTimeout(function(){
+            //             slide(1, 200);
+            //             }, 200);
+            //             setTimeout(function(){
+            //             fillIndicator();
+            //         }, 300);
+            //         }
+            //     });
+            // }
+            //
+
+            //인디케이터 누르면 슬라이드 실행하는 for문
+            $(".circle").click(function(){
+                console.log($(this).index());
+                console.log($(".filled").index());
+                if ($(this).index() == $(".filled").index() + 2)
+                {
+                    slide(1, 200);
+                    fillIndicator();
+                    setTimeout(function(){
+                        slide(1, 200);
+                    }, 200);
+                    setTimeout(function(){
+                        fillIndicator();
+                    }, 300);
+                }
+                else if ($(this).index() == $(".filled").index() + 1)
+                {
+                    slide(1, 200);
+                    fillIndicator();
+                }
+                else if ($(this).index() == $(".filled").index() - 1)
+                {
+                    slide(-1, 200);
+                    fillIndicator();
+                }
+                else if ($(this).index() == $(".filled").index() - 2)
+                {
+                    slide(-1, 200);
+                    fillIndicator();
+                    setTimeout(function(){
+                        slide(-1, 200);
+                    }, 200);
+                    setTimeout(function(){
+                        fillIndicator();
+                    }, 300);
+                }
+            })
+            //
+            //배너 초기위치
+            $(".banner").eq(0).css({
+                left: 0
+            });
+            //
+            //버튼에 함수 탑재
+            $("#btn_r").click(function(){
+                blockBtn();
+                slide(1, 500);
+                fillIndicator()
+            })
+            $("#btn_l").click(function(){
+                blockBtn();
+                slide(-1);
+                fillIndicator()
+            })
+            //
+            //인터벌, 인터벌함수
+            let itv;
+            function autoSlide()
+            {
+                clearInterval(itv);
+                itv = setInterval(function(){
+                    slide(1, 500);
+                    fillIndicator();
+                }, 2000);
+            }
+            autoSlide();
+            $(".main_banner").mouseenter(function(){
+                clearInterval(itv);
+            })
+            $(".main_banner").mouseleave(function(){
+                clearInterval(itv);
+                autoSlide();
+            })
+            //
+            //슬라이드 함수
+            function slide(pm, timer){
+                $(".banner").eq(index % 3).animate({
+                    left: pm * -100 + "%"
+                }, timer);
+                $(".banner").eq((index + pm) % 3).animate({
+                    left: pm * 100 + "%"
+                }, 0).animate({
+                    left: 0
+                }, timer);
+                index += pm;
+            }
+            //
+            //움직일때 클릭 방지
+            function blockBtn()
+            {
+                $(".btn").css({
+                    pointerEvents: "none"
+                });
+                setTimeout(() => {
+                    $(".btn").css({
+                    pointerEvents: "auto"
+                });
+                }, 500)
+            }
+            //
+        })
+    </script>
+</body>
+</html>

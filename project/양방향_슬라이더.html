@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .box {
+            width: 500px;
+            height: 300px;
+            background-color: #ecf0f1;
+        }
+        
+        .slider {
+            width: 90%;
+            height: 90%;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+        }
+        
+        input {
+            width: calc(100% - 2rem);
+            top: 3rem;
+            left: 1rem;
+            position: absolute;
+            border: none;
+        }
+        
+        input:first-child {
+            top: 1rem;
+        }
+        
+        .track {
+            position: relative;
+            width: 100%;
+            height: 0.5rem;
+            margin-top: 5rem;
+            background-color: #bdc3c7;
+            border-radius: 0.5rem;
+        }
+        
+        .selected_area {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #2c3e50;
+            border-radius: 0.5rem;
+        }
+        
+        .thumb {
+            position: absolute;
+            top: 0;
+            transform: translateY(-0.25rem);
+            width: 1rem;
+            height: 1rem;
+            background-color: black;
+            border-radius: 50%;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <form class="box">
+        <div class="slider">
+            <input type="range" id="input_left" min="1" max="100" value="1" />
+            <input type="range" id="input_right" min="1" max="100" value="100" />
+            <div class="track">
+            <div class="selected_area"></div>
+            <div class="thumb left"></div>
+            <div class="thumb right"></div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        let inputL = document.getElementById("input_left");
+        let inputR = document.getElementById("input_right");
+            
+        let thumbL = document.getElementsByClassName("left")[0];
+        let thumbR = document.getElementsByClassName("right")[0];
+            
+        let range = document.querySelector(".selected_area");
+            
+        function setLeftVal(e){
+            if (+inputR.value - +e.value < 10) {
+                e.value = +inputR.value - 10;
+            }
+            let percent = ((+e.value - +e.min) / (+e.max - +e.min)) * 100;
+            thumbL.style.left = `${percent}%`;
+            range.style.left = `${percent}%`;
+            console.log(e, e.value);
+        }
+        function setRightVal(e){
+            if (+e.value - +inputL.value < 10) {
+            e.value = +inputL.value + 10;
+            }
+            let percent = ((+e.value - +e.min) / (+e.max - +e.min)) * 100;
+
+            thumbR.style.right = `${100 - percent}%`;
+            range.style.right = `${100 - percent}%`;
+        }
+        if (inputL && inputR) {
+            inputL.addEventListener("input", function(){
+                setLeftVal(this);
+            });
+            inputR.addEventListener("input", function(){
+                setRightVal(this);
+            });
+        }
+    </script>
+</body>
+</html>
