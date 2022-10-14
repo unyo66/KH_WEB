@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>필터페이지</title>
     <link rel="stylesheet" href="./project_header.css">
+    <link rel="stylesheet" href="./project_footer.css">
+    <link rel="stylesheet" href="./slider.css">
+    <script async src="./slider.js"></script>
     <style>
         @font-face 
         {
@@ -18,7 +21,7 @@
         {
             margin: 0;
             background-color: #222;
-            /* font-family: 'CBNUJIKJI'; */
+            font-family: 'CBNUJIKJI';
             font-size: 13px;
         }
 
@@ -38,28 +41,28 @@
             margin: 0;
             padding: 0;
         }
-        .more_checkbox
+        .checkbox_flip
         {
             display: none;
         }
-        .main
+        .wrap
         {
             width: 1100px;
             /* max-width: 1100px; */
             margin: 0 auto;
             color: #fff;
-            background-color: #444;
+            /* background-color: #444; */
             position: relative;
         }
-
 
         .contents_area
         {
             width: 100%;
             /* border: 1px solid; */
             box-sizing: border-box;
-            position: absolute;
-            top: 80px;
+            margin-top: 80px;
+            /* position: absolute;
+            top: 80px; */
             display: flex;
             padding: 20px 0;
         }
@@ -68,11 +71,15 @@
             width: 70%;
             /* border: 1px solid; */
             box-sizing: border-box;
+            padding-right: 10px;
         }
         .filter_box
         {
             width: 100%;
             padding-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         .filter_ul
         {
@@ -80,18 +87,27 @@
             height: 60px;
             line-height: 60px;
             display: flex;
-            margin-bottom: 5px;
-            gap: 5px;
+            /* margin-bottom: 5px; */
+            gap: 10px;
             /* border: 1px solid; */
             box-sizing: border-box;
             position: relative;
         }
+        .options_li
+        {
+            width: calc(100% - 110px);
+            display: flex;
+            /* justify-content: space-between; */
+            gap: 10px;
+        }
         .options
         {
-            width: 110px;
+            /* width: 110px; */
             text-align: center;
+            flex-grow: 1;
             /* border-right: 1px solid; */
-            box-sizing: border-box;
+            /* padding: 0 30px; */
+            /* box-sizing: border-box; */
             background-color: rgba(0, 0, 0, 0.4);
         }
         .checked
@@ -107,29 +123,36 @@
             color: hotpink;
             background-color: rgba(255, 105, 180, 0.1);
         }
-        .more_options
+        .label_flip
         {
             width: 30px;
             height: 58px;
             text-align: center;
             background-color: #333;
-            position: absolute;
+            /* position: absolute;
             top: 0;
-            right: 0;
+            right: 0; */
             opacity: 0.9;
         }
-        .more_options:hover
+        .label_flip:hover
         {
             cursor: pointer;
         }
-        .more_checkbox:checked + .hided_filter
+        .transparent
         {
-            display: inline-flex;
-            align-items: center;
+            width: 30px;
+            height: 58px;
+            background-color: transparent;
         }
         .hided_filter
         {
             display: none;
+        }
+        .checkbox_flip:checked + .hided_filter
+        {
+            display: inline-flex;
+            /* justify-content: space-between; */
+            align-items: center;
         }
         .result_options_bar
         {
@@ -140,10 +163,14 @@
         }
         .result_options
         {
+            height: 50px;
+            line-height: 32px;
+            background-color: rgba(0, 0, 0, 0.4);
             padding: 10px;
             margin: 0 10px;
             /* border: 1px solid; */
             box-sizing: border-box;
+            display: inline-block;
         }
         .result_options_tmp_phrase
         {
@@ -216,7 +243,9 @@
         .aside
         {
             width: 30%;
-            /* border: 1px solid; */
+            border-left: 1px solid rgba(255, 105, 180, 0.1);
+;
+            padding-left: 10px;
             box-sizing: border-box;
             overflow-y: scroll;
         }
@@ -246,136 +275,172 @@
 </head>
 <body onselectstart="return false">
     <div class="wrap">
-        <div class="main">
-            <div class="header">
-                <div class="logo">FILMAP</div>
-                <div class="menu_box">
-                    <div class="menu">홈</div>
-                    <div class="menu">검색</div>
-                    <div class="menu">예고편</div>
+        <div class="header">
+            <div class="logo">FILMAP</div>
+            <div class="menu_box">
+                <div class="menu">홈</div>
+                <div class="menu">검색</div>
+                <div class="menu">예고편</div>
+            </div>
+            <div class="search_box">
+                <input type="text" name="" class="search_bar">
+                <div class="search_btn"></div>
+                <div class="search_page"></div>
+            </div>
+            <div class="sign_box">
+                <div class="sign">로그인</div>
+                <div class="sign">회원가입</div>
+            </div>
+        </div>
+        <div class="contents_area">
+            <div class="article">
+                <div class="filter_box">
+                    <ul class="filter_ul">
+                        <li class="filter_name">장르</li>
+                        <li class="options_li">
+                            <div class="options">액션</div>
+                            <div class="options">코미디</div>
+                            <div class="options">로맨스</div>
+                            <div class="options">공포</div>
+                            <div class="options">다큐</div>
+                        </li>
+                        <label for="checkbox_flip1" class="label_flip">▾</label>
+                    </ul>
+                    <input type="checkbox" name="" class="checkbox_flip" id="checkbox_flip1">
+                    <ul class="filter_ul hided_filter">
+                        <li class="filter_name"></li>
+                        <li class="options_li">
+                            <div class="options">판타지</div>
+                            <div class="options">SF</div>
+                            <div class="options">범죄</div>
+                            <div class="options">스릴러</div>
+                            <div class="options">학원</div>
+                        </li>
+                        <div class="transparent"></div>
+                    </ul>
+                    <ul class="filter_ul">
+                        <li class="filter_name">국가</li>
+                        <li class="options_li">
+                            <div  class="options">한국</div>
+                            <div  class="options">미국</div>
+                            <div  class="options">일본</div>
+                            <div  class="options">영국</div>
+                        </li>
+                        <label for="checkbox_flip2" class="label_flip">▾</label>
+                    </ul>
+                    <input type="checkbox" name="" class="checkbox_flip" id="checkbox_flip2">
+                    <ul class="filter_ul hided_filter">
+                        <li class="filter_name"></li>
+                        <li class="options_li">
+                            <div class="options">대만</div>
+                            <div class="options">프랑스</div>
+                            <div class="options">러시아</div>
+                            <div class="options">남아공</div>
+                        </li>
+                        <div class="transparent"></div>
+                    </ul>
+                    <ul class="filter_ul">
+                        <li class="filter_name">등급</li>
+                        <li class="options_li">
+                            <div class="options">전체이용가</div>
+                            <div class="options">12세 관람가</div>
+                            <div class="options">15세 관람가</div>
+                            <div class="options">청소년 관람불가</div>
+                        </li>
+                        <div class="transparent"></div>
+                    </ul>
+                    <ul class="filter_ul">
+                        <li class="filter_name">길이</li>
+                        <li class="options_li">
+                            <div class="options">~ 90분</div>
+                            <div class="options">90분 ~ 120분</div>
+                            <div class="options">120분 ~</div>
+                            <div class="slider">
+                                <input type="range" class="input_left" min="1" max="100" value="1" />
+                                <input type="range" class="input_right" min="1" max="100" value="100" />
+                                <div class="track">
+                                <div class="selected_area"></div>
+                                <div class="thumb left"></div>
+                                <div class="thumb right"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <div class="transparent"></div>
+                    </ul>
+                    <input type="checkbox" name="" class="checkbox_flip" id="checkbox_flip4">
+                    <ul class="filter_ul hided_filter">
+                        <li class="filter_name"></li>
+                        <li class="options_li">
+                            <div class="options"></div>
+                            <div class="options"></div>
+                            <div class="options"></div>
+                            <div class="options"></div>
+                        </li>
+                    </ul>
+                    <ul class="filter_ul">
+                        <li class="filter_name">개봉년도</li>
+                        <li class="options_li">
+                            <div class="options">2020</div>
+                            <div class="options">2010</div>
+                            <div class="options">2000</div>
+                            <div class="options">~1990</div>
+                            <div class="slider">
+                                <input type="range" class="input_left" min="1" max="100" value="1" />
+                                <input type="range" class="input_right" min="1" max="100" value="100" />
+                                <div class="track">
+                                <div class="selected_area"></div>
+                                <div class="thumb left"></div>
+                                <div class="thumb right"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <div class="transparent"></div>
+                    </ul>
+                    <input type="checkbox" name="" class="checkbox_flip" id="checkbox_flip3">
+                    <ul class="filter_ul hided_filter">
+                        <li class="filter_name"></li>
+                        <li class="options_li">
+                        </li>
+                        <div class="transparent"></div>
+                    </ul>
                 </div>
-                <div class="search_box">
-                    <input type="text" name="" class="search_bar">
-                    <div class="search_btn"></div>
-                    <div class="search_page"></div>
+                <div class="result_options_bar">
+                    <div class="result_options_tmp_phrase">취향에 따라 골라보세요!</div>
                 </div>
-                <div class="sign_box">
-                    <div class="sign">로그인</div>
-                    <div class="sign">회원가입</div>
+                <div class="filter_footer">
+                    <div class="hide_mine">
+                        내가 본 영화 숨기기
+                        <div class="hide_mine_check_box">
+                            <img class="hide_mine_check" src="./check.png" alt="check">
+                        </div>
+                    </div>
+                    <div class="show_all">
+                        <span class="filtered_qtt">100</span>
+                        개의 영화 모두보기
+                    </div>
                 </div>
             </div>
-            <div class="contents_area">
-                <div class="article">
-                    <div class="filter_box">
-                        <ul class="filter_ul">
-                            <li class="filter_name">장르</li>
-                            <li class="options">액션</li>
-                            <li class="options">코미디</li>
-                            <li class="options">로맨스</li>
-                            <li class="options">공포</li>
-                            <li class="options">다큐</li>
-                            <label for="more_checkbox1" class="more_options">▾</label>
-                        </ul>
-                        <input type="checkbox" name="" class="more_checkbox" id="more_checkbox1">
-                        <ul class="filter_ul hided_filter">
-                            <li class="filter_name"></li>
-                            <li class="options">판타지</li>
-                            <li class="options">SF</li>
-                            <li class="options">범죄</li>
-                            <li class="options">스릴러</li>
-                            <li class="options">학원</li>
-                        </ul>
-                        <ul class="filter_ul">
-                            <li class="filter_name">국가</li>
-                            <li  class="options">한국</li>
-                            <li  class="options">미국</li>
-                            <li  class="options">일본</li>
-                            <li  class="options">영국</li>
-                            <label for="more_checkbox2" class="more_options">▾</label>
-                        </ul>
-                        <input type="checkbox" name="" class="more_checkbox" id="more_checkbox2">
-                        <ul class="filter_ul hided_filter">
-                            <li class="filter_name"></li>
-                            <li class="options">대만</li>
-                            <li class="options">프랑스</li>
-                            <li class="options">러시아</li>
-                            <li class="options">남아공</li>
-                        </ul>
-                        <ul class="filter_ul">
-                            <li class="filter_name">개봉년도</li>
-                            <li class="options">2020년대</li>
-                            <li class="options">2010년대</li>
-                            <li class="options">2000년대</li>
-                            <li class="options">~1990년대</li>
-                            <label for="more_checkbox3" class="more_options">▾</label>
-                        </ul>
-                        <input type="checkbox" name="" class="more_checkbox" id="more_checkbox3">
-                        <ul class="filter_ul hided_filter">
-                            <li class="filter_name"></li>
-                            <li class="options">
-                                <input type="range" name="" id="">
-                            </li>
-                            <li class="options"></li>
-                            <li class="options"></li>
-                            <li class="options"></li>
-                        </ul>
-                        <ul class="filter_ul">
-                            <li class="filter_name">길이</li>
-                            <li class="options">~ 90분</li>
-                            <li class="options">90분 ~ 120분</li>
-                            <li class="options">120분 ~</li>
-                            <label for="more_checkbox4" class="more_options">▾</label>
-                        </ul>
-                        <input type="checkbox" name="" class="more_checkbox" id="more_checkbox4">
-                        <ul class="filter_ul hided_filter">
-                            <li class="filter_name"></li>
-                            <li class="options"></li>
-                            <li class="options"></li>
-                            <li class="options"></li>
-                            <li class="options"></li>
-                        </ul>
-                        <ul class="filter_ul">
-                            <li class="filter_name">등급</li>
-                            <li class="options">전체이용가</li>
-                            <li class="options">12세 관람가</li>
-                            <li class="options">15세 관람가</li>
-                            <li class="options">청소년 관람불가</li>
-                        </ul>
-                    </div>
-                    <div class="result_options_bar">
-                        <div class="result_options_tmp_phrase">취향에 따라 골라보세요!</div>
-                    </div>
-                    <div class="filter_footer">
-                        <div class="hide_mine">
-                            내가 본 영화 숨기기
-                            <div class="hide_mine_check_box">
-                                <img class="hide_mine_check" src="./check.png" alt="check">
-                            </div>
-                        </div>
-                        <div class="show_all">
-                            <span class="filtered_qtt">100</span>
-                            개의 영화 모두보기
-                        </div>
-                    </div>
-                </div>
-                <div class="aside">
-                    <div class="thumbnail"></div>
-                    <div class="thumbnail"></div>
-                    <div class="thumbnail"></div>
-                    <div class="thumbnail"></div>
-                    <div class="thumbnail"></div>
-                    <div class="thumbnail"></div>
-                    <div class="thumbnail"></div>
-                    <div class="thumbnail"></div>
-                </div>
+            <div class="aside">
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
             </div>
         </div>
     </div>
+    <div class="footer">footer</div>
     <script>
+        let opt = document.getElementsByClassName("options");
+        let rOpt = document.getElementsByClassName("result_options");
+        let rOptBar = document.getElementsByClassName("result_options_bar");
         function putHeight1()//article 높이에 따라 aside 높이 바꾸기
         {
-            document.getElementsByClassName("aside")[0].setAttribute("style", "height:" + (document.getElementsByClassName("filter_box")[0].clientHeight + document.getElementsByClassName("result_options_bar")[0].clientHeight + document.getElementsByClassName("filter_footer")[0].clientHeight + 4) + "px");
-            console.log((document.getElementsByClassName("filter_box")[0].clientHeight + document.getElementsByClassName("result_options_bar")[0].clientHeight + document.getElementsByClassName("filter_footer")[0].clientHeight));
+            document.getElementsByClassName("aside")[0].setAttribute("style", "height:" + (document.getElementsByClassName("filter_box")[0].clientHeight + rOptBar[0].clientHeight + document.getElementsByClassName("filter_footer")[0].clientHeight + 4) + "px");
+            console.log((document.getElementsByClassName("filter_box")[0].clientHeight + rOptBar[0].clientHeight + document.getElementsByClassName("filter_footer")[0].clientHeight));
             console.log(document.getElementsByClassName("aside")[0].getAttribute("style"));
         }
         putHeight1();//aside 높이 초기 설정
@@ -386,9 +451,9 @@
                 putHeight1()
             }, 10);
         }
-        for (let i = 0; i < 4; i++)//옵션 더보기 버튼 눌리면 aside 높이 변경
+        for (let i = 0; i < 2; i++)//옵션 더보기 버튼 눌리면 aside 높이 변경
         {
-            document.getElementsByClassName("more_options")[i].addEventListener("click", function(){putHeight2();});
+            document.getElementsByClassName("label_flip")[i].addEventListener("click", function(){putHeight2();});
         }
 
         function tmp_qtt(n)//db 연결 전 임시 최종 수량
@@ -396,15 +461,12 @@
             document.getElementsByClassName("filtered_qtt")[0].innerText -= n;
         }
 
-        ///체크된 옵션 표시/해제, 밑에 한번에 보여주는 기능
-        let opt = document.getElementsByClassName("options");
-        let rOpt = document.getElementsByClassName("result_options");
         function phrase(n)//입맛에 따라 골라보세요 문구
         {
             setTimeout(function(){
                 if (n == 1)
                 {
-                    if (document.getElementsByClassName("result_options_bar")[0].innerHTML.match("span") == null)
+                    if (rOptBar[0].innerHTML.match("span") == null)
                     {
                         document.getElementsByClassName("result_options_tmp_phrase")[0].style.display = "block";
                     }
@@ -415,9 +477,11 @@
                 }
             }, 20)
         }
+        ///체크된 옵션 표시/해제, 밑에 한번에 보여주는 기능
         for (let i = 0; i < opt.length; i++)
         {
             opt[i].addEventListener("click", function(){//모든 옵션에 버튼 달기
+                let rOptLength = 0;//result options 총 길이, 옵션 클릭마다 초기화하고 다시 구함
                 opt[i].classList.toggle("checked");//눌리면 회색, 풀리면 원래대로
                 setTimeout(function(){
                     if (opt[i].classList.contains("checked"))
@@ -426,7 +490,6 @@
                         newResult.setAttribute("class", "result_options");
                         newResult.setAttribute("id", "result" + i);
                         newResult.innerText = opt[i].innerText;
-
                         newResult.addEventListener("click", function(){//result span에 누르면 해제되는 기능 넣기
                             opt[i].classList.toggle("checked");
                             newResult.remove();
@@ -434,9 +497,9 @@
                             phrase(1);
                         })
 
-                        document.getElementsByClassName("result_options_bar")[0].appendChild(newResult);
+                        rOptBar[0].appendChild(newResult);
                         phrase(0);
-
+                        
                         tmp_qtt(5);//임시값
                     }
                     else
@@ -445,7 +508,26 @@
                         phrase(1);
                         tmp_qtt(-5);
                     }
-                }, 1)
+                }, 0)
+                setTimeout(function(){
+                            for (let j = 0; j < rOpt.length; j++)
+                            {
+                                rOptLength += rOpt[j].offsetWidth + 20;
+                            }
+                            console.log(rOptLength);
+                            console.log(rOptBar[0].offsetWidth);
+                            if (rOptBar[0].offsetWidth <= rOptLength)
+                            {
+                                // console.log("넘엇다");
+                                rOptBar[0].style.height = "100px";
+                            }
+                            else
+                            {
+                                // console.log("안넘엇다");
+                                rOptBar[0].style.height = "50px";
+                            }
+                            putHeight2();//리절트 바가 커지면 aside도 같이 커짐
+                        },1)
             })
         }
         document.getElementsByClassName("hide_mine_check_box")[0].addEventListener("click", function(){
