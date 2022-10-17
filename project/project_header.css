@@ -33,6 +33,7 @@
 }
 .search_box
 {
+    width: 400px;
     display: flex;
     align-items: center;
     border: 2px solid #222;
@@ -44,7 +45,7 @@
 }
 .search_bar
 {
-    width: 300px;
+    width: calc(100% - 30px);
     height: 30px;
     background-color: #222;
     padding: 0;
@@ -72,8 +73,8 @@
 }
 .search_page
 {
-    width: 338px;
-    height: 100px;
+    width: calc(100% + 4px);
+    height: 200px;
     background-color: #222;
     position: absolute;
     top: 28px;

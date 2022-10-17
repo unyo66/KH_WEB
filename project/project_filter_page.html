@@ -12,16 +12,16 @@
     <style>
         @font-face 
         {
-        font-family: 'CBNUJIKJI';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/CBNUJIKJI.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
+            font-family: 'CBNUJIKJI';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/CBNUJIKJI.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
         body
         {
             margin: 0;
             background-color: #222;
-            font-family: 'CBNUJIKJI';
+            /* font-family: 'CBNUJIKJI'; */
             font-size: 13px;
         }
 
@@ -112,16 +112,16 @@
         }
         .checked
         {
-            background-color: rgba(255, 105, 180, 0.1);
+            background-color: rgba(255, 105, 180, 0.3);
         }
         .filter_name
         {
             width: 80px;
             padding-left: 10px;
-            /* border: 1px solid; */
+            border: 1px solid hotpink;
             box-sizing: border-box;
-            color: hotpink;
-            background-color: rgba(255, 105, 180, 0.1);
+            color: white;
+            /* background-color: rgba(255, 105, 180, 0.1); */
         }
         .label_flip
         {
@@ -140,8 +140,7 @@
         }
         .transparent
         {
-            width: 30px;
-            height: 58px;
+            border: transparent;
             background-color: transparent;
         }
         .hided_filter
@@ -159,7 +158,7 @@
             height: 50px;
             line-height: 50px;
             padding: 5px;
-            background-color: rgba(255, 105, 180, 0.1);
+            /* background-color: rgba(255, 105, 180, 0.1); */
         }
         .result_options
         {
@@ -208,11 +207,12 @@
         .hide_mine
         {
             width: 25%;
-            /* border-right: 1px solid; */
+            border: 1px solid hotpink;
             box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
+            /* background-color: rgba(255, 105, 180, 0.1); */
         }
         .hide_mine_check_box
         {
@@ -239,12 +239,13 @@
         {
             width: 75%;
             font-size: 30px;
+            border: 1px solid hotpink;
+            /* background-color: rgba(255, 105, 180, 0.1); */
         }
         .aside
         {
             width: 30%;
-            border-left: 1px solid rgba(255, 105, 180, 0.1);
-;
+            border-left: 1px solid hotpink;
             padding-left: 10px;
             box-sizing: border-box;
             overflow-y: scroll;
@@ -271,9 +272,21 @@
             box-sizing: border-box;
             background: url(./썸네일.jpg) center / cover;
         }
+        .dark_cover
+        {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            background-color: black;
+            opacity: 0.3;
+            top: 0;
+            left: 0;
+            display: none;
+        }
     </style>
 </head>
 <body onselectstart="return false">
+    <div class="dark_cover"></div>
     <div class="wrap">
         <div class="header">
             <div class="logo">FILMAP</div>
@@ -308,7 +321,7 @@
                     </ul>
                     <input type="checkbox" name="" class="checkbox_flip" id="checkbox_flip1">
                     <ul class="filter_ul hided_filter">
-                        <li class="filter_name"></li>
+                        <li class="filter_name transparent"></li>
                         <li class="options_li">
                             <div class="options">판타지</div>
                             <div class="options">SF</div>
@@ -316,7 +329,7 @@
                             <div class="options">스릴러</div>
                             <div class="options">학원</div>
                         </li>
-                        <div class="transparent"></div>
+                        <div class="label_flip transparent"></div>
                     </ul>
                     <ul class="filter_ul">
                         <li class="filter_name">국가</li>
@@ -330,14 +343,14 @@
                     </ul>
                     <input type="checkbox" name="" class="checkbox_flip" id="checkbox_flip2">
                     <ul class="filter_ul hided_filter">
-                        <li class="filter_name"></li>
+                        <li class="filter_name transparent"></li>
                         <li class="options_li">
                             <div class="options">대만</div>
                             <div class="options">프랑스</div>
                             <div class="options">러시아</div>
                             <div class="options">남아공</div>
                         </li>
-                        <div class="transparent"></div>
+                        <div class="label_flip transparent"></div>
                     </ul>
                     <ul class="filter_ul">
                         <li class="filter_name">등급</li>
@@ -347,7 +360,7 @@
                             <div class="options">15세 관람가</div>
                             <div class="options">청소년 관람불가</div>
                         </li>
-                        <div class="transparent"></div>
+                        <div class="label_flip transparent"></div>
                     </ul>
                     <ul class="filter_ul">
                         <li class="filter_name">길이</li>
@@ -360,12 +373,16 @@
                                 <input type="range" class="input_right" min="1" max="100" value="100" />
                                 <div class="track">
                                 <div class="selected_area"></div>
-                                <div class="thumb left"></div>
-                                <div class="thumb right"></div>
+                                <div class="thumb left">
+                                    <div class="tmp_thumb_value"></div>
+                                </div>
+                                <div class="thumb right">
+                                    <div class="tmp_thumb_value"></div>
+                                </div>
                                 </div>
                             </div>
                         </li>
-                        <div class="transparent"></div>
+                        <div class="label_flip transparent"></div>
                     </ul>
                     <input type="checkbox" name="" class="checkbox_flip" id="checkbox_flip4">
                     <ul class="filter_ul hided_filter">
@@ -389,19 +406,23 @@
                                 <input type="range" class="input_right" min="1" max="100" value="100" />
                                 <div class="track">
                                 <div class="selected_area"></div>
-                                <div class="thumb left"></div>
-                                <div class="thumb right"></div>
+                                    <div class="thumb left">
+                                        <div class="tmp_thumb_value"></div>
+                                    </div>
+                                    <div class="thumb right">
+                                        <div class="tmp_thumb_value"></div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
-                        <div class="transparent"></div>
+                        <div class="label_flip transparent"></div>
                     </ul>
                     <input type="checkbox" name="" class="checkbox_flip" id="checkbox_flip3">
                     <ul class="filter_ul hided_filter">
                         <li class="filter_name"></li>
                         <li class="options_li">
                         </li>
-                        <div class="transparent"></div>
+                        <div class="label_flip transparent"></div>
                     </ul>
                 </div>
                 <div class="result_options_bar">
@@ -534,10 +555,10 @@
             document.getElementsByClassName("hide_mine_check")[0].classList.toggle("display");
         })
         document.getElementsByClassName("search_bar")[0].addEventListener("focus", function(){
-            document.getElementsByClassName("hide_mine_check")[0].classList.toggle("display");
+            document.getElementsByClassName("dark_cover")[0].style.display = "block";
         })
         document.getElementsByClassName("search_bar")[0].addEventListener("blur", function(){
-            document.getElementsByClassName("hide_mine_check")[0].classList.toggle("display");
+            document.getElementsByClassName("dark_cover")[0].style.display = "none";
         })
     </script>
 </body>

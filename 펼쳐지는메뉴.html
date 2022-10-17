@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .header
+        {
+            /* width: 100%; */
+            height: 60px;
+            padding: 0 10px;
+            background-color: #faa;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .logo
+        {
+            width: 200px;
+            height: 60px;
+            background-color: #f00;
+        }
+        .nav_bar
+        {
+            height: 60px;
+            background-color: #7af;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            /* gap: 60px; */
+        }
+        .nav_item
+        {
+            height: 58px;
+            border: 1px solid;
+            padding: 0px 30px;
+        }
+        .nav_item:hover
+        {
+            cursor: pointer;
+        }
+
+        .pan100
+        {
+            width: 100%;
+            height: 0;
+            background-color: #f50;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            transition: all 0.5s;
+            /* transform: translateY(-100%); */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        .pan_container
+        {
+            width: 80%;
+            height: 100%;
+            background-color: greenyellow;
+        }
+        .pan
+        {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="logo">logo</div>
+            <ul class="nav_bar">
+                <li class="nav_item">menu1</li>
+                <li class="nav_item">menu2</li>
+                <li class="nav_item">menu3</li>
+                <li class="nav_item">menu4</li>
+                <li class="nav_item">menu5</li>
+            </ul>
+            <div class="pan100">
+                <div class="pan_container">
+                    <div class="pan p1">1</div>
+                    <div class="pan p2">2</div>
+                    <div class="pan p3">3</div>
+                    <div class="pan p4">4</div>
+                    <div class="pan p5">5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $(".nav_item").mouseenter(function(){
+                $(".pan100").css({
+                    height: "200px"
+                })
+            })
+            $(".nav_item").mouseleave(function(){
+                $(".pan100").css({
+                    height: "0px"
+                })
+            })
+            $(".pan100").mouseenter(function(){
+                $(".pan100").css({
+                    height: "200px"
+                })
+            })
+            $(".pan100").mouseleave(function(){
+                $(".pan100").css({
+                    height: "0px"
+                })
+            })
+            let index;
+            $(".nav_item").mouseenter(function(){
+                $(".pan").css({
+                    display: "none"
+                })
+                index = $(this).index();
+                $(".pan").eq(index).css({
+                    display: "block"
+                })
+            })
+        })
+    </script>
+</body>
+</html>
