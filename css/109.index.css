@@ -1,8 +1,8 @@
-/* .wrap
+.wrap
 {
-    width: 1100px;
+    /* position: relative; */
     margin: 0 auto;
-} */
+}
 .layer_popup
 {
     width: 313px;
@@ -73,130 +73,71 @@
 {
     cursor: pointer;
 }
-.top_banner
-{
-    width: 100%;
-    height: 40px;
-    background-color: rosybrown;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: 10;
-}
-.top_banner_txt
-{
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    position: absolute;
-    top: 40px;
-    left: 0;
-}
-.header
-{
-    width: 100%;
-    margin-top: 40px;
-    position: relative;
-}
-.logo
-{
-    width: 207px;
-    height: 150px;
-    margin: 0 auto;
-    padding: 50px 0;
-    background: url(../img/theComma/logo.jpg) no-repeat center/contain;
-}
-.logo a
-{
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-}
-.menu_ul
-{
-    width: 100%;
-    height: 50px;
-    padding: 0 50px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-    /* gap: 30px; */
-    align-items: center;
-    position: absolute;
-    top: 190px;
-    left: 0;
-    z-index: 14;
-}
-.menu_li
-{
-    height: 50px;
-    line-height: 50px;
-    padding: 0 30px;
-    font-weight: 300;
-    cursor: pointer;
-}
-.menu_pan
-{
-    width: 100%;
-    height: 0;
-    background-color: rgba(80, 80, 80, 0.8);
-    position: absolute;
-    top: 50px;
-    z-index: 12;
-    transition: all 0.5s;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-}
-.pan_container
-{
-    width: 80%;
-    height: 100%;
-    background-color: rgba(245, 240, 240, 0.9);
-}
-.pan
-{
-    font-size: 50px;
-}
 .container
 {
-    width: 100%;
+    width: 1200px;
+    margin: 0 auto;
+}
+.sec
+{
+    margin-bottom: 100px;
 }
 .sec_title
 {
     width: 100%;
-    height: 300px;
-    line-height: 400px;
     text-align: center;
     font-size: 30px;
+    margin-bottom: 100px;
 }
 .sec_body
 {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 14px;
 }
 .item_box
 {
-    width: calc((100% - 10px * 2 * 4) / 4);
-    padding-top: 50px;
+    width: calc((100% - 14px * 3) / 4);
+    height: 500px;
+
+    padding-bottom: 0px;
+}
+#dailyranking .item_box
+{
+    width: calc((100% - 14px * 5) / 6);
+    height: 400px;
+}
+#dailyranking .item_img
+{
+    height: 250px;
 }
 .item_img
 {
+    height: 350px;
     overflow: hidden;
+    position: relative;
 }
 .item_img img
 {
     width: 100%;
     transition: all 0.2s;
 }
-.item_img:hover img
+.hided_img
+{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+#best .item_img:hover img
 {
     transform: scale(1.2);
+}
+#new .item_img:hover .hided_img
+{
+    opacity: 1;
 }
 .item_info
 {
@@ -210,10 +151,10 @@
 }
 .item_price
 {
-    font-size: 15px;
+    font-size: 12px;
     padding: 10px 0 5px;
 }
 .item_desc
 {
-    font-size: 15px;
+    font-size: 12px;
 }

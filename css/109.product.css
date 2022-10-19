@@ -1,0 +1,90 @@
+.wrap
+{
+    /* position: relative; */
+    margin: 0 auto;
+}
+.container
+{
+    width: 1200px;
+    margin: 200px auto 0;
+}
+.sec
+{
+    margin-bottom: 100px;
+}
+.sec_title
+{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 100px;
+}
+.sec_body
+{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+.item_box
+{
+    width: calc((100% - 14px * 3) / 4);
+    height: 500px;
+
+    padding-bottom: 0px;
+}
+#dailyranking .item_box
+{
+    width: calc((100% - 14px * 5) / 6);
+    height: 400px;
+}
+#dailyranking .item_img
+{
+    height: 250px;
+}
+.item_img
+{
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+.item_img img
+{
+    width: 100%;
+    transition: all 0.2s;
+}
+.hided_img
+{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+#best .item_img:hover img
+{
+    transform: scale(1.2);
+}
+#new .item_img:hover .hided_img
+{
+    opacity: 1;
+}
+.item_info
+{
+    padding-left: 10px;
+}
+.item_title
+{
+    border-bottom: 1px solid #999;
+    padding: 10px 0;
+    font-weight: 600;
+}
+.item_price
+{
+    font-size: 12px;
+    padding: 10px 0 5px;
+}
+.item_desc
+{
+    font-size: 12px;
+}

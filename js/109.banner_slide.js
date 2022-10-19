@@ -24,8 +24,8 @@ $(document).ready(function(){
     //
     //인디케이터 누르면 슬라이드 실행하는 for문
     $(".i_bar").click(function(){
-        console.log($(this).index());
-        console.log($(".filled").index());
+        // console.log($(this).index());
+        // console.log($(".filled").index());
         if ($(this).index() == $(".filled").index() + 2)
         {
             slide(1, 200);
