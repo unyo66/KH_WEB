@@ -18,6 +18,10 @@ function get_url(key){
     return -2;
 }
 // console.log(get_url("cate"));
+function get_list(cate_index)
+{
+    return ITEM_LIST[cate_index];
+}
 function make_list(cate){
         let list = `
         <div class="sec" id="${cate}">
@@ -34,13 +38,13 @@ function load_list(cate_index, show_qty)
     {
         let list = `<div class="item_box">
                     <div class="item_img">
-                        <a href="#" class="img_a">
+                        <a href="109.deal.html?cate=${cate_index}&item_no=${rs[i].item_no}" class="img_a">
                             <img src="${rs[i].src}" alt="">
                         </a>
                     </div>
                     <div class="item_info">
                         <div class="item_title">
-                            <a href="#">
+                            <a href="109.deal.html?cate=${cate_index}&item_no=${rs[i].item_no}">
                             ${rs[i].name}
                             </a>
                         </div>
