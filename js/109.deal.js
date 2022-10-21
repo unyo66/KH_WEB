@@ -8,11 +8,51 @@
     let n_price = get_list(cate_index)[item_index].n_price.replace(",", "").replace("원","");
     let desc = get_list(cate_index)[item_index].desc;
 
+    $(".main_img").append(`
+        <img src="./img/theComma/items/${cate_arr[cate_index]}/${+item_index + 1}.jpg" alt="">
+        <div class="magnifier"></div>
+    `);
+    $(".other_img").append(`
+        <img src="./img/theComma/items/${cate_arr[cate_index]}/${+item_index + 1}.jpg" alt="">
+    `);
+    $(".magnifier").css({
+        background: `url(./img/theComma/items/${cate_arr[cate_index]}/${+item_index + 1}.jpg) no-repeat`
+    })
     $(".item_title").text(title);
     $(".td_content del").eq(0).text(o_price);
     $(".td_content").eq(1).text(n_price);
     $(".td_content").eq(3).text(`${+n_price * 0.2},000원 (20%)`)
 
+    ////////////////////////////////
+    
+        // 돋보기
+    $('.main_img').hover(function(){
+        $('.magnifier').css({display: 'block'})
+
+        
+    }, function(){
+        $('.magnifier').css({display: 'none'})
+    });
+
+    $('.main_img').mousemove(function(e){ 
+
+        let mouseX = e.pageX - $('.main_img > img').offset().left;
+        let mouseY = e.pageY - $('.main_img > img').offset().top; 
+
+        let xx = -mouseX + ($('.magnifier').width() / 2);
+        let yy = -mouseY + ($('.magnifier').height() / 2);
+
+        // 4 - 돋보기 위치 이동 및 배경 이동
+        $('.magnifier').css({
+            left: mouseX,
+            top: mouseY,
+
+            backgroundPosition: xx + "px " + yy + "px", 
+            //550 707
+            backgroundSize: `${$('.main_img > img').width()}px ${$('.main_img > img').height()}px`
+        });
+    });
+    ////////////////////////////////
     ////////////////////////////////
     let setColor = ["black", "grey", "white", "orange"];
     let tmpColor;

@@ -63,4 +63,4 @@ function load_list(cate_index, show_qty)
         }
     }
 }
-const cate_arr = ["dailyranking", "best", "new"];
+const cate_arr = ["ranking", "best", "new"];
